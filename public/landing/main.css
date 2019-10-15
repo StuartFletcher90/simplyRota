@@ -5,10 +5,25 @@ body {
 
 }
 
+.header {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    color: #e33326;
+    border: 1px solid #e33326;
+}
+
+.header img {
+    position: absolute;
+    right: 0.1%;
+    height: 50px;
+    margin-left: 20px;
+}
+
 #wrapper {
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: 80vh;
     width: 100vw;
     align-items: center;
 }
@@ -17,46 +32,70 @@ body {
     align-items: center;
     border: solid black 2px;
     width: 80%;
-    height: 30%;
+    height: 40%;
     text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.589) 3px 3px;
 }
 
 #splash {
-    margin-top: 20px;
+    margin-top: 8%;
     justify-content: center;
 }
 
 #splash2 {
     display: flex;
-    margin-top: 20px;
+    margin-top: 30px;
     justify-content: center;
 }
 
 #return {
-    margin-top: 30px;
+    margin-top: 20px;
+    height: 40px;
+    background-color: #e33326;
+    width: 120px;
+    color: white;
 }
 
 .btn-style {
     margin-right: 17px;
     margin-left: 17px;
-    height: 50px;
-    width: 40px;
+    height: 40px;
+    width: 19.5%;
 }
 
-#admin {
-    background-color: green;
-    border: green;
-    border-radius: 14px;
-}
-
-#staff {
-    background-color: blue;
-    border: blue;
-    border-radius: 14px;
+#login {
+    background-color: white;
+    border: red 2px solid;
 }
 
 #sign-up {
     background-color: red;
     border: red;
-    border-radius: 14px;
+    color: white;
+}
+
+#username {
+    background-color: rgb(147, 178, 196);
+    border-color: black;
+    color: black;
+    margin-right: 10px;
+    height: 30px;
+
+}
+
+#username::placeholder { 
+    color: rgb(0, 0, 0);
+    opacity: 1;
+}
+
+#password {
+    background-color: rgb(147, 178, 196);
+    border-color: black;
+    color: black;
+    height: 30px;
+}
+
+#password::placeholder {
+    color: black;
+    opacity: 1;
 }
