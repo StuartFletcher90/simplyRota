@@ -15,30 +15,10 @@ const port = process.env.PORT || 3003;
 
 app.use(express.static(path.join(__dirname, "public")))
 
-//sign up for admin
-app.get("/admin/register", async (req, res) => {
-    await addUser(
-        req.query.username,
-        req.query.password
-        )
-    console.log("user has been registered")
-})
-
-
-//sign up for admin
-// app.get("/admin/register", async (req, res) => {
-//     await addUser(
-//         req.query.firstName,
-//         req.query.lastName,
-//         req.query.username,
-//         req.query.password
-//         )
-//     console.log("user has been registered")
-// })
-
 //sign up for staff
 app.get("/admin/register", async (req, res) => {
     await addUser(
+        req.query.adminStatus,
         req.query.username,
         req.query.password
         )
@@ -48,14 +28,13 @@ app.get("/admin/register", async (req, res) => {
 //sign up for staff
 // app.get("/admin/register", async (req, res) => {
 //     await addUser(
+//         req.query.adminStatus,
 //         req.query.firstName,
 //         req.query.lastName,
 //         req.query.gender,
 //         req.query.hoursContracted,
 //         req.query.jobTitle,
 //         req.query.skills,
-//         req.query.manager,
-//         req.query.comment,
 //         req.query.annualLeave,
 //         req.query.drivingStatus,
 //         req.query.username,
@@ -75,7 +54,7 @@ app.get("/signIn", async (req, res) => {
     console.log("signed in user")
 })
 
-//admin display
+//display
 app.get("/admin/display", async (req, res) => {
     let data = await read(
         req.query.id
