@@ -86,8 +86,28 @@ const addShift = async ()=>{
     }
 }
 
+const editShift = async () => {
+    
+    try{
+        const queryString = `UPDATE shifts SET start_time='10AM', end_time='6PM' where id=1`;
+        let data = await promisifiedQuery(queryString)
+        
+        console.log(data)
+        console.log('edit shift')
+        return data
+    }
+
+    catch (error) {
+        console.log('edit reminder')
+        console.log(error.sqlMessage)
+    }
+
+    connection.end()
+}
+
 module.exports = {
     addUser,
     signIn,
-    addShift
+    addShift,
+    editShift
 }
