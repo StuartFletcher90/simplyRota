@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 
 const port = process.env.PORT || 3003;
 
-const {addUser, signIn} = require("./app")
+const {addUser, signIn, addShift} = require("./app")
 
 //import functions
 //const {functions} = require('/lib/app')
