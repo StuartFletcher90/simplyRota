@@ -1,9 +1,10 @@
 const express = require("express");
 const path = require("path");
-const app = express();
+const bodyParser = require('body-parser')
+
 const port = process.env.PORT || 3003;
 
-const {addUser, signIn} = require("./app")
+const {addUser, signIn, addShift} = require("./app")
 
 //import functions
 //const {functions} = require('/lib/app')
@@ -15,14 +16,22 @@ const {addUser, signIn} = require("./app")
 //     next();
 // });
 
-app.use(express.static(path.join(__dirname, "public")))
+const app = express();
+app.use(express.static(path.join(__dirname, "public/landing")))
+
+
+//to allow HTTP requests
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 //sign up for staff
 app.get("/register", async (req, res) => {
     await addUser(
-        req.query.adminStatus,
-        req.query.username,
-        req.query.password
+        req.query.first_name,
+        req.query.last_name,
+        req.query.gender,
+        //todo add all other req queries
+
         )
     console.log("user has been registered")
 })
@@ -88,7 +97,7 @@ app.get("/deleteShift", async (req, res) => {
     console.log("deleted shift")
 })
 
-
+//url where server exists
 app.listen(port, ()=>{
     console.log(`listening on port ${port}`)
 })
