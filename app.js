@@ -37,8 +37,10 @@ const addUser = async (user) => {
         
         const queryStringAdd = `INSERT INTO staff (first_name,last_name,gender,hours_contracted,username,email,user_password,job_title,admin_status,driving_status,skills,annual_leave_entitlement,comments)
         VALUES ('${newFirst}','${newLast}','${gender}','${hoursContract}','${newUsername}','${newEmail}','${userPassword}','${jobTitle}','${adminStat}','${drivingStat}','${skills}','${leave}','${comments})`;
+        
         let data = await promisifiedQuery (queryStringAdd);
         return(data);
+
     }   catch (error) {
         console.log (error.sqlMessage);
         
@@ -48,10 +50,10 @@ const addUser = async (user) => {
 //addUser()
 
 // sign in function which checks whether username exists and returns their id and admin status
-const signIn = async () => {
+const signIn = async (user) => {
 
     try {
-        const queryString = `SELECT id, admin_status FROM users WHERE username = 'Stef'`;
+        const queryString = `SELECT id, admin_status FROM staff WHERE username = '${}`;
         let data = await promisifiedQuery(queryString)
 
 // console.logs their admin status if true
