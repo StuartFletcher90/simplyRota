@@ -16,10 +16,27 @@ const promisifiedQuery = promisify(connection.query).bind(connection);
 //* Methods
 
 const addUser = async (user) => {
-    try {
 
-        // user={username:'Geo',password:'Geo'}
-        const queryStringAdd = `INSERT INTO users(admin_status,username,pass) VALUES ("N","Stef","password")`;
+    //add user will take a object as an input, below are the variables that will be used in the query
+
+    try {
+        let newFirst = user.first_name
+        let newLast = user.last_name
+        let gender = user.gender
+        let hoursContract = user.hours_contracted
+        let newUsername = user.username
+        let newEmail = user.email
+        let userPassword = user.user_password
+        let jobTitle = user.job_title
+        let adminStat = user.admin_status
+        let drivingStat = user.driving_status
+        let skills = user.skills
+        let leave = user.annual_leave_entitlement
+        let comments= user.comments
+
+        
+        const queryStringAdd = `INSERT INTO staff (first_name,last_name,gender,hours_contracted,username,email,user_password,job_title,admin_status,driving_status,skills,annual_leave_entitlement,comments)
+        VALUES ('${newFirst}','${newLast}','${gender}','${hoursContract}','${newUsername}','${newEmail}','${userPassword}','${jobTitle}','${adminStat}','${drivingStat}','${skills}','${leave}','${comments})`;
         let data = await promisifiedQuery (queryStringAdd);
         return(data);
     }   catch (error) {
