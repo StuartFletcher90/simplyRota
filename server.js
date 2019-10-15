@@ -16,7 +16,7 @@ const port = process.env.PORT || 3003;
 app.use(express.static(path.join(__dirname, "public")))
 
 //sign up for staff
-app.get("/admin/register", async (req, res) => {
+app.get("/register", async (req, res) => {
     await addUser(
         req.query.adminStatus,
         req.query.username,
@@ -55,7 +55,7 @@ app.get("/signIn", async (req, res) => {
 })
 
 //display
-app.get("/admin/display", async (req, res) => {
+app.get("/display", async (req, res) => {
     let data = await read(
         req.query.id
     )
