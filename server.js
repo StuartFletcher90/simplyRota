@@ -3,6 +3,8 @@ const path = require("path");
 const app = express();
 const port = process.env.PORT || 3003;
 
+const {addUser, signIn} = require("./app")
+
 //import functions
 //const {functions} = require('/lib/app')
 
