@@ -1,0 +1,184 @@
+
+body {
+    border:0;
+    margin:0;
+
+    --main-red1:#e33326;
+    --main-red2: #e95c51;
+    --main-purpule: #902b84;
+    --main-green: #25b335;
+    --main-blue: #3e25e2;
+    --main-orange: #e29025;
+    --main-bg-grey: #fcfbfe;
+
+    background-color: var(--main-bg-grey);
+
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+
+    font-family: "Nunito", sans-serif;
+
+
+
+
+}
+
+
+.navwrapper{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+background-color: var(--main-blue);
+color: white;
+width: 100vw;
+}
+
+.username{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    width: 15vw;
+    /* background-color: aqua; */
+    margin-left: 2vw;
+    font-size: 17px;
+    font-weight: 400;
+    justify-content: space-between;
+}
+
+
+.admin-dashboard-icon{
+    /* font-size: 2em; */
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 3px solid orange;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+
+
+.signout{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    width: auto;
+    /* background-color: aqua; */
+    margin-right: 2vw;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+
+}
+
+
+.shifts{
+
+
+
+}
+
+
+.shift-card{
+
+
+
+}
+
+.shift-cards-wrapper{
+
+
+
+}
+
+.shift-staff-names{
+
+
+
+}
+
+.shift-time{
+
+
+
+}
+
+.shift-location{
+
+
+
+}
+
+.shift-client{
+
+}
+
+.shift-client-details-button{
+
+
+
+}
+
+.shift-edit-shift-button{
+
+
+
+}
+
+.shift-delete-button{
+
+
+
+}
+
+.addButton{
+
+
+
+}
+
+.new-client-wrapper{
+
+
+
+}
+
+.new-shift-assigned-to{
+
+
+
+}
+
+.new-client-namel{
+
+
+
+}
+
+.new-client-time{
+
+
+
+}
+
+.new-client-time{
+
+
+
+}
+
+.new-client-comments{
+
+
+
+}
+
+.new-client-submitt{
+
+
+
+}
+
