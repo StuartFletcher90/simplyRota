@@ -1,3 +1,6 @@
+create database simplyRota;
+use simplyRota;
+
 -- staff table
 
 CREATE table staff (
@@ -19,6 +22,19 @@ CREATE table staff (
 
 )
 
+-- Client table
+
+CREATE table clients (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    client_location VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone_number INT NOT NULL,
+    comments VARCHAR(255)
+    
+)
+
 
 -- Shifts table
 
@@ -33,19 +49,6 @@ CREATE table shifts (
     FOREIGN KEY(staff_id) REFERENCES staff(id)
 )
 
-
--- Client table
-
-CREATE table clients (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(100) NOT NULL,
-    last_name VARCHAR(100) NOT NULL,
-    client_location VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    phone_number INT NOT NULL,
-    comments VARCHAR(255)
-    
-)
 
 INSERT INTO staff (first_name,last_name,gender,hours_contracted,username,email,user_password,job_title,admin_status,driving_status,skills,annual_leave_entitlement,comments)
 VALUES ("Mo", "Wilkinson", "M",35, "athemir", "athemir@gmail.com", "question", "developer", "Y", "N", "funny", 25, "Asked no questions today"), ("Victoria", "Cory", "F",35, "vic", "vic@gmail.com", "answer", "developer", "Y", "Y", "high-fives", 25, "Can't help but high-five"), ("James", "Smith", "M",35, "jammie", "jammie@gmail.com", "jam", "senior carer", "N", "Y", "First-aid, diabetes care", 25, "Can't work on Saturdays"), ("Helen", "Churchill", "F",35, "helchurch", "helenc@gmail.com", "duck", "Junior Carer", "N", "N", "Nursing Qualification", 25, "Can do extra shifts");
