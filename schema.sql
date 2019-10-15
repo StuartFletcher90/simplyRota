@@ -83,4 +83,4 @@ WHERE staff_id = {variable};
 -- insert new shift
 
 INSERT INTO shifts (start_time, end_time, shift_date, client_id, staff_id) VALUES 
-("{variable}", "{variable}", "{variable}", {variable}, {variable}),
+("{variable}", "{variable}", "{variable}", {variable}, {variable});
