@@ -9,7 +9,8 @@ body {
     --main-green: #25b335;
     --main-blue: #3e25e2;
     --main-orange: #e29025;
-    --main-bg-grey: #fcfbfe;
+    --main-bg-grey: #a9a9a9;
+    --shift-card-grey: #fcfbfe;
 
     background-color: var(--main-bg-grey);
 
@@ -29,6 +30,7 @@ body {
 display: flex;
 flex-direction: row;
 justify-content: space-between;
+position: fixed;
 background-color: var(--main-blue);
 color: white;
 width: 100vw;
@@ -75,17 +77,13 @@ width: 100vw;
 }
 
 
-.shifts{
 
-
-
-}
 
 
 .shift-card{
-
-
-
+    border: 5px solid #2222;
+    background-color: var(--shift-card-grey);
+    margin-bottom: 5vh;
 }
 
 .shift-cards-wrapper{
@@ -116,27 +114,36 @@ width: 100vw;
 
 }
 
-.shift-client-details-button{
-
-
-
+.shift-client-details-button, 
+.shift-edit-shift-button, 
+.shift-delete-button{
+font-size: 40px;
 }
 
 .shift-edit-shift-button{
-
-
 
 }
 
 .shift-delete-button{
 
-
-
 }
 
 .addButton{
-
-
+    display: flex;
+    flex-direction: column;
+    /* text-align: center; */
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 10vh;
+    right: 10vw;
+    background-color: var(--main-blue);
+    width: 80px;
+    height: 80px;
+    font-size: 50px;
+    color: white;
+    border:5px solid white;
+    border-radius: 50%;
 
 }
 
