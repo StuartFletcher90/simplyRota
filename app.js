@@ -1,5 +1,4 @@
-    
-//*require essentials
+    //*require essentials
 const mysql = require('mysql')
 const { promisify } = require('util')
 const {password} = require ("./password")
