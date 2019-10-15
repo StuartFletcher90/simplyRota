@@ -1,4 +1,4 @@
-    //*require essentials
+//*require essentials
 const mysql = require('mysql')
 const { promisify } = require('util')
 const { password } = require("./passwords")
@@ -57,7 +57,6 @@ const signIn = async () => {
             }
         }
 
-
         else{
             console.log("user does not exist")
             return false
@@ -72,7 +71,23 @@ const signIn = async () => {
 
 //signIn()
 
+
+const addShift = async ()=>{
+    try{
+        const queryString = `INSERT INTO shifts(start_time,end_time)VALUES("9AM","5PM")`
+        let data = await promisifiedQuery(queryString)
+        console.log(data)
+        // return data
+    }
+
+    catch (error) {
+        console.log('add shift error')
+        return (error.code)
+    }
+}
+
 module.exports = {
     addUser,
-    signIn
+    signIn,
+    addShift
 }
