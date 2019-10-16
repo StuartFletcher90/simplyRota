@@ -1,4 +1,4 @@
-body {
+html, body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
@@ -23,9 +23,10 @@ body {
 #wrapper {
     display: flex;
     justify-content: center;
-    height: 93vh;
+    height: 98vh;
     width: 100vw;
     align-items: center;
+    overflow: hidden;
     /* background-image: url(./circles800.png);
     background-size: cover;
     background-repeat: no-repeat; */
@@ -121,8 +122,10 @@ body {
 /* media queries for landing */
 
 @media screen and (min-device-width: 1920px) {
-    .wrapper {
-        
+    #wrapper {
+        background-image: url(./circles800.png);
+        background-repeat: no-repeat;
+        background-position-y: 16em;
     }
     #lead-heading {
         font-size: 50px;

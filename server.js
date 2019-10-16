@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 
 const port = process.env.PORT || 3003;
 
-const {addUser, signIn, addShift} = require("./app")
+const {addUser, signIn, addShift, listShifts} = require("./app")
 
 //import functions
 //const {functions} = require('/lib/app')
@@ -37,22 +37,22 @@ app.get("/register", async (req, res) => {
 })
 
 //sign up for staff
-// app.get("/admin/register", async (req, res) => {
-//     await addUser(
-//         req.query.adminStatus,
-//         req.query.firstName,
-//         req.query.lastName,
-//         req.query.gender,
-//         req.query.hoursContracted,
-//         req.query.jobTitle,
-//         req.query.skills,
-//         req.query.annualLeave,
-//         req.query.drivingStatus,
-//         req.query.username,
-//         req.query.password
-//         )
-//     console.log("user has been registered")
-// })
+app.get("/admin/register", async (req, res) => {
+    await addUser(
+        req.query.adminStatus,
+        req.query.firstName,
+        req.query.lastName,
+        req.query.gender,
+        req.query.hoursContracted,
+        req.query.jobTitle,
+        req.query.skills,
+        req.query.annualLeave,
+        req.query.drivingStatus,
+        req.query.username,
+        req.query.password
+        )
+    console.log("user has been registered")
+})
 
 
 //sign in
@@ -95,6 +95,14 @@ app.get("/deleteShift", async (req, res) => {
     )
     res.send(data)
     console.log("deleted shift")
+})
+
+//list shifts for particular date
+
+app.get("/list-shifts", async (req, res) => {
+    let data = await listShifts(req.query.shift_date);
+    console.log({data:data});
+    res.send({data: data});
 })
 
 //url where server exists

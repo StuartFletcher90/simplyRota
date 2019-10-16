@@ -1,13 +1,13 @@
-//*require essentials
+//require essentials
 const mysql = require('mysql')
 const { promisify } = require('util')
-const { password } = require("./passwords")
+// const { password } = require("./passwords")
 
 //connect to mysql
 const connection = mysql.createConnection({
     host:"localhost",
     user:"root",
-    password: `${password}`,
+    password: "password",
     database: "simplyRota"
 })
 
@@ -52,11 +52,8 @@ const addUser = async (user) => {
 // sign in function which checks whether username exists and returns their id and admin status
 const signIn = async (user) => {
 
-    let userNameGiven = user.username;
-    let passwordGiven = user.password;
-
     try {
-        const queryString = `SELECT id, admin_status FROM users WHERE username = '${userNameGiven}'`;
+        const queryString = `SELECT id, admin_status FROM staff WHERE username = '${user}`;
         let data = await promisifiedQuery(queryString)
 
 // console.logs their admin status if true
@@ -127,9 +124,31 @@ const editShift = async () => {
     connection.end()
 }
 
+const listShifts = async (shift_data) => {
+    try {
+        const queryStringAdd = `SELECT CONCAT (staff.first_name," ", staff.last_name) AS staff_name, start_time,end_time, shift_date, 
+        CONCAT (clients.first_name, ' ', clients.last_name) as client_name, client_location
+        FROM staff 
+        JOIN shifts
+        ON staff.id = shifts.staff_id
+        JOIN clients
+        ON shifts.client_id = clients.id
+        WHERE shift_date = '${shift_data}';`
+        let data = await promisifiedQuery (queryStringAdd)
+        console.log(data)
+        return data
+
+    } catch (e) {
+        console.log(e.sqlMessage)
+    }
+}
+
+listShifts('2019-10-18')
+
 module.exports = {
     addUser,
     signIn,
     addShift,
-    editShift
+    editShift,
+    listShifts
 }
