@@ -42,18 +42,32 @@ body {
     justify-content: center;
 }
 
-#splash2 {
+.splash2 {
     display: flex;
     margin-top: 30px;
     justify-content: center;
+}
+
+.return {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #return {
     margin-top: 20px;
     height: 40px;
     background-color: #e33326;
-    width: 120px;
+    width: 70px;
     color: white;
+}
+
+#register {
+    margin-top: 20px;
+    height: 40px;
+    width: 70px;
+    border: 2px solid red;
+    background-color: white;
 }
 
 .btn-style {
@@ -68,14 +82,14 @@ body {
     border: red 2px solid;
 }
 
-#sign-up {
+#signUp {
     background-color: red;
     border: red;
     color: white;
 }
 
 #username {
-    background-color: rgb(147, 178, 196);
+    background-color: rgb(255, 255, 255);
     border-color: black;
     color: black;
     margin-right: 10px;
@@ -89,7 +103,7 @@ body {
 }
 
 #password {
-    background-color: rgb(147, 178, 196);
+    background-color: rgb(255, 255, 255);
     border-color: black;
     color: black;
     height: 30px;
@@ -98,4 +112,12 @@ body {
 #password::placeholder {
     color: black;
     opacity: 1;
+}
+
+.hideMe {
+    display: none;
+}
+
+.showMe {
+    display: block;
 }
