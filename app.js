@@ -1,4 +1,4 @@
-    //*require essentials
+//*require essentials
 const mysql = require('mysql')
 const { promisify } = require('util')
 const { password } = require("./passwords")
@@ -16,12 +16,31 @@ const promisifiedQuery = promisify(connection.query).bind(connection);
 //* Methods
 
 const addUser = async (user) => {
-    try {
 
-        // user={username:'Geo',password:'Geo'}
-        const queryStringAdd = `INSERT INTO users(admin_status,username,pass) VALUES ("N","Stef","password")`;
+    //add user will take a object as an input, below are the variables that will be used in the query
+
+    try {
+        let newFirst = user.first_name
+        let newLast = user.last_name
+        let gender = user.gender
+        let hoursContract = user.hours_contracted
+        let newUsername = user.username
+        let newEmail = user.email
+        let userPassword = user.user_password
+        let jobTitle = user.job_title
+        let adminStat = user.admin_status
+        let drivingStat = user.driving_status
+        let skills = user.skills
+        let leave = user.annual_leave_entitlement
+        let comments= user.comments
+
+        
+        const queryStringAdd = `INSERT INTO staff (first_name,last_name,gender,hours_contracted,username,email,user_password,job_title,admin_status,driving_status,skills,annual_leave_entitlement,comments)
+        VALUES ('${newFirst}','${newLast}','${gender}','${hoursContract}','${newUsername}','${newEmail}','${userPassword}','${jobTitle}','${adminStat}','${drivingStat}','${skills}','${leave}','${comments})`;
+        
         let data = await promisifiedQuery (queryStringAdd);
         return(data);
+
     }   catch (error) {
         console.log (error.sqlMessage);
         
@@ -31,10 +50,19 @@ const addUser = async (user) => {
 //addUser()
 
 // sign in function which checks whether username exists and returns their id and admin status
-const signIn = async () => {
+const signIn = async (user) => {
+<<<<<<< HEAD
 
     try {
-        const queryString = `SELECT id, admin_status FROM users WHERE username = 'Stef'`;
+        const queryString = `SELECT id, admin_status FROM staff WHERE username = '${}`;
+=======
+
+    let userNameGiven = user.username;
+    let passwordGiven = user.password;
+
+    try {
+        const queryString = `SELECT id, admin_status FROM users WHERE username = '${userNameGiven}'`;
+>>>>>>> stefan
         let data = await promisifiedQuery(queryString)
 
 // console.logs their admin status if true
@@ -57,7 +85,6 @@ const signIn = async () => {
             }
         }
 
-
         else{
             console.log("user does not exist")
             return false
@@ -72,7 +99,43 @@ const signIn = async () => {
 
 //signIn()
 
+
+const addShift = async ()=>{
+    try{
+        const queryString = `INSERT INTO shifts(start_time,end_time)VALUES("9AM","5PM")`
+        let data = await promisifiedQuery(queryString)
+        console.log(data)
+        // return data
+    }
+
+    catch (error) {
+        console.log('add shift error')
+        return (error.code)
+    }
+}
+
+const editShift = async () => {
+    
+    try{
+        const queryString = `UPDATE shifts SET start_time='10AM', end_time='6PM' where id=1`;
+        let data = await promisifiedQuery(queryString)
+        
+        console.log(data)
+        console.log('edit shift')
+        return data
+    }
+
+    catch (error) {
+        console.log('edit reminder')
+        console.log(error.sqlMessage)
+    }
+
+    connection.end()
+}
+
 module.exports = {
     addUser,
-    signIn
+    signIn,
+    addShift,
+    editShift
 }

@@ -4,11 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Added link to Normalise.css // could do via npm too-->
+    <link rel="stylesheet" href="cdn.jsdelivr.net/npm/normalize.css/">
     <link rel="stylesheet" href="./admin.css">
-    <title>Document</title>
+    <title>SimpyRota</title>
+    <script src="https://kit.fontawesome.com/0f7608553d.js" crossorigin="anonymous"></script>
 </head>
 <body>
     
+    <!-- nav bar -->
+    <nav class="navwrapper">
+        <div class="username">
+            <!-- <div class="admin-dashboard-icon"><i class="fas fa-user"></i></div> -->
+            <img src="https://images.unsplash.com/photo-1541733457537-fa8fa3cc6a01?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="admin icon" class="admin-dashboard-icon">
+            <h5>Username here</h5>
+        </div>
+
+        <a href="#" class="signout">Sign-out</a>
+        <!--  could add a burger menu in future -->
+    </nav>
+
+    <!-- date bar -->
+
+    <!-- <h1 class="shifts">Shifts</h1> -->
+
+    <!-- Shift cards here -->
+    <div class="shift-cards-wrapper">
+
+        <div class="shift-card">
+            <ul class="shift-staff-names">
+                <li>Name 1 here</li>
+                <li>Name 2 here</li>
+            </ul>
+            <h5 class="shift-time">9:00 - 14:00</h5>
+            <h5 class="shift-location">Location</h5>
+            <h5 class="shift-client">Client</h5>
+            <button class="shift-client-details-button" data-shiftDetail=""><i class="fas fa-info-circle"></i></button>
+            <button class="shift-edit-shift-button"><i class="fas fa-edit"></i></button>
+            <button class="shift-delete-button"><i class="fas fa-trash-alt"></i></button>
+        </div>
+
+
+        <div class="shift-card">
+                <ul class="shift-staff-names">
+                    <li>Name 1 here</li>
+                    <li>Name 2 here</li>
+                </ul>
+                <h5 class="shift-time">9:00 - 14:00</h5>
+                <h5 class="shift-location">Location</h5>
+                <h5 class="shift-client">Client</h5>
+                <button class="shift-client-details-button" data-shiftDetail=""><i class="fas fa-info-circle"></i></button>
+                <button class="shift-edit-shift-button"><i class="fas fa-edit"></i></button>
+                <button class="shift-delete-button"><i class="fas fa-trash-alt"></i></button>
+            </div>
+
+            
+            <div class="shift-card">
+                    <ul class="shift-staff-names">
+                        <li>Name 1 here</li>
+                    </ul>
+                    <h5 class="shift-time">9:00 - 14:00</h5>
+                    <h5 class="shift-location">Location</h5>
+                    <h5 class="shift-client">Client</h5>
+                    <button class="shift-client-details-button" data-shiftDetail=""><i class="fas fa-info-circle"></i></button>
+                    <button class="shift-edit-shift-button"><i class="fas fa-edit"></i></button>
+                    <button class="shift-delete-button"><i class="fas fa-trash-alt"></i></button>
+                </div>
+
+                <div class="shift-card">
+                        <ul class="shift-staff-names">
+                            <li>Name 5 here</li>
+                            <li>Name 6 here</li>
+                        </ul>
+                        <h5 class="shift-time">9:00 - 14:00</h5>
+                        <h5 class="shift-location">Location</h5>
+                        <h5 class="shift-client">Client</h5>
+                        <button class="shift-client-details-button" data-shiftDetail=""><i class="fas fa-info-circle"></i></button>
+                        <button class="shift-edit-shift-button"><i class="fas fa-edit"></i></button>
+                        <button class="shift-delete-button"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+
+                    <div class="shift-card">
+                            <ul class="shift-staff-names">
+                                <li>tryttt </li>
+                                <li>jghhjhggjfg </li>
+                                <li>sdfds sdf</li>
+                            </ul>
+                            <h5 class="shift-time">9:00 - 14:00</h5>
+                            <h5 class="shift-location">Location</h5>
+                            <h5 class="shift-client">Client</h5>
+                            <button class="shift-client-details-button" data-shiftDetail=""><i class="fas fa-info-circle"></i></button>
+                            <button class="shift-edit-shift-button"><i class="fas fa-edit"></i></button>
+                            <button class="shift-delete-button"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                
+
+        
+
+
+
+    </div>
+
+    <!-- Add Shift Button -->
+    <button class="addButton"><i class="fas fa-plus-square"></i></button>
+
+
+    <!-- Add shift -->
+    <form class="new-client-wrapper">
+        <input type="text" name="new-shift-assigned-to" class="new-shift-assigned-to" placeholder="Shift assigned to">
+        <input type="text" name="new-client-name" class="new-client-name" placeholder="new client name">
+        <input type="time" name="new-client-time-start" min="00:00" max="23:59" required class="new-client-time" placeholder="time start 9:00 ">
+        <input type="time" name="new-client-time-end" min="00:00" max="23:59" required class="new-client-time" placeholder="time finish 9:00 ">
+        <textarea name="new-client-comments" class="new-client-comments" cols="30" rows="10"></textarea>
+        <button type="submit" name="new-client-submitt" class="new-client-submitt">submitt</button>
+    </form>
+
+
     <script src="./admin.js"></script>
 </body>
 </html>

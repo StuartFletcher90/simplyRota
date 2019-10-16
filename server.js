@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 
 const port = process.env.PORT || 3003;
 
-const {addUser, signIn} = require("./app")
+const {addUser, signIn, addShift} = require("./app")
 
 //import functions
 //const {functions} = require('/lib/app')
@@ -27,9 +27,11 @@ app.use(bodyParser.json())
 //sign up for staff
 app.get("/register", async (req, res) => {
     await addUser(
-        req.query.adminStatus,
-        req.query.username,
-        req.query.password
+        req.query.first_name,
+        req.query.last_name,
+        req.query.gender,
+        //todo add all other req queries
+
         )
     console.log("user has been registered")
 })
