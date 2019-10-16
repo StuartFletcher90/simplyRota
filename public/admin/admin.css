@@ -8,9 +8,17 @@ body {
     --main-purpule: #902b84;
     --main-green: #25b335;
     --main-blue: #3e25e2;
+    --blue-high: #5d74fa;
+    --blue-low: #1d05ba;
     --main-orange: #e29025;
     --main-bg-grey: #a9a9a9;
     --shift-card-grey: #fcfbfe;
+
+    --z-very-top:100;
+    --z-top:50;
+    --z-middle:10;
+    --z-background:0;
+    --z-background-far:-50;
 
     background-color: var(--main-bg-grey);
 
@@ -20,12 +28,14 @@ body {
 
     font-family: "Nunito", sans-serif;
 
-
+    z-index: var(--z-background);
 
 
 }
 
 
+
+/***  Admin and Signin NAV BAR ****/
 .navwrapper{
 display: flex;
 flex-direction: row;
@@ -34,6 +44,7 @@ position: fixed;
 background-color: var(--main-blue);
 color: white;
 width: 100vw;
+z-index: var(--z-very-top);
 }
 
 .username{
@@ -80,17 +91,73 @@ width: 100vw;
 
 
 
+/****  DATE BAR  ****/
+
+.date-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 10vh;
+    height:10vh;
+    width: 100vw;
+    margin: 3vh 0 5vh 0;
+    background-color: #902b84;
+    z-index: var(--z-very-top);
+}
+
+
+.date-bar ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* align-items: center; */
+    list-style: none;
+    background-color:var(--main-blue);
+    color: white;
+    width: 100%;
+    height: 95%;
+    margin: 0;
+    padding: 0;
+
+}
+
+.date-bar ul li{
+    width: 10%;
+    border: 3px solid var(--blue-high);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2px 0 2px;
+}
+
+.date-bar ul li:nth-child(1),
+.date-bar ul li:last-child{
+font-size: 1em;
+border: none;
+color: var(--shift-card-grey);
+}
+
+/****  SHIFT CARDS  ****/
+
+.shift-cards-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    position: relative;
+    margin-top: 30vh;
+    -index: var(--z-middle);
+    }
+
 .shift-card{
     border: 5px solid #2222;
     background-color: var(--shift-card-grey);
     margin-bottom: 5vh;
 }
 
-.shift-cards-wrapper{
 
-
-
-}
 
 .shift-staff-names{
 
@@ -128,6 +195,12 @@ font-size: 40px;
 
 }
 
+
+/*  Add new Client Button  */
+/*  This should toggle between the new-client-wrapper
+/*  i.e. only one should be displayed at any time
+*/
+
 .addButton{
     display: flex;
     flex-direction: column;
@@ -144,10 +217,16 @@ font-size: 40px;
     color: white;
     border:5px solid white;
     border-radius: 50%;
+    z-index:var(--z-very-top);
 
 }
 
+
+
+/*********  NEW CLIENTS  ******/
 .new-client-wrapper{
+
+    /* display: none; */
 
 
 
