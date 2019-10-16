@@ -133,6 +133,12 @@ z-index: var(--z-very-top);
     margin: 0 2px 0 2px;
 }
 
+.date-bar ul li p{
+    font-size: 0.7em;
+    font-weight: bold;
+    line-height: 0;
+}
+
 .date-bar ul li:nth-child(1),
 .date-bar ul li:last-child{
 font-size: 1em;
@@ -148,7 +154,7 @@ color: var(--shift-card-grey);
     width: 100vw;
     position: relative;
     margin-top: 30vh;
-    -index: var(--z-middle);
+    z-index: var(--z-middle);
     }
 
 .shift-card{
@@ -201,7 +207,7 @@ font-size: 40px;
 /*  i.e. only one should be displayed at any time
 */
 
-.addButton{
+.addButton, .new-client-submitt{
     display: flex;
     flex-direction: column;
     /* text-align: center; */
@@ -225,12 +231,34 @@ font-size: 40px;
 
 /*********  NEW CLIENTS  ******/
 .new-client-wrapper{
-
     /* display: none; */
+    /* background: var(--main-bg-grey); */
+    background: var(--main-green);
 
+}
+
+.new-client-wrapper > *
+{
+    background-color: inherit;
+    color: black;
+    font-size: 1em;
+    /* border: none; */
+    display: flex;
+    flex-direction: column;
 
 
 }
+
+
+.client-time{
+    display: flex;
+    flex-direction: row;
+}
+
+::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+  }
 
 .new-shift-assigned-to{
 
@@ -257,14 +285,16 @@ font-size: 40px;
 }
 
 .new-client-comments{
+width: 30vw;
 
 
 
 }
 
 .new-client-submitt{
-
-
+    /* display:none; */
+    color: white;
+    font-size: 2em;
+    background-color: var(--main-blue);
 
 }
-

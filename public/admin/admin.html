@@ -140,10 +140,18 @@
     <form class="new-client-wrapper">
         <input type="text" name="new-shift-assigned-to" class="new-shift-assigned-to" placeholder="Shift assigned to">
         <input type="text" name="new-client-name" class="new-client-name" placeholder="new client name">
-        <input type="time" name="new-client-time-start" min="00:00" max="23:59" required class="new-client-time" placeholder="time start 9:00 ">
-        <input type="time" name="new-client-time-end" min="00:00" max="23:59" required class="new-client-time" placeholder="time finish 9:00 ">
-        <textarea name="new-client-comments" class="new-client-comments" cols="30" rows="10"></textarea>
-        <button type="submit" name="new-client-submitt" class="new-client-submitt">submitt</button>
+        
+        <div class="client-time">
+                <label for="new-client-time-start">Time start</label>
+                <input type="time" name="new-client-time-start" min="00:00" max="23:59" required class="new-client-time" placeholder="time start 9:00 ">
+                
+                <label for="new-client-time-start">Time finish</label>
+                <input type="time" name="new-client-time-end" min="00:00" max="23:59" required class="new-client-time" placeholder="time finish 9:00 ">
+        </div>
+
+        <textarea name="new-client-comments" class="new-client-comments"></textarea>
+        
+        <button type="submit" name="new-client-submitt" class="new-client-submitt"><i class="fas fa-paper-plane"></i></button>
     </form>
 
 
