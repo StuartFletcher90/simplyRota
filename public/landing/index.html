@@ -14,63 +14,105 @@
                     Special Needs Care Limited
                 </p>
                 <img src="./SNCLogo.png">
-            </div>
+        </div>
     <div id="wrapper">
 
         <div class="container">
             <h1 id="lead-heading">simplyRota</h1>
             <div id="splash">
-                <button id="login" class="btn-style">Login</button>
+                <button id="logIn" class="btn-style">Login</button>
                 <button id="signUp" class="btn-style">Sign Up</button>
             </div>
             <div id="splash-two" class="splash2">
                 <input id="username" class="" type="text" placeholder="Username">
                 <input id="password" type="password" placeholder="Password">
             </div>
-            <div id="registerBtn" class="registerBtn">
-            </div>
+            <!-- <div id="registerBtn" class="registerBtn">
+            </div> -->
             <div id="returnBtn" class="return">
                 <button id="return">go back</button>                
                 <button id="register">Register</button>
 
+                <div id="register-modal" class="modal">
 
-            <!-- /* <div id="splash3">
+                    <div class="modal-content">
+                        <!-- <span class="close">&times;</span> -->
 
-                <form id=sign-up-form>
-                    <fieldset>
-                    <legend>Personal information:</legend>
-                    <div>
-                        <input id="firstName" type="text" placeholder="First name">
-                        <input id="lastName" type="text" placeholder="Last name">
-                        <input class="radio" type="radio" name="adminAccess" value="admin" checked> Admin<br>
-                        <input class="radio" type="radio" name="adminAccess" value="staff"> Non-admin<br>
+                        <form id=sign-up-form>
+                            <fieldset id="fieldSet">
+                            <legend>Register</legend>
+                            <div>
+                                <input class="inputBox" id="usernameSetter" type="text" placeholder="Username"><br>
+                                <input class="inputBox" id="passwordSetter" type="password" placeholder="Password"><br>
+                                <input class="inputBox" id="firstName" type="text" placeholder="First name"><br>
+                                <input class="inputBox" id="lastName" type="text" placeholder="Last name"><br>
+    
+                                <div class="radioQu">
+                                    <h5 class="noMarg">Admin status</h5>
+                                    <div class="radioBtns">
+                                        <div>
+                                            <h6 class="noMarg">Admin</h6>
+                                            <input type="radio" name="adminAccess" value="admin"><br>
+                                        </div>
+                                        <div>
+                                            <h6 class="noMarg">Non-admin</h6>
+                                            <input type="radio" name="adminAccess" value="staff"><br>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <input class="inputBox" id="jobTitle" type="text" placeholder="Job title"><br>
+                                <input class="inputBox" id="hoursContracted" type="text" placeholder="Hours contracted"><br>
+                                <input class="inputBox" id="annualLeave" type="text" placeholder="Annual leave entitlement">
+    
+                                <div class="radioQu">
+                                    <h5 class="noMarg">Gender</h5>
+                                    <div class="radioBtns">
+                                        <div>
+                                            <h6 class="noMarg">Male</h6>
+                                            <input type="radio" name="gender" value="male"><br>
+                                        </div>
+                                        <div>
+                                            <h6 class="noMarg">Female</h6>
+                                            <input type="radio" name="gender" value="female"><br>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="radioQu">
+                                    <h5 class="noMarg">Driving Status</h5>
+                                    <div class="radioBtns">
+                                        <div>
+                                            <h6 class="noMarg">Able to drive</h6>
+                                            <input type="radio" name="drivingStatus" value="canDrive"><br>
+                                        </div>
+                                        <div>
+                                            <h6 class="noMarg">Unable to drive</h6>
+                                            <input type="radio" name="drivingStatus" value="canNotDrive"><br>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <h5 class="text-title">Skills</h5>
+                                <textarea name="skills" rows="4" cols="40" placeholder="Please tell us about skills you may have that are relevant or services you have been involved with"></textarea>
+                                <h5 class="text-title">Comments</h5>
+                                <textarea name="comments" rows="4" cols="40" placeholder="Let us know if there is anything else you think we should know"></textarea>
+    
+                                <div id="registerBtn" class="registerBtn">Register</div>
+    
+                            </div>
+        
+        
+                            </fieldset>
+                        </form>
                     </div>
-
-                    <input id="jobTitle" type="text" placeholder="Job title">
-                    <input id="hoursContracted" type="text" placeholder="Hours contracted">
-                    <input id="annualLeave" type="text" placeholder="Annual leave entitlement">
-                   
-
-                    <div>
-                        <h4>Gender</h4>
-                        <input type="radio" name="gender" value="male" checked> Male<br>
-                        <input type="radio" name="gender" value="female"> Female<br>
-                    </div>
-
-                    <div>
-                        <h4>Driving Status</h4>
-                        <input type="radio" name="drivingStatus" value="canDrive" checked> Can drive<br>
-                        <input type="radio" name="drivingStatus" value="canNotDrive"> Can not drive<br>
-                    </fieldset>
-                </form>
+    
+                </div>
 
             </div>
-             -->
-
 
         </div>
 
-    </div>
     </div>
     
     
