@@ -30,11 +30,11 @@ body {
 
 .container {
     align-items: center;
-    /* border: solid black 2px;
+    border: solid black 2px;
     width: 80%;
-    height: 40%; */
-    /* text-align: center; */
-    /* box-shadow: rgba(0, 0, 0, 0.589) 3px 3px; */
+    height: 40%; 
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.589) 3px 3px; 
 }
 
 #splash {
@@ -112,12 +112,4 @@ body {
 #password::placeholder {
     color: black;
     opacity: 1;
-}
-
-.hideMe {
-    display: none;
-}
-
-.showMe {
-    display: block;
 }
