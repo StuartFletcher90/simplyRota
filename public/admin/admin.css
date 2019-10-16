@@ -64,10 +64,10 @@ z-index: var(--z-very-top);
     /* font-size: 2em; */
     height: 50px;
     width: 50px;
-    border-radius: 50%;
-    border: 3px solid orange;
+    border-radius: 10%;
     margin-top: 10px;
     margin-right: 10px;
+    background: white;
 }
 
 
@@ -99,11 +99,11 @@ z-index: var(--z-very-top);
     justify-content: space-around;
     align-items: center;
     position: fixed;
-    top: 10vh;
+    top: 5vh;
     height:10vh;
     width: 100vw;
     margin: 3vh 0 5vh 0;
-    background-color: #902b84;
+    background-color: white;
     z-index: var(--z-very-top);
 }
 
@@ -114,7 +114,7 @@ z-index: var(--z-very-top);
     justify-content: center;
     /* align-items: center; */
     list-style: none;
-    background-color:var(--main-blue);
+    background-color:var(--blue-high);
     color: white;
     width: 100%;
     height: 95%;
@@ -125,7 +125,7 @@ z-index: var(--z-very-top);
 
 .date-bar ul li{
     width: 10%;
-    border: 3px solid var(--blue-high);
+    border: 3px solid var(--blue-low);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -155,29 +155,40 @@ color: var(--shift-card-grey);
     border: 5px solid #2222;
     background-color: var(--shift-card-grey);
     margin-bottom: 5vh;
+
 }
 
 
 
 .shift-staff-names{
+list-style-type: none;
 
+box-shadow: 0 0 1em 1em #ccc;
+padding: 0;
+margin: 0;
+display: flex;
+flex-direction: row;
 
 
 }
 
+
 .shift-time{
-
-
+ box-shadow: 0 0 1em 1em #ccc;
+ color: red;
 
 }
 
 .shift-location{
 
-
+ box-shadow: 0 0 1em 1em #ccc;
 
 }
 
 .shift-client{
+box-shadow: 0 0 1em 1em #ccc;
+font: bolder;
+font-size: 15px;
 
 }
 
@@ -208,14 +219,15 @@ font-size: 40px;
     align-items: center;
     justify-content: center;
     position: fixed;
-    bottom: 10vh;
-    right: 10vw;
-    background-color: var(--main-blue);
-    width: 80px;
-    height: 80px;
-    font-size: 50px;
-    color: white;
-    border:5px solid white;
+    bottom: 3vh;
+    right: 5vw;
+    background-color: white ;
+    /* var(--main-blue) */
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    color: black;
+    border:5px solid black;
     border-radius: 50%;
     z-index:var(--z-very-top);
 
