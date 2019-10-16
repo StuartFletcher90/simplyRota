@@ -16,20 +16,59 @@
                 <img src="./SNCLogo.png">
             </div>
     <div id="wrapper">
+
         <div class="container">
+
             <h1>simplyRota</h1>
+
             <div id="splash">
                 <button id="login" class="btn-style">Login</button>
                 <button id="sign-up" class="btn-style">Sign Up</button>
             </div>
+
             <div id="splash2">
                 <input id="username" type="text" placeholder="Username">
                 <input id="password" type="password" placeholder="Password">
             </div>
+
+            <div id="splash3">
+
+                <form id=sign-up-form>
+                    <fieldset>
+                    <legend>Personal information:</legend>
+                    <div>
+                        <input id="firstName" type="text" placeholder="First name">
+                        <input id="lastName" type="text" placeholder="Last name">
+                        <input class="radio" type="radio" name="adminAccess" value="admin" checked> Admin<br>
+                        <input class="radio" type="radio" name="adminAccess" value="staff"> Non-admin<br>
+                    </div>
+
+                    <input id="jobTitle" type="text" placeholder="Job title">
+                    <input id="hoursContracted" type="text" placeholder="Hours contracted">
+                    <input id="annualLeave" type="text" placeholder="Annual leave entitlement">
+                   
+
+                    <div>
+                        <h4>Gender</h4>
+                        <input type="radio" name="gender" value="male" checked> Male<br>
+                        <input type="radio" name="gender" value="female"> Female<br>
+                    </div>
+
+                    <div>
+                        <h4>Driving Status</h4>
+                        <input type="radio" name="drivingStatus" value="canDrive" checked> Can drive<br>
+                        <input type="radio" name="drivingStatus" value="canNotDrive"> Can not drive<br>
+                    </fieldset>
+                </form>
+
+            </div>
+
             <div class="return">
                 <button id="return">go back</button>
             </div>
+
         </div>
+
     </div>
     
     

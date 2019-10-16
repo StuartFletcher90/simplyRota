@@ -6,15 +6,15 @@ const passwordInput = document.getElementById("password")
 logInBtn.addEventListener("click", async () => {
     console.log("log in has been clicked")
 
-    let response = await fetch(`/signIn?username=${usernameInput.value}&password=${password}`)
-    let data = await response.json()
-    console.log(data)
+    // let response = await fetch(`/signIn?username=${usernameInput.value}&password=${password}`)
+    // let data = await response.json()
+    // console.log(data)
 })
 
 signUpBtn.addEventListener("click", async () => {
     console.log("sign up has been clicked")
 
-    await fetch(`/register?username=${usernameInput.value}&password=${password}`)
-    console.log("user has been registered")
+    // await fetch(`/register?username=${usernameInput.value}&password=${password}`)
+    // console.log("user has been registered")
 
 })
