@@ -7,9 +7,9 @@ CREATE table staff (
     id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL,
-    username VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    user_password VARCHAR(100) NOT NULL,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    user_password VARCHAR(100) NOT NULL UNIQUE,
     gender VARCHAR(1) NOT NULL,
     hours_contracted INT NOT NULL,
     skills VARCHAR(100) NOT NULL,
@@ -17,7 +17,7 @@ CREATE table staff (
     job_title VARCHAR(100) NOT NULL,
     annual_leave_entitlement INT NOT NULL,
     admin_status VARCHAR (1) NOT NULL,
-    comments VARCHAR(100) NOT NULL,
+    comments VARCHAR(100),
     created_at TIMESTAMP DEFAULT NOW()
 
 )
@@ -29,8 +29,8 @@ CREATE table clients (
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL,
     client_location VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    phone_number INT NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    phone_number INT NOT NULL UNIQUE,
     comments VARCHAR(255)
     
 )
@@ -40,11 +40,12 @@ CREATE table clients (
 
 CREATE table shifts (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    start_time TIME,
-    end_time TIME,
-    shift_date DATE,
+    start_time TIME NOT NULL,
+    end_time TIME NOT NULL,
+    shift_date DATE NOT NULL,
     client_id INT NOT NULL,
-    staff_id INT NOT NULL,
+    staff_id INT ,
+    hours_worked DECIMAL (3,1) NOT NULL,
     FOREIGN KEY(client_id) REFERENCES clients(id),
     FOREIGN KEY(staff_id) REFERENCES staff(id)
 )
@@ -84,3 +85,82 @@ WHERE staff_id = {variable};
 
 INSERT INTO shifts (start_time, end_time, shift_date, client_id, staff_id) VALUES 
 ("{variable}", "{variable}", "{variable}", {variable}, {variable}),
+
+
+-- Returns staff name & admin status
+
+-- Delete staff
+
+Delete FROM staff
+WHERE staff.id = {variable};
+
+-- Add staff without comments
+INSERT INTO staff (first_name,last_name,gender,hours_contracted,username,email,user_password,job_title,admin_status,driving_status,skills,annual_leave_entitlement)
+VALUES ("Mo", "Wilkinson", "M",35, "athemir", "athemir@gmail.com", "question", "developer", "Y", "N", "funny", 25),
+
+-- Add comments to particular staff member
+UPDATE  staff
+SET comments = "{variable}"
+WHERE comments is  null and first_name = "{variable}" and last_name = "{variable}";
+
+-- Return shifts for particular staff
+-- we use staff.first_name to specifically target that column in staff table.
+-- the correct syntax for joining multiple tables is join on join on etc
+
+SELECT CONCAT (staff.first_name," ", staff.last_name) AS full_name, start_time,end_time, shift_date, 
+concat (clients.first_name, ' ', clients.last_name) as client_name, client_location
+FROM staff 
+JOIN shifts
+ON staff.id = shifts.staff_id
+JOIN clients
+ON shifts.client_id = clients.id
+WHERE staff_id = {variable};
+
+-- return shifts for particular days/dates
+SELECT CONCAT (staff.first_name," ", staff.last_name) AS staff_name, start_time,end_time, shift_date, 
+CONCAT (clients.first_name, ' ', clients.last_name) as client_name, client_location
+FROM staff 
+JOIN shifts
+ON staff.id = shifts.staff_id
+JOIN clients
+ON shifts.client_id = clients.id
+WHERE shift_date = "{variable}";
+
+-- selecting all unassigned shifts within a date range
+
+SELECT * FROM shifts
+WHERE staff_id is NULL and shift_date BETWEEN "2019-10-17" AND "2019-10-18"
+
+
+-- total number of unassigned shifts within a date range
+SELECT  count(*) FROM shifts
+WHERE staff_id is null and shift_date BETWEEN "2019-10-17" AND "2019-10-18"
+group by staff_id;
+
+
+-- To add hours worked to shifts table
+
+ALTER TABLE shifts
+ADD hours_worked DECIMAL (3,1) NOT NULL;
+
+
+-- Getting total of hours worked for particular staff within a date range
+
+SELECT SUM(hours_worked)
+FROM shifts
+WHERE staff_id = 4 AND shift_date BETWEEN "2019-10-17" AND "2019-10-18";
+
+
+-- Create a query to assign staff name onto a shift
+
+SELECT id
+FROM staff
+WHERE first_name = "James"
+AND last_name = "Smith";
+
+INSERT INTO shifts (start_time, end_time, shift_date, hours_worked, client_id, staff_id)
+VALUES ("09:00:00", "17:00:00", "2019-10-17",8, 2, NULL);
+
+UPDATE shifts
+SET staff_id = 3
+WHERE staff_id is NULL AND shift_date = "2019-10-17" AND client_id = 2;

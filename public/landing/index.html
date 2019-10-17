@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./main.css">
     <title>simplyRota</title>
 </head>
@@ -14,22 +14,106 @@
                     Special Needs Care Limited
                 </p>
                 <img src="./SNCLogo.png">
-            </div>
+        </div>
     <div id="wrapper">
+
         <div class="container">
-            <h1>simplyRota</h1>
+            <h1 id="lead-heading">simplyRota</h1>
             <div id="splash">
-                <button id="login" class="btn-style">Login</button>
-                <button id="sign-up" class="btn-style">Sign Up</button>
+                <button id="logIn" class="btn-style">Login</button>
+                <button id="signUp" class="btn-style">Sign Up</button>
             </div>
-            <div id="splash2">
-                <input id="username" type="text" placeholder="Username">
+            <div id="splash-two" class="splash2">
+                <input id="username" class="" type="text" placeholder="Username">
                 <input id="password" type="password" placeholder="Password">
             </div>
-            <div class="return">
-                <button id="return">go back</button>
+            <div id="returnBtn" class="return">
+                <button id="logMeIn">Log In</button>
+
+                <button id="return">Return</button>                
+                <button id="register">Register</button>
+
+
+                <div id="register-modal" class="modal">
+
+                    <div class="modal-content">
+                        <!-- <span class="close">&times;</span> -->
+
+                        <form id=sign-up-form action="/register" method="POST">
+                            <fieldset id="fieldSet">
+                            <legend>Register</legend>
+                            <div>
+                                <input class="inputBox" id="usernameSetter" type="text" placeholder="Username" name="username"><br>
+                                <input class="inputBox" id="passwordSetter" type="password" placeholder="Password" name="password"><br>
+                                <input class="inputBox" id="firstName" type="text" placeholder="First name" name="firstName"><br>
+                                <input class="inputBox" id="lastName" type="text" placeholder="Last name" name="lastName"><br>
+                                <input class="inputBox" id="email" type="text" placeholder="Email" name="email"><br>
+    
+                                <div class="radioQu">
+                                    <h5 class="noMarg">Admin status</h5>
+                                    <div class="radioBtns">
+                                        <div>
+                                            <h6 class="noMarg">Admin</h6>
+                                            <input type="radio" name="adminAccess" value="Y"><br>
+                                        </div>
+                                        <div>
+                                            <h6 class="noMarg">Non-admin</h6>
+                                            <input type="radio" name="adminAccess" value="N"><br>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <input class="inputBox" id="jobTitle" type="text" placeholder="Job title" name="jobTitle"><br>
+                                <input class="inputBox" id="hoursContracted" type="text" placeholder="Hours contracted" name="hoursContracted"><br>
+                                <input class="inputBox" id="annualLeave" type="text" placeholder="Annual leave entitlement" name="annualLeave">
+    
+                                <div class="radioQu">
+                                    <h5 class="noMarg">Gender</h5>
+                                    <div class="radioBtns">
+                                        <div>
+                                            <h6 class="noMarg">Male</h6>
+                                            <input type="radio" name="gender" value="M"><br>
+                                        </div>
+                                        <div>
+                                            <h6 class="noMarg">Female</h6>
+                                            <input type="radio" name="gender" value="F"><br>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="radioQu">
+                                    <h5 class="noMarg">Driving Status</h5>
+                                    <div class="radioBtns">
+                                        <div>
+                                            <h6 class="noMarg">Able to drive</h6>
+                                            <input type="radio" name="drivingStatus" value="Y"><br>
+                                        </div>
+                                        <div>
+                                            <h6 class="noMarg">Unable to drive</h6>
+                                            <input type="radio" name="drivingStatus" value="N"><br>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <h5 class="text-title">Skills</h5>
+                                <textarea id="skills" rows="4" cols="40" name="skills" placeholder="Please tell us about skills you may have that are relevant or services you have been involved with"></textarea>
+                                <!-- <h5 class="text-title">Comments</h5>
+                                <textarea id="comments" rows="4" cols="40" name="comments" placeholder="Let us know if there is anything else you think we should know"></textarea>  -->
+                                <input id="registerBtn" class="regBtn" type="submit" value="Register">
+    
+                            </div>
+        
+        
+                            </fieldset>
+                        </form>
+                    </div>
+    
+                </div>
+
             </div>
+
         </div>
+
     </div>
     
     
