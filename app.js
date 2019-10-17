@@ -119,21 +119,87 @@ const signIn = async (user) => {
 }
 
 //signIn()
+newShift = {
+    clientLocation : '2 Elm Street',
+    firstName : null,
+    lastName : null,
+    startTime : '10:00:00',
+    endTime : '16:30:00',
+    shiftDate : '2019-10-19',
+    hoursWorked : 6.5,
 
+}
 
-const addShift = async ()=>{
+const addShift = async (shift)=>{
+
+    
     try{
-        const queryString = `INSERT INTO shifts(start_time,end_time)VALUES("9AM","5PM")`
+        let client_id_query =  `SELECT id FROM clients WHERE client_location = '${shift.clientLocation}'`
+        let client_id = await promisifiedQuery(client_id_query)
+
+        let staff_id_query = `SELECT id FROM staff WHERE first_name='${shift.firstName}' AND last_name='${shift.lastName}'`
+        let staff_id = await promisifiedQuery(staff_id_query)
+        // if(shift.firstName){
+        //     let staff_id = await `SELECT id FROM staff WHERE first_name='${shift.firstName}' AND last_name='${shift.lastName}'`
+
+        //     const queryString = `INSERT INTO shifts(start_time,end_time, shift_date, hours_worked, client_id, staff_id)
+        // VALUES('${shift.startTime}', '${shift.endTime}', '${shift.shiftDate}', '${shift.hoursWorked}', '${client_id}', '${staff_id}');`
+        // let data = await promisifiedQuery(queryString)
+        // console.log(data)
+        // return data
+        // } else {
+        //     let staff_id = null
+
+        //     const queryString = `INSERT INTO shifts(start_time,end_time, shift_date, hours_worked, client_id, staff_id)
+        // VALUES('${shift.startTime}', '${shift.endTime}', '${shift.shiftDate}', '${shift.hoursWorked}', '${client_id}', '${staff_id}');`
+        // let data = await promisifiedQuery(queryString)
+        // console.log(data)
+        // return data
+        // }
+
+        if(shift.firstName){
+            let staff_id_query = `SELECT id FROM staff WHERE first_name='${shift.firstName}' AND last_name='${shift.lastName}'`
+            let staff_id = await promisifiedQuery(staff_id_query)
+
+
+        const queryString = `INSERT INTO shifts(start_time,end_time, shift_date, hours_worked, client_id, staff_id)
+        VALUES('${shift.startTime}', '${shift.endTime}', '${shift.shiftDate}', '${shift.hoursWorked}', '${client_id[0].id}', '${staff_id[0].id}');`
         let data = await promisifiedQuery(queryString)
         console.log(data)
-        // return data
+        return data
+
+        }
+        else {
+            let staff_id = null
+
+
+        const queryString = `INSERT INTO shifts(start_time,end_time, shift_date, hours_worked, client_id, staff_id)
+        VALUES('${shift.startTime}', '${shift.endTime}', '${shift.shiftDate}', '${shift.hoursWorked}', '${client_id[0].id}', ${staff_id});`
+        let data = await promisifiedQuery(queryString)
+        console.log(data)
+        return data
+
+        }
+
+        
+
+     
+    // console.log(staff_id[0].id)
+    // console.log(client_id[0].id)
+
+       
     }
 
     catch (error) {
         console.log('add shift error')
-        return (error.code)
+        console.log(error.sqlMessage)
+
+      
+        return (error.sqlMessage)
     }
 }
+
+// addShift(newShift)
 
 const editShift = async () => {
     
@@ -154,31 +220,31 @@ const editShift = async () => {
     connection.end()
 }
 
-const listShifts = async (shift_data) => {
-    try {
-        const queryStringAdd = `SELECT CONCAT (staff.first_name," ", staff.last_name) AS staff_name, start_time,end_time, shift_date, 
-        CONCAT (clients.first_name, ' ', clients.last_name) as client_name, client_location
-        FROM staff 
-        JOIN shifts
-        ON staff.id = shifts.staff_id
-        JOIN clients
-        ON shifts.client_id = clients.id
-        WHERE shift_date = '${shift_data}';`
-        let data = await promisifiedQuery (queryStringAdd)
-        console.log(data)
-        return data
+// const listShifts = async (shift_data) => {
+//     try {
+//         const queryStringAdd = `SELECT CONCAT (staff.first_name," ", staff.last_name) AS staff_name, start_time,end_time, shift_date, 
+//         CONCAT (clients.first_name, ' ', clients.last_name) as client_name, client_location
+//         FROM staff 
+//         JOIN shifts
+//         ON staff.id = shifts.staff_id
+//         JOIN clients
+//         ON shifts.client_id = clients.id
+//         WHERE shift_date = '${shift_data}';`
+//         let data = await promisifiedQuery (queryStringAdd)
+//         console.log(data)
+//         return data
 
-    } catch (e) {
-        console.log(e.sqlMessage)
-    }
-}
+//     } catch (e) {
+//         console.log(e.sqlMessage)
+//     }
+// }
 
-listShifts('2019-10-18')
+// listShifts('2019-10-18')
 
 module.exports = {
     addUser,
     signIn,
     addShift,
     editShift,
-    listShifts
+    // listShifts
 }

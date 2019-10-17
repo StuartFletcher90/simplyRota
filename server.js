@@ -17,8 +17,9 @@ const {addUser, signIn, addShift, listShifts} = require("./app")
 // });
 
 const app = express();
-app.use(express.static(path.join(__dirname, "public/landing")))
-
+// app.use("/landing",express.static(path.join(__dirname, "public/landing")))
+app.use("/admin", express.static(path.join(__dirname, "public/admin")))
+// app.use("/testing", express.static(path.join(__dirname, "public/test.html")))
 
 //to allow HTTP requests
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -74,18 +75,27 @@ app.get("/display", async (req, res) => {
 })
 
 //add shift
-app.get("/addShift", async (req, res) => {
-    let data = await addShift(
-        req.query.employer,
-        req.query.client,
-        req.query.date,
-        req.query.startTime,
-        req.query.endTime
-    )
-    res.send(data)
+app.post("/addShift", (req, res) => {
+    let staff_fullName = req.body.staff_fullName
+
+    let fullNameSplit = staff_fullName.split(' ')
+
+   
+    shift = {
+        clientLocation : req.body.clientLocation,
+        firstName : fullNameSplit[0],
+        lastName : fullNameSplit[1],
+        startTime : req.body.startTime,
+        endTime : req.body.endTime,
+        shiftDate : req.body.shiftDate,
+        hoursWorked : req.body.hoursWorked,
+    }
+ 
+    addShift(shift)
+  
     console.log("added shift")
 
-})
+});
 
 
 //delete shift
