@@ -30,7 +30,6 @@ app.get("/register", async (req, res) => {
         req.query.first_name,
         req.query.last_name,
         req.query.gender,
-        //todo add all other req queries
 
         )
     console.log("user has been registered")
