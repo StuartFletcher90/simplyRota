@@ -25,8 +25,12 @@
     </nav>
 
     <!-- date bar -->
-    <div class="date-bar">
-        <ul>
+    
+    <div class="date-bar">    
+  <input type="date" id="date-drop" class="form-control" placeholder="Select Date">
+ <div><button id="search-button">Search</button></div>
+</div>
+        <!-- <ul>
             <li><i class="fas fa-backward"></i></li>
             <li>8
                 <p>Nov</p>
@@ -50,7 +54,7 @@
                 <p>Nov</p>
             </li>
             <li><i class="fas fa-forward"></i></li>
-        </ul>
+        </ul> -->
     </div>
 
     <!-- <h1 class="shifts">Shifts</h1> -->
@@ -65,6 +69,7 @@
             <h5 class="shift-time">Time: 9:00 - 14:00</h5>
             <h5 class="shift-location">Location:Chester</h5>
             <h5 class="shift-staff-names">Amanda,Lisa</h5>
+            <h5 class="hours-staff-worked">Duration:69</h5>
             <button class="shift-client-details-button" data-shiftDetail=""><i class="fas fa-info-circle"></i></button>
             <button class="shift-edit-shift-button"><i class="fas fa-edit"></i></button>
             <button class="shift-delete-button"><i class="fas fa-trash-alt"></i></button>
@@ -76,6 +81,7 @@
             <h5 class="shift-time">Time: 9:00 - 14:00</h5>
             <h5 class="shift-location">Location:Chester</h5>
             <h5 class="shift-staff-names">Amanda,Lisa</h5>
+            <h5 class="hours-staff-worked">Duration:69</h5>
             <button class="shift-client-details-button" data-shiftDetail=""><i class="fas fa-info-circle"></i></button>
             <button class="shift-edit-shift-button"><i class="fas fa-edit"></i></button>
             <button class="shift-delete-button"><i class="fas fa-trash-alt"></i></button>
@@ -87,6 +93,7 @@
             <h5 class="shift-time">Time: 9:00 - 14:00</h5>
             <h5 class="shift-location">Location:Chester</h5>
             <h5 class="shift-staff-names">Amanda,Lisa</h5>
+            <h5 class="hours-staff-worked">Duration:69</h5>
             <button class="shift-client-details-button" data-shiftDetail=""><i class="fas fa-info-circle"></i></button>
             <button class="shift-edit-shift-button"><i class="fas fa-edit"></i></button>
             <button class="shift-delete-button"><i class="fas fa-trash-alt"></i></button>
@@ -98,6 +105,7 @@
             <h5 class="shift-time">Time: 9:00 - 14:00</h5>
             <h5 class="shift-location">Location:Chester</h5>
             <h5 class="shift-staff-names">Amanda,Lisa</h5>
+            <h5 class="hours-staff-worked">Duration:69</h5>
             <button class="shift-client-details-button" data-shiftDetail=""><i class="fas fa-info-circle"></i></button>
             <button class="shift-edit-shift-button"><i class="fas fa-edit"></i></button>
             <button class="shift-delete-button"><i class="fas fa-trash-alt"></i></button>
@@ -121,6 +129,7 @@
         <input type="text" name="new-client-name" class="new-client-name" placeholder="new client name">
         <input type="time" name="new-client-time-start" min="00:00" max="23:59" required class="new-client-time" placeholder="time start 9:00 ">
         <input type="time" name="new-client-time-end" min="00:00" max="23:59" required class="new-client-time" placeholder="time finish 9:00 ">
+        <input type="time" name="hours-worked" min="00:00" max="23:59" required class="new-client-time" placeholder="duration">
         <textarea name="new-client-comments" class="new-client-comments" cols="30" rows="10"></textarea>
         <button type="submit" name="new-client-submitt" class="new-client-submitt">submitt</button>
     </form>
