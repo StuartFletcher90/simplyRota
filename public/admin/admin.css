@@ -42,7 +42,7 @@ flex-direction: row;
 justify-content: space-between;
 position: fixed;
 background-color: var(--main-blue);
-color: -;
+
 width: 100vw;
 z-index: var(--z-very-top);
 }
