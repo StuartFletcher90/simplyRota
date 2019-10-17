@@ -91,12 +91,18 @@ const signIn = async (user) => {
 //signIn()
 
 
-const addShift = async ()=>{
+const addShift = async (shift)=>{
+
+    let start = shift.start
+    let end = shift.end
+    // let location = shift.location
+    let client = shift.client_id
+    let staff = shift.staff_id
     try{
-        const queryString = `INSERT INTO shifts(start_time,end_time)VALUES("9AM","5PM")`
+        const queryString = `INSERT INTO shifts(start_time,end_time, shift_date, client_id, staff_id )VALUES('${start}','${end}','${date}','${client}','${staff}')`
         let data = await promisifiedQuery(queryString)
         console.log(data)
-        // return data
+        return data
     }
 
     catch (error) {
@@ -105,10 +111,13 @@ const addShift = async ()=>{
     }
 }
 
-const editShift = async () => {
-    
+const editShift = async (shift) => {
+
+    let start = shift.start
+    let end = shift.end
+    let id = shift.id
     try{
-        const queryString = `UPDATE shifts SET start_time='10AM', end_time='6PM' where id=1`;
+        const queryString = `UPDATE shifts SET start_time='${start}', end_time='${end}' where id=${id}`;
         let data = await promisifiedQuery(queryString)
         
         console.log(data)
