@@ -1,13 +1,13 @@
 //*require essentials
 const mysql = require('mysql')
 const { promisify } = require('util')
-// const { password } = require("./passwords")
+const { password } = require("./passwords")
 
 //connect to mysql
 const connection = mysql.createConnection({
     host:"localhost",
     user:"root",
-    password: "password",
+    password: `${password}`,
     database: "simplyRota"
 })
 
