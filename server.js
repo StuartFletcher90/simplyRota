@@ -26,31 +26,7 @@ app.use(bodyParser.json())
 
 //sign up for staff
 app.get("/register", async (req, res) => {
-    await addUser(
-        req.query.first_name,
-        req.query.last_name,
-        req.query.gender,
-        //todo add all other req queries
-
-        )
-    console.log("user has been registered")
-})
-
-//sign up for staff
-app.get("/admin/register", async (req, res) => {
-    await addUser(
-        req.query.adminStatus,
-        req.query.firstName,
-        req.query.lastName,
-        req.query.gender,
-        req.query.hoursContracted,
-        req.query.jobTitle,
-        req.query.skills,
-        req.query.annualLeave,
-        req.query.drivingStatus,
-        req.query.username,
-        req.query.password
-        )
+    await addUser(req.body.addUser)
     console.log("user has been registered")
 })
 

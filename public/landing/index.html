@@ -27,12 +27,10 @@
                 <input id="username" class="" type="text" placeholder="Username">
                 <input id="password" type="password" placeholder="Password">
             </div>
-            <!-- <div id="registerBtn" class="registerBtn">
-            </div> -->
             <div id="returnBtn" class="return">
                 <button id="logMeIn">Log In</button>
                 <button id="return">go back</button>                
-                <button id="register">Register</button>
+                <!-- <button id="register">Register</button> -->
 
                 <div id="register-modal" class="modal">
 
@@ -53,11 +51,11 @@
                                     <div class="radioBtns">
                                         <div>
                                             <h6 class="noMarg">Admin</h6>
-                                            <input type="radio" name="adminAccess" value="admin"><br>
+                                            <input type="radio" name="adminAccess" value="Y"><br>
                                         </div>
                                         <div>
                                             <h6 class="noMarg">Non-admin</h6>
-                                            <input type="radio" name="adminAccess" value="staff"><br>
+                                            <input type="radio" name="adminAccess" value="N"><br>
                                         </div>
                                     </div>
                                 </div>
@@ -71,11 +69,11 @@
                                     <div class="radioBtns">
                                         <div>
                                             <h6 class="noMarg">Male</h6>
-                                            <input type="radio" name="gender" value="male"><br>
+                                            <input type="radio" name="gender" value="M"><br>
                                         </div>
                                         <div>
                                             <h6 class="noMarg">Female</h6>
-                                            <input type="radio" name="gender" value="female"><br>
+                                            <input type="radio" name="gender" value="F"><br>
                                         </div>
                                     </div>
                                 </div>
@@ -85,21 +83,20 @@
                                     <div class="radioBtns">
                                         <div>
                                             <h6 class="noMarg">Able to drive</h6>
-                                            <input type="radio" name="drivingStatus" value="canDrive"><br>
+                                            <input type="radio" name="drivingStatus" value="Y"><br>
                                         </div>
                                         <div>
                                             <h6 class="noMarg">Unable to drive</h6>
-                                            <input type="radio" name="drivingStatus" value="canNotDrive"><br>
+                                            <input type="radio" name="drivingStatus" value="N"><br>
                                         </div>
                                     </div>
                                 </div>
     
                                 <h5 class="text-title">Skills</h5>
-                                <textarea name="skills" rows="4" cols="40" placeholder="Please tell us about skills you may have that are relevant or services you have been involved with"></textarea>
+                                <textarea id="skills" rows="4" cols="40" placeholder="Please tell us about skills you may have that are relevant or services you have been involved with"></textarea>
                                 <h5 class="text-title">Comments</h5>
-                                <textarea name="comments" rows="4" cols="40" placeholder="Let us know if there is anything else you think we should know"></textarea>
-    
-                                <div id="registerBtn" class="registerBtn">Register</div>
+                                <textarea id="comments" rows="4" cols="40" placeholder="Let us know if there is anything else you think we should know"></textarea> 
+                                <div id="registerBtn" class="regBtn">Register</div>
     
                             </div>
         
