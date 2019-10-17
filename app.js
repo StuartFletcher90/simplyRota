@@ -31,7 +31,7 @@ const addUser = async (user) => {
         '${user.user_password}',
         '${user.job_title}',
         '${user.admin_status}',
-        '${user.driving_stat}',
+        '${user.driving_status}',
         '${user.skills}',
         '${user.annual_leave_entitlement}');`
         console.log(queryStringAdd)
