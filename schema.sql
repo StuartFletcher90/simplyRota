@@ -44,7 +44,7 @@ CREATE table shifts (
     end_time TIME NOT NULL,
     shift_date DATE NOT NULL,
     client_id INT NOT NULL,
-    staff_id INT NOT NULL,
+    staff_id INT ,
     FOREIGN KEY(client_id) REFERENCES clients(id),
     FOREIGN KEY(staff_id) REFERENCES staff(id)
 )
