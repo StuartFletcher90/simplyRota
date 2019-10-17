@@ -44,7 +44,8 @@ CREATE table shifts (
     end_time TIME NOT NULL,
     shift_date DATE NOT NULL,
     client_id INT NOT NULL,
-    staff_id INT NOT NULL,
+    staff_id INT ,
+    hours_worked DECIMAL (3,1) NOT NULL,
     FOREIGN KEY(client_id) REFERENCES clients(id),
     FOREIGN KEY(staff_id) REFERENCES staff(id)
 )
@@ -124,3 +125,27 @@ ON staff.id = shifts.staff_id
 JOIN clients
 ON shifts.client_id = clients.id
 WHERE shift_date = "{variable}";
+
+-- selecting all unassigned shifts within a date range
+
+SELECT * FROM shifts
+WHERE staff_id is NULL and shift_date BETWEEN "2019-10-17" AND "2019-10-18"
+
+
+-- total number of unassigned shifts within a date range
+SELECT  count(*) FROM shifts
+WHERE staff_id is null and shift_date BETWEEN "2019-10-17" AND "2019-10-18"
+group by staff_id;
+
+
+-- To add hours worked to shifts table
+
+ALTER TABLE shifts
+ADD hours_worked DECIMAL (3,1) NOT NULL;
+
+
+-- Getting total of hours worked for particular staff within a date range
+
+SELECT SUM(hours_worked)
+FROM shifts
+WHERE staff_id = 4 AND shift_date BETWEEN "2019-10-17" AND "2019-10-18";
