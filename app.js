@@ -14,6 +14,22 @@ const connection = mysql.createConnection({
 const promisifiedQuery = promisify(connection.query).bind(connection);
 
 //* Methods
+user = {
+    first_name : "Ben",
+    last_name : "Franklin",
+    gender : "M",
+    hours_contracted : 35,
+    email : "ben@gmail.com",
+    username : "Benfranco",
+    user_password : "benny",
+    job_title : "Assistant Carer",
+    admin_status : "N",
+    driving_status : "Y",
+    skills : "Fortnight",
+    annual_leave_entitlement: 25,
+
+
+}
 
 const addUser = async (user) => {
 
@@ -32,13 +48,16 @@ const addUser = async (user) => {
         let drivingStat = user.driving_status
         let skills = user.skills
         let leave = user.annual_leave_entitlement
-        let comments= user.comments
+        // let comments= user.comments
 
-        
-        const queryStringAdd = `INSERT INTO staff (first_name,last_name,gender,hours_contracted,username,email,user_password,job_title,admin_status,driving_status,skills,annual_leave_entitlement,comments)
-        VALUES ('${newFirst}','${newLast}','${gender}','${hoursContract}','${newUsername}','${newEmail}','${userPassword}','${jobTitle}','${adminStat}','${drivingStat}','${skills}','${leave}','${comments})`;
+        // took out comments otherwise if a comment isn't added upon user creation this will cause an error. This way comments are optional and can be added later.
+        const queryStringAdd = `INSERT INTO staff (first_name,last_name,gender,hours_contracted,username,email,user_password,job_title,admin_status,driving_status,skills,annual_leave_entitlement)
+        VALUES ('${newFirst}','${newLast}','${gender}','${hoursContract}','${newUsername}','${newEmail}','${userPassword}','${jobTitle}','${adminStat}','${drivingStat}','${skills}','${leave}');`
+
+        console.log(queryStringAdd)
         
         let data = await promisifiedQuery (queryStringAdd);
+        console.log(data)
         return(data);
 
     }   catch (error) {
@@ -47,7 +66,7 @@ const addUser = async (user) => {
     }
 };
 
-//addUser()
+// addUser(user)
 
 // sign in function which checks whether username exists and returns their id and admin status
 const signIn = async (user) => {
@@ -91,9 +110,12 @@ const signIn = async (user) => {
 //signIn()
 
 
-const addShift = async ()=>{
+const addShift = async (clientFirst, clientLast, staffFirst, staffLast, startTime, endTime, shiftDate, hoursWorked)=>{
     try{
-        const queryString = `INSERT INTO shifts(start_time,end_time)VALUES("9AM","5PM")`
+        let client_id = `SELECT id FROM clients WHERE first_name = ${clientFirst} AND last_name = ${clientLast}`
+        let staff_id = `SELECT id FROM staff WHERE first_name = ${staffFirst} AND last_name = ${staffLast}`
+        const queryString = `INSERT INTO shifts(start_time,end_time, shift_date,hours_worked, ${client_id}, ${staff_id}, comments)
+        VALUES('${startTime}','${endTime}', '${shiftDate}' );`
         let data = await promisifiedQuery(queryString)
         console.log(data)
         // return data
@@ -143,7 +165,7 @@ const listShifts = async (shift_data) => {
     }
 }
 
-listShifts('2019-10-18')
+// listShifts('2019-10-18')
 
 module.exports = {
     addUser,

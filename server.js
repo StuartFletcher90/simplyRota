@@ -37,20 +37,25 @@ app.get("/register", async (req, res) => {
 })
 
 //sign up for staff
-app.get("/admin/register", async (req, res) => {
-    await addUser(
-        req.query.adminStatus,
-        req.query.firstName,
-        req.query.lastName,
-        req.query.gender,
-        req.query.hoursContracted,
-        req.query.jobTitle,
-        req.query.skills,
-        req.query.annualLeave,
-        req.query.drivingStatus,
-        req.query.username,
-        req.query.password
-        )
+app.post("/register", async (req, res) => {
+    let user = {
+        first_name : req.body.firstName,
+        last_name : req.body.lastName,
+        gender : req.body.gender,
+        hours_contracted :  req.body.hoursContracted,
+        email : req.body.email,
+        username : req.body.username,
+        user_password : req.body.password,
+        job_title :  req.body.jobTitle,
+        admin_status :  req.body.adminStatus,
+        driving_status : req.body.drivingStatus,
+        skills : req.body.skills,
+        annual_leave_entitlement:  req.body.annualLeave
+    }
+    // addUser is only expected 1 parameter, so can't have a bunch of req.queries separated by commas.
+    //Instead create a user object with the req.queries and use that as the function parameter.
+    let data = await addUser(user)
+    console.log(data)
     console.log("user has been registered")
 })
 
