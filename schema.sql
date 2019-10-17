@@ -149,3 +149,18 @@ ADD hours_worked DECIMAL (3,1) NOT NULL;
 SELECT SUM(hours_worked)
 FROM shifts
 WHERE staff_id = 4 AND shift_date BETWEEN "2019-10-17" AND "2019-10-18";
+
+
+-- Create a query to assign staff name onto a shift
+
+SELECT id
+FROM staff
+WHERE first_name = "James"
+AND last_name = "Smith";
+
+INSERT INTO shifts (start_time, end_time, shift_date, hours_worked, client_id, staff_id)
+VALUES ("09:00:00", "17:00:00", "2019-10-17",8, 2, NULL);
+
+UPDATE shifts
+SET staff_id = 3
+WHERE staff_id is NULL AND shift_date = "2019-10-17" AND client_id = 2;
