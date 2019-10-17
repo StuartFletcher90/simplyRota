@@ -42,7 +42,7 @@ flex-direction: row;
 justify-content: space-between;
 position: fixed;
 background-color: var(--main-blue);
-color: white;
+color: -;
 width: 100vw;
 z-index: var(--z-very-top);
 }
@@ -103,11 +103,18 @@ z-index: var(--z-very-top);
     height:10vh;
     width: 100vw;
     margin: 3vh 0 5vh 0;
-    background-color: white;
+    background-color: var(--main-blue);
     z-index: var(--z-very-top);
 }
-
-
+#search-button{
+    border: 3px solid black; min-height:20px;
+    /* border-radius:20%; */
+    
+}
+.date-drop{
+  font-size: 40px;;  
+  border: 1px solid Blue; min-height:20px
+}
 .date-bar ul{
     display: flex;
     flex-direction: row;
@@ -123,7 +130,7 @@ z-index: var(--z-very-top);
 
 }
 
-.date-bar ul li{
+/* .date-bar ul li{
     width: 10%;
     border: 3px solid var(--blue-low);
     display: flex;
@@ -131,14 +138,14 @@ z-index: var(--z-very-top);
     align-items: center;
     justify-content: center;
     margin: 0 2px 0 2px;
-}
+} */
 
-.date-bar ul li:nth-child(1),
+/* .date-bar ul li:nth-child(1),
 .date-bar ul li:last-child{
 font-size: 1em;
 border: none;
 color: var(--shift-card-grey);
-}
+} */
 
 /****  SHIFT CARDS  ****/
 
@@ -171,7 +178,9 @@ flex-direction: row;
 
 
 }
-
+.hours-staff-worked{
+box-shadow: 0 0 1em 1em #ccc;
+}
 
 .shift-time{
  box-shadow: 0 0 1em 1em #ccc;
@@ -237,28 +246,28 @@ font-size: 40px;
 
 /*********  NEW CLIENTS  ******/
 .new-client-wrapper{
+display: block;
 
-    /* display: none; */
-
-
+}
+.times{
 
 }
 
 .new-shift-assigned-to{
 
-
+    
 
 }
 
 .new-client-namel{
 
-
+    
 
 }
 
 .new-client-time{
 
-
+   
 
 }
 
