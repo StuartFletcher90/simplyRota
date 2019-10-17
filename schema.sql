@@ -138,10 +138,16 @@ WHERE staff_id is null and shift_date BETWEEN "2019-10-17" AND "2019-10-18"
 group by staff_id;
 
 
+<<<<<<< HEAD
 -- To add hours worked to shifts table
 
 ALTER TABLE shifts
 ADD hours_worked DECIMAL (3,1) NOT NULL;
+=======
+
+ALTER TABLE shifts
+ADD hours_worked DECIMAL (3,1);
+>>>>>>> d36d342afe012bddad0d0a8004da75ea38354919
 
 
 -- Getting total of hours worked for particular staff within a date range
