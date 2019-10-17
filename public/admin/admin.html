@@ -17,7 +17,7 @@
         <div class="username">
             <!-- <div class="admin-dashboard-icon"><i class="fas fa-user"></i></div> -->
             <img src="./SNCLogo.png" alt="admin icon" class="admin-dashboard-icon">
-            <h5>Username</h5>
+            <h5 id="username">Username</h5>
         </div>
 
         <a href="#" class="signout">Sign-out</a>
@@ -25,9 +25,8 @@
     </nav>
 
     <!-- date bar -->
-    
     <div class="date-bar">    
-  <input type="date" id="date-drop" class="form-control" placeholder="Select Date">
+  <input type="date" class="date-drop" placeholder="Select Date">
  <div><button id="search-button">Search</button></div>
 </div>
         <!-- <ul>
@@ -131,8 +130,7 @@
        <div class="times"> <h5>Times</h5>
        <h5>Start</h5> <input type="time" name="new-client-time-start" min="00:00" max="23:59" required class="new-client-time" placeholder="time start 9:00 ">
        <h5>End</h5> <input type="time" name="new-client-time-end" min="00:00" max="23:59" required class="new-client-time" placeholder="time finish 9:00 ">
-       </div>
-       <h5>Duration</h5>
+       </div><h5>Duration</h5>
         <input type="time" name="hours-worked" min="00:00" max="23:59" required class="new-client-time" placeholder="duration">
         <h5>Comments</h5>
         <textarea name="new-client-comments" class="new-client-comments" cols="15" rows="5"></textarea>
