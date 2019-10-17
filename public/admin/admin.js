@@ -13,3 +13,18 @@ const editButton = document.getElementsByClassName("shift-edit-shift-button");
 const deleteButton = document.getElementsByClassName("shift-delete-button");
 const formSubmitButton = document.getElementsByClassName("new-client-submit");
 
+const fetchData = async () => {
+    console.log("Fetching data!")
+    
+    let response = await fetch(`/lists-shifts=${}`)
+    let data = await response.json()
+    
+
+    console.log(data)
+    // displayData(data)
+
+}
+fetchData()
+// shift-cards-wrapper
+
+
