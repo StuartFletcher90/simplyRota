@@ -45,6 +45,7 @@ CREATE table shifts (
     shift_date DATE NOT NULL,
     client_id INT NOT NULL,
     staff_id INT ,
+    hours_worked DECIMAL (3,1) NOT NULL,
     FOREIGN KEY(client_id) REFERENCES clients(id),
     FOREIGN KEY(staff_id) REFERENCES staff(id)
 )
@@ -138,6 +139,12 @@ group by staff_id;
 
 
 
-SELECT (end_time - start_time)/10000 from shifts where id = 4;
+ALTER TABLE shifts
+ADD hours_worked DECIMAL (3,1);
 
-SELECT time(end_time) - time(start_time) from shifts where id = 3;
+
+-- Getting total of hours worked for particular staff within a date range
+
+SELECT SUM(hours_worked)
+FROM shifts
+WHERE staff_id = 4 AND shift_date BETWEEN "2019-10-17" AND "2019-10-18";
