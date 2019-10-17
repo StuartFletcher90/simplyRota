@@ -1,3 +1,8 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -7,6 +12,8 @@ body {
 
 .header {
     display: flex;
+    position: fixed;
+    width: 100%;
     justify-content: center;
     background-color: white;
     color: #e33326;
@@ -14,8 +21,8 @@ body {
 }
 
 .header img {
-    position: absolute;
-    right: 0.1%;
+    position: relative;
+    left: 42.9%;
     height: 50px;
     margin-left: 20px;
 }
@@ -23,37 +30,54 @@ body {
 #wrapper {
     display: flex;
     justify-content: center;
-    height: 80vh;
+    height: 100vh;
     width: 100vw;
     align-items: center;
+    /* background-image: url(./circles800.png);
+    background-size: cover;
+    background-repeat: no-repeat; */
 }
 
 .container {
     align-items: center;
     border: solid black 2px;
     width: 80%;
-    height: 40%;
+    height: 40%; 
     text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.589) 3px 3px;
+    box-shadow: rgba(0, 0, 0, 0.589) 3px 3px; 
 }
 
 #splash {
-    margin-top: 8%;
+    margin-top: 4em;
     justify-content: center;
 }
 
-#splash2 {
+.splash2 {
     display: flex;
     margin-top: 30px;
     justify-content: center;
+}
+
+.return {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #return {
     margin-top: 20px;
     height: 40px;
     background-color: #e33326;
-    width: 120px;
+    width: 70px;
     color: white;
+}
+
+#registerBtn {
+    margin-top: 20px;
+    padding:5px;
+    border: 2px solid red;
+    background-color: white;
+    text-align: center;
 }
 
 .btn-style {
@@ -63,19 +87,19 @@ body {
     width: 19.5%;
 }
 
-#login {
+#logIn {
     background-color: white;
     border: red 2px solid;
 }
 
-#sign-up {
+#signUp {
     background-color: red;
     border: red;
     color: white;
 }
 
 #username {
-    background-color: rgb(147, 178, 196);
+    background-color: rgb(255, 255, 255);
     border-color: black;
     color: black;
     margin-right: 10px;
@@ -89,7 +113,7 @@ body {
 }
 
 #password {
-    background-color: rgb(147, 178, 196);
+    background-color: rgb(255, 255, 255);
     border-color: black;
     color: black;
     height: 30px;
@@ -98,4 +122,124 @@ body {
 #password::placeholder {
     color: black;
     opacity: 1;
+}
+
+
+
+
+
+/* geo css */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+  }
+
+
+.modal-content {
+background-color: #fefefe;
+margin: 15% auto;
+padding: 20px;
+border: 1px solid #888;
+width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+.close:hover,
+.close:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+
+.regForm {
+    display: flex;
+    justify-content: center;
+}
+.radioBtns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.noMarg{
+    margin: 4px;
+} 
+
+input[type="text"], textarea, input[type="password"] {
+    margin: 2px;
+    padding :5px;
+    border: 1px solid black;
+  }
+input[type="text"]:focus, textarea:focus, input[type="password"]:focus {
+    outline: 2px solid rgba(225, 41, 43, 1);
+  }
+
+  #fieldSet{
+      padding: 20px;
+  }
+
+  .radioQu{
+      margin: 10px;
+  }
+
+  .text-title{
+      display:flex;
+      margin:0px;
+      margin-left: 5px;
+  }
+
+.inputBox{
+    width: 90%;
+}
+
+textarea {
+    width: 95%;
+}
+
+/* media queries for landing */
+
+@media screen and (min-device-width: 1920px) {
+    #wrapper {
+        background-image: url(./circles800.png);
+        background-repeat: no-repeat;
+        background-position-y: 16em;
+    }
+    #lead-heading {
+        font-size: 50px;
+    }
+    .container {
+        width: 40%;
+    }
+    #splash {
+        margin-top: 16%;
+    }
+    .splash2 {
+        margin-top: 8%;
+    }
+}
+
+@media only screen and (max-device-width: 414px) {
+    #wrapper {
+        background-image: url(./circles800.png);
+        background-size: cover;
+    }
+    .header img {
+        left: 13%;
+        height: 50px;
+        margin-left: 20px;
+    }
 }
