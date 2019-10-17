@@ -42,7 +42,7 @@ flex-direction: row;
 justify-content: space-between;
 position: fixed;
 background-color: var(--main-blue);
-color: white;
+color: -;
 width: 100vw;
 z-index: var(--z-very-top);
 }
@@ -107,8 +107,9 @@ z-index: var(--z-very-top);
     z-index: var(--z-very-top);
 }
 #search-button{
-    border: 1px solid Blue; min-height:20px;
-    border-radius:20%;
+    border: 3px solid black; min-height:20px;
+    /* border-radius:20%; */
+    
 }
 .date-drop{
   font-size: 40px;;  
@@ -245,28 +246,28 @@ font-size: 40px;
 
 /*********  NEW CLIENTS  ******/
 .new-client-wrapper{
+display: block;
 
-    display:flex;
-
-
+}
+.times{
 
 }
 
 .new-shift-assigned-to{
 
-
+    
 
 }
 
 .new-client-namel{
 
-
+    
 
 }
 
 .new-client-time{
 
-
+   
 
 }
 
@@ -277,7 +278,7 @@ font-size: 40px;
 }
 
 .new-client-comments{
-size: 10px;
+
 
 
 }
