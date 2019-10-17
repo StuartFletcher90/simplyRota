@@ -6,7 +6,8 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Nunito', sans-serif;
 
 }
 
@@ -66,6 +67,7 @@ body {
 
 #return {
     margin-top: 20px;
+    margin-left: 5px;
     height: 40px;
     background-color: #e33326;
     width: 70px;
@@ -75,11 +77,18 @@ body {
 #registerBtn {
     margin-top: 20px;
     padding:5px;
-    border: 2px solid red;
+    border: 2px solid #e33326;
     background-color: white;
     text-align: center;
 }
-
+#logMeIn {
+    margin-top: 20px;
+    margin-right: 5px;
+    height: 40px;
+    background-color: #e33326;
+    width: 70px;
+    color: white;
+}
 .btn-style {
     margin-right: 17px;
     margin-left: 17px;
@@ -236,6 +245,10 @@ textarea {
     #wrapper {
         background-image: url(./circles800.png);
         background-size: cover;
+        
+    }
+    .container {
+        height: 30%;
     }
     .header img {
         left: 13%;

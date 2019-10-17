@@ -5,6 +5,7 @@ const logInBtn = document.getElementById("logIn");
 const signUpBtn = document.getElementById("signUp");
 const returnBtn = document.getElementById("return");
 const registerBtn = document.getElementById("register");
+const logMeInBtn = document.getElementById("logMeIn");
 const modal = document.getElementById("register-modal")
 // const span = document.getElementsByClassName("close")[0]
 
@@ -13,10 +14,12 @@ splash.style.display="block";
 splashTwo.style.display="none";
 returnBtn.style.display="none";
 registerBtn.style.display="none";
+logMeInBtn.style.display="none";
 
 
 logInBtn.addEventListener("click", ()=> {
     splash.style.display="none";
+    logMeInBtn.style.display="block";
     splashTwo.style.display="block";
     returnBtn.style.display="block";
     console.log("log in has been clicked");
@@ -28,6 +31,7 @@ returnBtn.addEventListener("click", () => {
     splashTwo.style.display="none";
     returnBtn.style.display="none";
     registerBtn.style.display="none";
+    logMeInBtn.style.display="none";
     console.log("return has been clicked");
 })
 
@@ -59,6 +63,10 @@ window.onclick = (event) => {
       modal.style.display = "none";
     }
   }
+
+  const heading = document.getElementById("lead-heading");
+  
+  heading.charAt(6).style.color = "red";
 
 
 
