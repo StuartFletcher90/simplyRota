@@ -7,15 +7,16 @@ const returnBtn = document.getElementById("return");
 const registerBtn = document.getElementById("registerBtn");
 const logMeInBtn = document.getElementById("logMeIn");
 const modal = document.getElementById("register-modal")
-const usernameNew = document.getElementById("usernameSetter");
-const passwordNew = document.getElementById("passwordSetter");
-const firstName = document.getElementById("firstName");
-const lastName = document.getElementById("lastName");
-const jobTitle = document.getElementById("jobTitle");
-const hoursContracted = document.getElementById("hoursContracted");
-const annualLeave = document.getElementById("annualLeave");
-const skills = document.getElementById("skills");
-const comments = document.getElementById("comments");
+// const usernameNew = document.getElementById("usernameSetter");
+// const passwordNew = document.getElementById("passwordSetter");
+// const firstName = document.getElementById("firstName");
+// const lastName = document.getElementById("lastName");
+// const email = document.getElementById("email");
+// const jobTitle = document.getElementById("jobTitle");
+// const hoursContracted = document.getElementById("hoursContracted");
+// const annualLeave = document.getElementById("annualLeave");
+// const skills = document.getElementById("skills");
+// const comments = document.getElementById("comments");
 
 // const span = document.getElementsByClassName("close")[0]
 
@@ -54,6 +55,9 @@ signUpBtn.addEventListener("click", () => {
     console.log("sign up has been clicked");
 })
 
+
+
+
 registerBtn.addEventListener("click", async () => {
     //displays the log in stuff
     splash.style.display="none";
@@ -62,34 +66,13 @@ registerBtn.addEventListener("click", async () => {
     registerBtn.style.display="none";
     modal.style.display="none";
     console.log("registered button has been clicked")
-
-    const addUserObject = {
-        "username": usernameNew.value,
-        "password": passwordNew.value,
-        "firstName": firstName.value,
-        "lastName": lastName.value,
-        "adminStatus": document.querySelector('input[name="adminAccess"]:checked').value,
-        "jobTitle": jobTitle.value,
-        "hoursContracted": hoursContracted.value,
-        "annualLeave": annualLeave.value,
-        "gender": document.querySelector('input[name="gender"]:checked').value,
-        "drivingStatus": document.querySelector('input[name="drivingStatus"]:checked').value,
-        "skills": skills.value,
-        "comments": comments.value
-    }
-
-    await fetch("fetch", {
-        method: "POST",
-        headers: { "content-type" : "application/json"},
-        body: JSON.stringyfy(
-            {addUser: addUserObject}
-        )
-    })
 })
 
-// span.addEventListener("click", () => {
-//     modal.style.display = "none";
-// })
+
+    // span.addEventListener("click", () => {
+    //     modal.style.display = "none";
+
+
 
 window.onclick = (event) => {
     if (event.target == modal) {
@@ -111,22 +94,3 @@ window.onclick = (event) => {
 //     console.log(data)
 // })
 
-// signUpBtn.addEventListener("click", async () => {
-//     console.log("sign up has been clicked")
-
-        // await fetch(`/register?
-        // username=${usernameNew.value}
-        // &password=${passwordNew.value}
-        // &firstName=${firstName.value}
-        // &lastName=${lastName.value}
-        // &adminStatus=${document.querySelector('input[name="adminAccess"]:checked').value}
-        // &jobTitle=${jobTitle.value}
-        // &hoursContracted=${hoursContracted.value}
-        // &annualLeave=${annualLeave.value}
-        // &gender=${document.querySelector('input[name="gender"]:checked').value}
-        // &drivingStatus=${document.querySelector('input[name="drivingStatus"]:checked').value}
-        // &skills=${skills.value}
-        // &comments=${comments.value}
-// `)    console.log("user has been registered")
-
-//  })

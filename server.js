@@ -25,10 +25,34 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 //sign up for staff
-app.get("/register", async (req, res) => {
-    await addUser(req.body.addUser)
+// app.get("/register", async (req, res) => {
+//     await addUser(req.body.addUser)
+//     console.log("user has been registered")
+// })
+
+app.post("/register",  (req, res) => {
+    let user = {
+        first_name : req.body.firstName,
+        last_name : req.body.lastName,
+        gender : req.body.gender,
+        hours_contracted :  req.body.hoursContracted,
+        email : req.body.email,
+        username : req.body.username,
+        user_password : req.body.password,
+        job_title :  req.body.jobTitle,
+        admin_status :  req.body.adminAccess,
+        driving_status : req.body.drivingStatus,
+        skills : req.body.skills,
+        annual_leave_entitlement:  req.body.annualLeave
+    }
+    console.log(user)
+    console.log(req.body)
+    // addUser is only expected 1 parameter, so can't have a bunch of req.queries separated by commas.
+    //Instead create a user object with the req.queries and use that as the function parameter.
+    addUser(user)
+    // console.log(data)
     console.log("user has been registered")
-})
+ })
 
 
 //sign in

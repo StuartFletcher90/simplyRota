@@ -37,14 +37,15 @@
                     <div class="modal-content">
                         <!-- <span class="close">&times;</span> -->
 
-                        <form id=sign-up-form>
+                        <form id=sign-up-form action="/register" method="POST">
                             <fieldset id="fieldSet">
                             <legend>Register</legend>
                             <div>
-                                <input class="inputBox" id="usernameSetter" type="text" placeholder="Username"><br>
-                                <input class="inputBox" id="passwordSetter" type="password" placeholder="Password"><br>
-                                <input class="inputBox" id="firstName" type="text" placeholder="First name"><br>
-                                <input class="inputBox" id="lastName" type="text" placeholder="Last name"><br>
+                                <input class="inputBox" id="usernameSetter" type="text" placeholder="Username" name="username"><br>
+                                <input class="inputBox" id="passwordSetter" type="password" placeholder="Password" name="password"><br>
+                                <input class="inputBox" id="firstName" type="text" placeholder="First name" name="firstName"><br>
+                                <input class="inputBox" id="lastName" type="text" placeholder="Last name" name="lastName"><br>
+                                <input class="inputBox" id="email" type="text" placeholder="Email" name="email"><br>
     
                                 <div class="radioQu">
                                     <h5 class="noMarg">Admin status</h5>
@@ -60,9 +61,9 @@
                                     </div>
                                 </div>
     
-                                <input class="inputBox" id="jobTitle" type="text" placeholder="Job title"><br>
-                                <input class="inputBox" id="hoursContracted" type="text" placeholder="Hours contracted"><br>
-                                <input class="inputBox" id="annualLeave" type="text" placeholder="Annual leave entitlement">
+                                <input class="inputBox" id="jobTitle" type="text" placeholder="Job title" name="jobTitle"><br>
+                                <input class="inputBox" id="hoursContracted" type="text" placeholder="Hours contracted" name="hoursContracted"><br>
+                                <input class="inputBox" id="annualLeave" type="text" placeholder="Annual leave entitlement" name="annualLeave">
     
                                 <div class="radioQu">
                                     <h5 class="noMarg">Gender</h5>
@@ -93,10 +94,10 @@
                                 </div>
     
                                 <h5 class="text-title">Skills</h5>
-                                <textarea id="skills" rows="4" cols="40" placeholder="Please tell us about skills you may have that are relevant or services you have been involved with"></textarea>
-                                <h5 class="text-title">Comments</h5>
-                                <textarea id="comments" rows="4" cols="40" placeholder="Let us know if there is anything else you think we should know"></textarea> 
-                                <div id="registerBtn" class="regBtn">Register</div>
+                                <textarea id="skills" rows="4" cols="40" name="skills" placeholder="Please tell us about skills you may have that are relevant or services you have been involved with"></textarea>
+                                <!-- <h5 class="text-title">Comments</h5>
+                                <textarea id="comments" rows="4" cols="40" name="comments" placeholder="Let us know if there is anything else you think we should know"></textarea>  -->
+                                <input id="registerBtn" class="regBtn" type="submit" value="Register">
     
                             </div>
         
