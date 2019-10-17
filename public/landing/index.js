@@ -4,9 +4,20 @@ const splashTwo = document.getElementById("splash-two");
 const logInBtn = document.getElementById("logIn");
 const signUpBtn = document.getElementById("signUp");
 const returnBtn = document.getElementById("return");
-const registerBtn = document.getElementById("register");
+const registerBtn = document.getElementById("registerBtn");
 const logMeInBtn = document.getElementById("logMeIn");
 const modal = document.getElementById("register-modal")
+// const usernameNew = document.getElementById("usernameSetter");
+// const passwordNew = document.getElementById("passwordSetter");
+// const firstName = document.getElementById("firstName");
+// const lastName = document.getElementById("lastName");
+// const email = document.getElementById("email");
+// const jobTitle = document.getElementById("jobTitle");
+// const hoursContracted = document.getElementById("hoursContracted");
+// const annualLeave = document.getElementById("annualLeave");
+// const skills = document.getElementById("skills");
+// const comments = document.getElementById("comments");
+
 // const span = document.getElementsByClassName("close")[0]
 
 //when landing (default), only show logIn or signUp buttons
@@ -40,11 +51,14 @@ signUpBtn.addEventListener("click", () => {
     // splash.style.display="none";
     // splashTwo.style.display="none";
     // returnBtn.style.display="block";
-    // registerBtn.style.display="block";
+    registerBtn.style.display="block";
     console.log("sign up has been clicked");
 })
 
-registerBtn.addEventListener("click", () => {
+
+
+
+registerBtn.addEventListener("click", async () => {
     //displays the log in stuff
     splash.style.display="none";
     splashTwo.style.display="block";
@@ -54,9 +68,11 @@ registerBtn.addEventListener("click", () => {
     console.log("registered button has been clicked")
 })
 
-// span.addEventListener("click", () => {
-//     modal.style.display = "none";
-// })
+
+    // span.addEventListener("click", () => {
+    //     modal.style.display = "none";
+
+
 
 window.onclick = (event) => {
     if (event.target == modal) {
@@ -64,9 +80,9 @@ window.onclick = (event) => {
     }
   }
 
-  const heading = document.getElementById("lead-heading");
+//   const heading = document.getElementById("lead-heading");
   
-  heading.charAt(6).style.color = "red";
+//   heading.charAt(6).style.color = "red";
 
 
 
@@ -78,10 +94,3 @@ window.onclick = (event) => {
 //     console.log(data)
 // })
 
-// signUpBtn.addEventListener("click", async () => {
-//     console.log("sign up has been clicked")
-
-//     await fetch(`/register?username=${usernameInput.value}&password=${password}`)
-//     console.log("user has been registered")
-
-// })
