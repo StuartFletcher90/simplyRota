@@ -19,6 +19,7 @@ const modal = document.getElementById("register-modal")
 // const comments = document.getElementById("comments");
 
 // const span = document.getElementsByClassName("close")[0]
+const usernameInput= document.getElementById('username')
 
 //when landing (default), only show logIn or signUp buttons
 splash.style.display="block";
@@ -94,3 +95,21 @@ window.onclick = (event) => {
 //     console.log(data)
 // })
 
+const signIn = async () => {
+    const username = usernameInput.value;
+
+    let response = await fetch(`/signin?username=${username}`)
+    let data = await response.json()
+    console.log(data);
+
+    if (data.id) {
+        location.pathname = "/admin/admin.html"
+    }
+    else {
+        alert('Username not recognised! Please check your username or sign up.')
+    }
+}
+
+logMeInBtn.addEventListener("click",()=>{
+    alert("surprise motherfucker")
+}

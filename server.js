@@ -30,7 +30,7 @@ app.use(bodyParser.json())
 //     console.log("user has been registered")
 // })
 
-app.post("/register",  (req, res) => {
+app.post("/register",  (req) => {
     let user = {
         first_name : req.body.firstName,
         last_name : req.body.lastName,
@@ -57,11 +57,10 @@ app.post("/register",  (req, res) => {
 
 //sign in
 app.get("/signIn", async (req, res) => {
-    let data = await signIn(
-        req.query.username,
-        req.query.password
-        )
-    res.send(data)
+    console.log(req.query)
+    let data = await signIn(req.query.username)
+    console.log(data)
+    res.send({"id":data})
     console.log("signed in user")
 })
 
