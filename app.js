@@ -90,9 +90,12 @@ const signIn = async (username) => {
     connection.end()
 }
 
+
 <<<<<<< HEAD
 //signIn()
-<<<<<<< HEAD
+
+=======
+>>>>>>> stefan
 newShift = {
     clientLocation : '2 Elm Street',
     firstName : null,
@@ -101,9 +104,11 @@ newShift = {
     endTime : '16:30:00',
     shiftDate : '2019-10-19',
     hoursWorked : 6.5,
+<<<<<<< HEAD
+
 =======
->>>>>>> 0e30786f806cc7a588cc0fca06a3d15d6eb6c6e0
-=======
+}
+>>>>>>> stefan
 // newShift = {
 //     clientLocation : '2 Elm Street',
 //     firstName : null,
@@ -112,7 +117,7 @@ newShift = {
 //     endTime : '16:30:00',
 //     shiftDate : '2019-10-19',
 //     hoursWorked : 6.5,
->>>>>>> mo-dev-branch3
+
 
 // }
 
@@ -153,7 +158,6 @@ const addShift = async (shift)=>{
         let data = await promisifiedQuery(queryString)
         console.log(data)
         return data
-<<<<<<< HEAD
 
         }
         else {
@@ -175,8 +179,6 @@ const addShift = async (shift)=>{
     // console.log(client_id[0].id)
 
        
-=======
->>>>>>> 0e30786f806cc7a588cc0fca06a3d15d6eb6c6e0
     }
 
     catch (error) {
@@ -188,60 +190,92 @@ const addShift = async (shift)=>{
     }
 }
 
-<<<<<<< HEAD
-// addShift(newShift)
-
-const editShift = async () => {
-    
-=======
 const editShift = async (shift) => {
 
     let start = shift.start
     let end = shift.end
+    let date = shift.date
+    let client = shift.client
+    let staff = shift.staff
+    let hours = shift.hours
     let id = shift.id
->>>>>>> 0e30786f806cc7a588cc0fca06a3d15d6eb6c6e0
     try{
-        const queryString = `UPDATE shifts SET start_time='${start}', end_time='${end}' where id=${id}`;
+        const queryString = `UPDATE shifts SET start_time='${start}', end_time='${end}', shift_date='${date}', client_id='${client}', staff_id='${staff}', hours_worked='${hours}' where id=${id}`;
         let data = await promisifiedQuery(queryString)
-        
-        console.log(data)
-        console.log('edit shift')
         return data
     }
 
     catch (error) {
-        console.log('edit reminder')
+        console.log('edit reminder error')
         console.log(error.sqlMessage)
     }
 
     connection.end()
 }
 
-// const listShifts = async (shift_data) => {
-//     try {
-//         const queryStringAdd = `SELECT CONCAT (staff.first_name," ", staff.last_name) AS staff_name, start_time,end_time, shift_date, 
-//         CONCAT (clients.first_name, ' ', clients.last_name) as client_name, client_location
-//         FROM staff 
-//         JOIN shifts
-//         ON staff.id = shifts.staff_id
-//         JOIN clients
-//         ON shifts.client_id = clients.id
-//         WHERE shift_date = '${shift_data}';`
-//         let data = await promisifiedQuery (queryStringAdd)
-//         console.log(data)
-//         return data
-
-//     } catch (e) {
-//         console.log(e.sqlMessage)
-//     }
+//* testing edit shift
+// let shift = {
+//     start:"10:00:00",
+//     end:"12:00:00",
+//     date:"2019-10-17",
+//     client:2,
+//     staff:1,
+//     hours:2,
+//     id:1
 // }
 
-// listShifts('2019-10-18')
+//editShift(shift)
+
+// Delete shifts
+let shift_to_delete = {
+    clientLocation: "4 Village Mews",
+    startTime: "09:00:00",
+    endTime: "17:00:00",
+    shiftDate: "2019-10-17",
+    hoursWorked: 8.0,
+
+
+}
+
+const deleteShift = async (shift) => {
+    try {
+
+    //getting client id from client location
+    let client_id_query = `SELECT id FROM clients
+    WHERE client_location = '${shift.clientLocation}';`
+    let client_id = await promisifiedQuery(client_id_query)
+
+    console.log(client_id[0].id)
+
+    //getting shift id from shift information in the shift card
+    // let shift_id_query = `SELECT id FROM shifts
+    // WHERE start_time = '${shift.startTime}', AND end_time ='${shift.endTime}' AND shift_date ='${shift.shiftDate}' AND
+    // client_id = '${client_id[0].id}' ;`
+    // let shift_id = await promisifiedQuery(shift_id_query)
+
+    // console.log(shift_id)
+
+    //deleting shift
+    let queryStringAdd = `DELETE FROM shifts
+    WHERE start_time = '${shift.startTime}' AND end_time ='${shift.endTime}' AND shift_date ='${shift.shiftDate}' AND
+    client_id = ${client_id[0].id};`
+    let data = await  promisifiedQuery(queryStringAdd)
+
+    Return (data)
+    
+    }
+    catch(e){
+    console.log(e.sqlMessage)
+    // console.log(shift)
+    }
+    }
+// deleteShift(shift_to_delete)
 
 module.exports = {
     addUser,
     signIn,
     addShift,
     editShift,
-    // listShifts
+    listShifts,
+    deleteShift
 }
