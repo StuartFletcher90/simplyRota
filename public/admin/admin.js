@@ -53,7 +53,17 @@ window.onclick = (event) => {
     }
 }
 
-
+//---------- add shift ----------//
 addShiftBtn.addEventListener("click", async () => {
-    modal.style.display = "none";
+//    console.log(document.getElementById("assignedTo").value )
+    // only close form on submit when required inputs have been entered
+    if(document.getElementById("assignedTo").value != ""
+        // && document.getElementById("clientChosen").value != null
+        // && document.getElementById("startTime").value != null
+        // && document.getElementById("endTime").value != null
+        // && document.getElementById("duration").value != null
+        ){
+            modal.style.display = "none";
+            console.log("should hide the modal only if all the required inputs have been entered")
+        }
 })
