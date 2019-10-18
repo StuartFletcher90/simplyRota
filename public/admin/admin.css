@@ -20,7 +20,7 @@ body {
     --z-background:0;
     --z-background-far:-50;
 
-    background-color: var(--main-bg-grey);
+    background-color: white;
 
     display: flex;
     flex-direction: column;
@@ -41,8 +41,7 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 position: fixed;
-background-color: var(--main-blue);
-color: white;
+background-color: white;
 width: 100vw;
 z-index: var(--z-very-top);
 }
@@ -64,10 +63,10 @@ z-index: var(--z-very-top);
     /* font-size: 2em; */
     height: 50px;
     width: 50px;
-    border-radius: 50%;
-    border: 3px solid orange;
+    border-radius: 10%;
     margin-top: 10px;
     margin-right: 10px;
+    background: white;
 }
 
 
@@ -99,14 +98,34 @@ z-index: var(--z-very-top);
     justify-content: space-around;
     align-items: center;
     position: fixed;
-    top: 10vh;
+    top: 5vh;
     height:10vh;
     width: 100vw;
-    margin: 3vh 0 5vh 0;
-    background-color: #902b84;
+    margin: 1% 0 0 0;
+    background-color: white;
+    border-bottom: 1px solid red;
     z-index: var(--z-very-top);
 }
+#search-button{
+    border: 3px solid red; height:40px; width: 80px;
+    font-size: 20px;
+    background-color: #fcfbfe;
+    /* border-radius:20%; */
+    
+}
 
+#search-button:hover {
+    background-color: red;
+    border: 1px solid black;
+    color: white;
+}
+
+.date-drop{
+  font-size: 15px; 
+  border: 3px solid red; min-height: 30px;
+  height: 20px;
+  width: 50%;
+}
 
 .date-bar ul{
     display: flex;
@@ -114,7 +133,7 @@ z-index: var(--z-very-top);
     justify-content: center;
     /* align-items: center; */
     list-style: none;
-    background-color:var(--main-blue);
+    background-color:var(--blue-high);
     color: white;
     width: 100%;
     height: 95%;
@@ -123,16 +142,17 @@ z-index: var(--z-very-top);
 
 }
 
-.date-bar ul li{
+/* .date-bar ul li{
     width: 10%;
-    border: 3px solid var(--blue-high);
+    border: 3px solid var(--blue-low);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 0 2px 0 2px;
-}
+} */
 
+<<<<<<< HEAD
 .date-bar ul li p{
     font-size: 0.7em;
     font-weight: bold;
@@ -140,11 +160,14 @@ z-index: var(--z-very-top);
 }
 
 .date-bar ul li:nth-child(1),
+=======
+/* .date-bar ul li:nth-child(1),
+>>>>>>> f3a720f5efeba799dfdc18e7c57ef0c4dc9325d1
 .date-bar ul li:last-child{
 font-size: 1em;
 border: none;
 color: var(--shift-card-grey);
-}
+} */
 
 /****  SHIFT CARDS  ****/
 
@@ -153,37 +176,55 @@ color: var(--shift-card-grey);
     flex-direction: column;
     width: 100vw;
     position: relative;
+<<<<<<< HEAD
     margin-top: 30vh;
     z-index: var(--z-middle);
+=======
+    margin-top: 23vh;
+    -index: var(--z-middle);
+>>>>>>> f3a720f5efeba799dfdc18e7c57ef0c4dc9325d1
     }
 
 .shift-card{
     border: 5px solid #2222;
     background-color: var(--shift-card-grey);
     margin-bottom: 5vh;
+
 }
 
 
 
 .shift-staff-names{
+list-style-type: none;
 
+box-shadow: 0 0 1em 1em #ccc;
+padding: 0;
+margin: 0;
+display: flex;
+flex-direction: row;
 
 
 }
+.hours-staff-worked{
+box-shadow: 0 0 1em 1em #ccc;
+}
 
 .shift-time{
-
-
+ box-shadow: 0 0 1em 1em #ccc;
+ color: red;
 
 }
 
 .shift-location{
 
-
+ box-shadow: 0 0 1em 1em #ccc;
 
 }
 
 .shift-client{
+box-shadow: 0 0 1em 1em #ccc;
+font: bolder;
+font-size: 15px;
 
 }
 
@@ -214,14 +255,15 @@ font-size: 40px;
     align-items: center;
     justify-content: center;
     position: fixed;
-    bottom: 10vh;
-    right: 10vw;
-    background-color: var(--main-blue);
-    width: 80px;
-    height: 80px;
-    font-size: 50px;
-    color: white;
-    border:5px solid white;
+    bottom: 3vh;
+    right: 5vw;
+    background-color: white ;
+    /* var(--main-blue) */
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    color: black;
+    border:5px solid black;
     border-radius: 50%;
     z-index:var(--z-very-top);
 
@@ -230,6 +272,7 @@ font-size: 40px;
 
 
 /*********  NEW CLIENTS  ******/
+<<<<<<< HEAD
 .new-client-wrapper{
     /* display: none; */
     /* background: var(--main-bg-grey); */
@@ -248,7 +291,13 @@ font-size: 40px;
 
 
 }
+=======
+>>>>>>> f3a720f5efeba799dfdc18e7c57ef0c4dc9325d1
 
+#new-client-wrapper{
+display: hidden;
+}
+.times{
 
 .client-time{
     display: flex;
@@ -262,19 +311,19 @@ font-size: 40px;
 
 .new-shift-assigned-to{
 
-
+    
 
 }
 
 .new-client-namel{
 
-
+    
 
 }
 
 .new-client-time{
 
-
+   
 
 }
 
@@ -297,4 +346,13 @@ width: 30vw;
     font-size: 2em;
     background-color: var(--main-blue);
 
+<<<<<<< HEAD
+=======
+
+
+}
+
+@media only screen and (-device-width: 414px) {
+    
+>>>>>>> f3a720f5efeba799dfdc18e7c57ef0c4dc9325d1
 }

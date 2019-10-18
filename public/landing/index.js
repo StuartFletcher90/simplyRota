@@ -4,43 +4,51 @@ const splashTwo = document.getElementById("splash-two");
 const logInBtn = document.getElementById("logIn");
 const signUpBtn = document.getElementById("signUp");
 const returnBtn = document.getElementById("return");
-const registerBtn = document.getElementById("register");
-const modal = document.getElementById("register-modal")
-// const span = document.getElementsByClassName("close")[0]
+const registerBtn = document.getElementById("registerBtn");
+const logMeInBtn = document.getElementById("logMeIn");
+const modal = document.getElementById("register-modal");
+const closer = document.getElementById("closer");
 
 //when landing (default), only show logIn or signUp buttons
 splash.style.display="block";
 splashTwo.style.display="none";
 returnBtn.style.display="none";
 registerBtn.style.display="none";
+logMeInBtn.style.display="none";
 
 
+//---------- go to log in ----------//
 logInBtn.addEventListener("click", ()=> {
     splash.style.display="none";
+    logMeInBtn.style.display="block";
     splashTwo.style.display="block";
     returnBtn.style.display="block";
     console.log("log in has been clicked");
 
 });
 
+//---------- return to landing page ----------//
 returnBtn.addEventListener("click", () => {
     splash.style.display="block";
     splashTwo.style.display="none";
     returnBtn.style.display="none";
     registerBtn.style.display="none";
+    logMeInBtn.style.display="none";
     console.log("return has been clicked");
 })
 
+//---------- show register form ----------//
 signUpBtn.addEventListener("click", () => {
     modal.style.display = "block";
     // splash.style.display="none";
     // splashTwo.style.display="none";
     // returnBtn.style.display="block";
-    // registerBtn.style.display="block";
+    registerBtn.style.display="block";
     console.log("sign up has been clicked");
 })
 
-registerBtn.addEventListener("click", () => {
+//---------- register a new user ----------//
+registerBtn.addEventListener("click", async () => {
     //displays the log in stuff
     splash.style.display="none";
     splashTwo.style.display="block";
@@ -50,10 +58,13 @@ registerBtn.addEventListener("click", () => {
     console.log("registered button has been clicked")
 })
 
-// span.addEventListener("click", () => {
-//     modal.style.display = "none";
-// })
+//---------- close form on close ----------//
+closer.addEventListener("click", () => {
+    modal.style.display = "none";
+})
 
+
+//---------- close form when clicked off form ----------//
 window.onclick = (event) => {
     if (event.target == modal) {
       modal.style.display = "none";
@@ -61,8 +72,13 @@ window.onclick = (event) => {
   }
 
 
+//!---------- I don't know what this is ----------!//
+//   const heading = document.getElementById("lead-heading");
+//   heading.charAt(6).style.color = "red";
 
-// logInBtn.addEventListener("click", async () => {
+
+
+// logMeInBtn.addEventListener("click", async () => {
 //     console.log("log in has been clicked")
 
 //     let response = await fetch(`/signIn?username=${usernameInput.value}&password=${password}`)
@@ -70,10 +86,3 @@ window.onclick = (event) => {
 //     console.log(data)
 // })
 
-// signUpBtn.addEventListener("click", async () => {
-//     console.log("sign up has been clicked")
-
-//     await fetch(`/register?username=${usernameInput.value}&password=${password}`)
-//     console.log("user has been registered")
-
-// })
