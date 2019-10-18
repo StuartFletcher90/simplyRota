@@ -119,16 +119,16 @@ const signIn = async (user) => {
 }
 
 //signIn()
-newShift = {
-    clientLocation : '2 Elm Street',
-    firstName : null,
-    lastName : null,
-    startTime : '10:00:00',
-    endTime : '16:30:00',
-    shiftDate : '2019-10-19',
-    hoursWorked : 6.5,
+// newShift = {
+//     clientLocation : '2 Elm Street',
+//     firstName : null,
+//     lastName : null,
+//     startTime : '10:00:00',
+//     endTime : '16:30:00',
+//     shiftDate : '2019-10-19',
+//     hoursWorked : 6.5,
 
-}
+// }
 
 const addShift = async (shift)=>{
 
