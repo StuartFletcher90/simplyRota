@@ -242,7 +242,7 @@ color: red;
 /*  i.e. only one should be displayed at any time
 */
 
-.addButton{
+.addButton, .new-client-submitt{
     display: flex;
     flex-direction: column;
     /* text-align: center; */
