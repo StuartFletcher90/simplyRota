@@ -32,12 +32,14 @@ const addShiftBtn = document.getElementById("addShift-Btn");
 // fetchData()
 // shift-cards-wrapper
 
+
 deleteButton.addEventListener('click', async (shift_id) => {
     // document.getElementById('load').innerHTML="Loading..."
    let response = await fetch(`"/deleteShift"${shift_id}`);
    let data = await response.json()
    console.log(data)
 });
+
 
 //---------- show add shift form ----------//
 addShiftFormBtn.addEventListener("click", () => {
@@ -60,6 +62,20 @@ window.onclick = (event) => {
 }
 
 
+
+    let shiftDate = dateSelect.value
+    console.log(`requesting shift for date of ${shiftDate}`)
+    let response = await fetch(`/admin/list-shifts?shift_date=${shiftDate}`)
+    let data = await response.json()
+    console.log(data)
+    // displayData(data)
+})
+
+
+
+
+=======
 addShiftBtn.addEventListener("click", async () => {
     modal.style.display = "none";
 })
+

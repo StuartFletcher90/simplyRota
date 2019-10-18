@@ -115,7 +115,7 @@ app.post("/deleteShift", (req, res) => {
 
 //list shifts for particular date
 
-app.get("/list-shifts", async (req, res) => {
+app.get("/admin/list-shifts", async (req, res) => {
     let data = await listShifts(req.query.shift_date);
     console.log({data:data});
     res.send({data: data});
