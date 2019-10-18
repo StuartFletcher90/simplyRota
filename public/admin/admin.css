@@ -76,7 +76,7 @@ z-index: var(--z-very-top);
     flex-direction: column;
     justify-content: center;
     text-decoration: none;
-    color: white;
+    color: black;
     width: auto;
     /* background-color: aqua; */
     margin-right: 2vw;
@@ -99,9 +99,9 @@ z-index: var(--z-very-top);
     align-items: center;
     position: fixed;
     top: 5vh;
-    height:10vh;
+    height:8vh;
     width: 100vw;
-    /* margin: 5% 0 0 0; */
+    margin :3px;
     background-color: white;
     border-bottom: 1px solid red;
     z-index: var(--z-very-top);
