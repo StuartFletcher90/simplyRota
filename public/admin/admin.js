@@ -15,7 +15,8 @@ const deleteButton = document.getElementsByClassName("shift-delete-button");
 const formSubmitButton = document.getElementsByClassName("new-client-submit");
 const modal = document.getElementById("add-shift-modal");
 const closer = document.getElementById("closer");
-const addShiftBtn = document.getElementById("add-shift-btn");
+const addShiftFormBtn = document.getElementById("add-shift-form-btn");
+const addShiftBtn = document.getElementById("addShift-Btn");
 
 // const fetchData = async () => {
 //     console.log("Fetching data!")
@@ -33,7 +34,7 @@ const addShiftBtn = document.getElementById("add-shift-btn");
 
 
 //---------- show add shift form ----------//
-addShiftBtn.addEventListener("click", () => {
+addShiftFormBtn.addEventListener("click", () => {
     modal.style.display = "block";
     console.log("add a shift button has been clicked")
 })
@@ -51,3 +52,8 @@ window.onclick = (event) => {
       modal.style.display = "none";
     }
 }
+
+
+addShiftBtn.addEventListener("click", async () => {
+    modal.style.display = "none";
+})
