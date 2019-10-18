@@ -91,8 +91,11 @@ const signIn = async (username) => {
 }
 
 
+<<<<<<< HEAD
 //signIn()
 
+=======
+>>>>>>> stefan
 newShift = {
     clientLocation : '2 Elm Street',
     firstName : null,
@@ -101,7 +104,11 @@ newShift = {
     endTime : '16:30:00',
     shiftDate : '2019-10-19',
     hoursWorked : 6.5,
+<<<<<<< HEAD
 
+=======
+}
+>>>>>>> stefan
 // newShift = {
 //     clientLocation : '2 Elm Street',
 //     firstName : null,
@@ -187,44 +194,37 @@ const editShift = async (shift) => {
 
     let start = shift.start
     let end = shift.end
+    let date = shift.date
+    let client = shift.client
+    let staff = shift.staff
+    let hours = shift.hours
     let id = shift.id
     try{
-        const queryString = `UPDATE shifts SET start_time='${start}', end_time='${end}' where id=${id}`;
+        const queryString = `UPDATE shifts SET start_time='${start}', end_time='${end}', shift_date='${date}', client_id='${client}', staff_id='${staff}', hours_worked='${hours}' where id=${id}`;
         let data = await promisifiedQuery(queryString)
-        
-        console.log(data)
-        console.log('edit shift')
         return data
     }
 
     catch (error) {
-        console.log('edit reminder')
+        console.log('edit reminder error')
         console.log(error.sqlMessage)
     }
 
     connection.end()
 }
 
-// const listShifts = async (shift_data) => {
-//     try {
-//         const queryStringAdd = `SELECT CONCAT (staff.first_name," ", staff.last_name) AS staff_name, start_time,end_time, shift_date, 
-//         CONCAT (clients.first_name, ' ', clients.last_name) as client_name, client_location
-//         FROM staff 
-//         JOIN shifts
-//         ON staff.id = shifts.staff_id
-//         JOIN clients
-//         ON shifts.client_id = clients.id
-//         WHERE shift_date = '${shift_data}';`
-//         let data = await promisifiedQuery (queryStringAdd)
-//         console.log(data)
-//         return data
-
-//     } catch (e) {
-//         console.log(e.sqlMessage)
-//     }
+//* testing edit shift
+// let shift = {
+//     start:"10:00:00",
+//     end:"12:00:00",
+//     date:"2019-10-17",
+//     client:2,
+//     staff:1,
+//     hours:2,
+//     id:1
 // }
 
-// listShifts('2019-10-18')
+//editShift(shift)
 
 // Delete shifts
 let shift_to_delete = {
