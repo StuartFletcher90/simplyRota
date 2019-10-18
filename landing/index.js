@@ -106,7 +106,7 @@ const signIn = async () => {
     console.log(data);
 
     if (data.id) {
-        location.pathname = "./admin/index.html"
+        location.pathname = "./admin"
     }
     else {
         alert('Username not recognised! Please check your username or sign up.')
