@@ -50,14 +50,27 @@ signUpBtn.addEventListener("click", () => {
 
 //---------- register a new user ----------//
 registerBtn.addEventListener("click", async () => {
-    //displays the log in stuff
-    splash.style.display="none";
-    splashTwo.style.display="block";
-    returnBtn.style.display="block";
-    registerBtn.style.display="none";
-    modal.style.display="none";
-    console.log("registered button has been clicked")
-})
+    // displays the log in stuff only when required inputs have been entered
+    if(document.getElementById("usernameSetter").value != null
+        && document.getElementById("passwordSetter").value != null
+        && document.getElementById("firstName").value != null
+        && document.getElementById("lastName").value != null
+        && document.getElementById("email").value != null
+        && document.querySelector('input[name="adminAccess"]:checked').value != null
+        && document.getElementById("jobTitle").value != null
+        && document.getElementById("hoursContracted").value != null
+        && document.getElementById("annualLeave").value != null
+        && document.querySelector('input[name="gender"]:checked').value != null
+        && document.querySelector('input[name="drivingStatus"]:checked').value != null
+        ){
+            splash.style.display="none";
+            splashTwo.style.display="block";
+            returnBtn.style.display="block";
+            registerBtn.style.display="none";
+            modal.style.display="none";
+            console.log("registered button has been clicked")
+        }
+ })
 
 //---------- close form on close ----------//
 closer.addEventListener("click", () => {
@@ -93,7 +106,7 @@ const signIn = async () => {
     console.log(data);
 
     if (data.id) {
-        location.pathname = "/admin/admin.html"
+        location.pathname = "./admin/index.html"
     }
     else {
         alert('Username not recognised! Please check your username or sign up.')

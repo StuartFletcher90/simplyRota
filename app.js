@@ -216,6 +216,30 @@ const editShift = async (shift) => {
 // }
 
 //editShift(shift)
+//!Tomos commit
+
+const listShifts = async (shift_date) =>{
+    console.log(`shift_date ${shift_date}`)
+
+    try{
+        const queryStringListShifts = `SELECT CONCAT (staff.first_name," ", staff.last_name) AS staff_name, start_time,end_time, shift_date,
+       CONCAT (clients.first_name, ' ', clients.last_name) as client_name, client_location
+       FROM staff
+       JOIN shifts
+       ON staff.id = shifts.staff_id
+       JOIN clients
+       ON shifts.client_id = clients.id
+       WHERE shift_date = '${shift_date}'`
+
+       let data = await promisifiedQuery (queryStringListShifts)
+       console.log(data)
+       return data
+    }
+
+ catch (e) {
+    console.log(e.sqlMessage)
+}
+}
 
 // Delete shifts
 let shift_to_delete = {
@@ -267,6 +291,10 @@ module.exports = {
     signIn,
     addShift,
     editShift,
+<<<<<<< HEAD
     // listShifts,
     deleteShift
+=======
+    listShifts
+>>>>>>> e050176a100b4171d5aec589c201a9e9da0281b2
 }
