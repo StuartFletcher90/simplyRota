@@ -144,17 +144,20 @@ const editShift = async () => {
     connection.end()
 }
 
-const listShifts = async (shift_data) => {
+const listShifts = async (shift_date) => {
+    console.log(`shift_date   ${shift_date}`)
+    
     try {
-        const queryStringAdd = `SELECT CONCAT (staff.first_name," ", staff.last_name) AS staff_name, start_time,end_time, shift_date, 
+        const queryStringListShifts = `SELECT CONCAT (staff.first_name," ", staff.last_name) AS staff_name, start_time,end_time, shift_date, 
         CONCAT (clients.first_name, ' ', clients.last_name) as client_name, client_location
         FROM staff 
         JOIN shifts
         ON staff.id = shifts.staff_id
         JOIN clients
         ON shifts.client_id = clients.id
-        WHERE shift_date = '${shift_data}';`
-        let data = await promisifiedQuery (queryStringAdd)
+        WHERE shift_date = '${shift_date}';`
+        
+        let data = await promisifiedQuery (queryStringListShifts)
         console.log(data)
         return data
 

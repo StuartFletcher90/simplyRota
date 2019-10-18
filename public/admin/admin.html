@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Added link to Normalise.css // could do via npm too-->
-    <link rel="stylesheet" href="cdn.jsdelivr.net/npm/normalize.css/">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css/"> -->
     <link rel="stylesheet" href="./admin.css">
     <title>SimpyRota</title>
     <script src="https://kit.fontawesome.com/0f7608553d.js" crossorigin="anonymous"></script>
@@ -26,9 +26,8 @@
 
     <!-- date bar -->
     <div class="date-bar">    
-  <input type="date" class="date-drop" placeholder="Select Date">
- <div><button id="search-button">Search</button></div>
-</div>
+  <input id="dateSelect" type="date" class="date-drop" placeholder="Select Date">
+ <button id="search-button" type="submit">Search</button>
         <!-- <ul>
             <li><i class="fas fa-backward"></i></li>
             <li>8
@@ -127,20 +126,6 @@
             
         <input type="text" name="new-shift-assigned-to" class="new-shift-assigned-to" placeholder="Shift assigned to" >
         <input type="text" name="new-client-name" class="new-client-name" placeholder="new client name">
-<<<<<<< HEAD
-        
-        <div class="client-time">
-                <label for="new-client-time-start">Time start</label>
-                <input type="time" name="new-client-time-start" min="00:00" max="23:59" required class="new-client-time" placeholder="time start 9:00 ">
-                
-                <label for="new-client-time-start">Time finish</label>
-                <input type="time" name="new-client-time-end" min="00:00" max="23:59" required class="new-client-time" placeholder="time finish 9:00 ">
-        </div>
-
-        <textarea name="new-client-comments" class="new-client-comments"></textarea>
-        
-        <button type="submit" name="new-client-submitt" class="new-client-submitt"><i class="fas fa-paper-plane"></i></button>
-=======
        <div class="times"> <h5>Times</h5>
        <h5>Start</h5> <input type="time" name="new-client-time-start" min="00:00" max="23:59" required class="new-client-time" placeholder="time start 9:00 ">
        <h5>End</h5> <input type="time" name="new-client-time-end" min="00:00" max="23:59" required class="new-client-time" placeholder="time finish 9:00 ">
@@ -149,7 +134,6 @@
         <h5>Comments</h5>
         <textarea name="new-client-comments" class="new-client-comments" cols="15" rows="5"></textarea>
         <button type="submit" name="new-client-submitt" class="new-client-submitt">Submit</button>
->>>>>>> f3a720f5efeba799dfdc18e7c57ef0c4dc9325d1
     </form>
 
 
