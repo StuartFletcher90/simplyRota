@@ -28,6 +28,12 @@ const newClientWrapper = document.getElementById("new-client-wrapper");
 // }
 // fetchData()
 // shift-cards-wrapper
+
+
+
+
+
+
 //---------- show add shift form ----------//
 addShiftFormBtn.addEventListener("click", () => {
   modal.style.display = "block";
@@ -60,8 +66,12 @@ searchbtn.addEventListener('click', async () => {
 
     let shiftDate = dateSelect.value
     console.log(`requesting shift for date of ${shiftDate}`)
-    let response = await fetch(`/lists-shifts?shift_date=${shiftDate}`)
+    let response = await fetch(`/admin/list-shifts?shift_date=${shiftDate}`)
     let data = await response.json()
     console.log(data)
     // displayData(data)
 })
+
+
+
+
