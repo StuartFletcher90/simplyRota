@@ -1,0 +1,131 @@
+
+body {
+    border:0;
+    margin:0;
+
+    --main-red1:#e33326;
+    --main-red2: #e95c51;
+    --main-purpule: #902b84;
+    --main-green: #25b335;
+    --main-blue: #3e25e2;
+    --blue-high: #5d74fa;
+    --blue-low: #1d05ba;
+    --main-orange: #e29025;
+    --main-bg-grey: #a9a9a9;
+    --shift-card-grey: #fcfbfe;
+
+    --z-very-top:100;
+    --z-top:50;
+    --z-middle:10;
+    --z-background:0;
+    --z-background-far:-50;
+
+    background-color: var(white);
+
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+
+    font-family: "Nunito", sans-serif;
+
+    z-index: var(--z-background);
+
+
+}
+
+
+
+/***  Admin and Signin NAV BAR ****/
+.navwrapper{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+position: fixed;
+align-items: center;
+background-color: var(white);
+border-bottom: 2px solid red;
+color: black;
+width: 100vw;
+z-index: var(--z-very-top);
+}
+
+.username{
+    display: flex;
+    flex-direction: row;
+    color: black;
+    width: 15vw;
+    /* background-color: aqua; */
+    margin-left: 2vw;
+    font-size: 17px;
+    font-weight: 400;
+    justify-content: space-between;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px;
+}
+.admin-dashboard-icon{
+    /* font-size: 2em; */
+    height: 50px;
+    width: 50px;
+    border-radius: 10%;
+    margin-top: 10px;
+    margin-right: 10px;
+    background: white;
+}
+
+
+
+.signout{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-decoration: none;
+    color:black;
+    width: auto;
+    /* background-color: aqua; */
+    margin-right: 2vw;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+
+}
+
+.infowrapper{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 12%;
+}
+
+.employee-information h4 {
+    background-color: white;
+    width: 100vw;
+    
+}
+ .employee-information p {
+     margin-left: 20px;
+     margin-right: 50px;
+     padding: 0;
+     border: 3px solid white;
+     box-shadow: 1px 1px 10px rgba(241, 175, 175, 0.603) ;
+    
+ }
+
+ h4{
+     margin-left: 20px;
+ }
+
+ .profpara{
+     margin-left: 20px;
+ }
+
+ /* 
+--main-bg-grey: #a9a9a9;
+   --shift-card-grey: #fcfbfe;
+    */
+

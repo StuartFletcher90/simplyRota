@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Added link to Normalise.css // could do via npm too-->
+    <link rel="stylesheet" href="cdn.jsdelivr.net/npm/normalize.css/">
+    <link rel="stylesheet" href="profile.css">
+    <title>SimpyRota</title>
+    <script src="https://kit.fontawesome.com/0f7608553d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <!-- nav bar -->
+    <nav class="navwrapper">
+        <div class="username">
+            <!-- <div class="admin-dashboard-icon"><i class="fas fa-user"></i></div> -->
+            <img src="../admin/SNCLogo.png" alt="admin icon" class="admin-dashboard-icon">
+            <h5>Username</h5>
+        </div>
+        <div class='profile-picture'>
+        <img src="girl.png" alt="Avatar" class="avatar">
+        </div>
+        
+
+        <a href="#" class="signout">Sign-out</a>
+        <!--  could add a burger menu in future -->
+    </nav>
+    
+    <!--Information section-->
+<div class='infowrapper'>
+    <div class="employee-information">
+        <div id='designation'> 
+            <h4>designation:</h4>
+            <p class='profpara' id='designation-para'>Care-worker</p>
+        </div>
+        <div id='weekly-contracted-hours'>
+                <h4>weekly contracted hours</h4>
+                <p class='profpara' id='hours-para'>95hr</p>
+        </div>
+        <div id='driving-status'>
+                <h4>driving status:</h4>
+                <p class='profpara' id='designation-para'>takes risks for good of client</p>
+        </div>
+        <div id='services-worked-in'>
+                <h4>services worked in:</h4>
+                <p class='profpara' id='designation-para'>standard care services</p>
+        </div>
+        <div id='annual-leave-entitlement'>
+                <h4>annual leave entitlement</h4>
+                <p class='profpara' id='designation-para'>no holidays required</p>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+    <script src="./profile.js"></script>
+</body>
+</html>
