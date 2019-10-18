@@ -110,6 +110,3 @@ const signIn = async () => {
     }
 }
 
-logMeInBtn.addEventListener("click",()=>{
-    alert("surprise motherfucker")
-}
