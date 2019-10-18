@@ -82,16 +82,8 @@ const addUser = async (user) => {
 // sign in function which checks whether username exists and returns their id and admin status
 const signIn = async (user) => {
 
-<<<<<<< HEAD
-    let userNameGiven = user.username;
-    let passwordGiven = user.password;
-
-    try {
-        const queryString = `SELECT id, admin_status FROM users WHERE username = '${userNameGiven}'`;
-=======
     try {
         const queryString = `SELECT id, admin_status FROM staff WHERE username = '${user}`;
->>>>>>> d2f87ac8acf674cf690b4aeed9e88a03f078263a
         let data = await promisifiedQuery(queryString)
 
 // console.logs their admin status if true

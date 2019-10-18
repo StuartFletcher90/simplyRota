@@ -25,7 +25,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 //sign up for staff
-<<<<<<< HEAD
 app.get("/register", async (req, res) => {
     await addUser(
         req.query.first_name,
@@ -51,10 +50,6 @@ app.get("/register", async (req, res) => {
 //         req.query.username,
 //         req.query.password
 //         )
-=======
-// app.get("/register", async (req, res) => {
-//     await addUser(req.body.addUser)
->>>>>>> d2f87ac8acf674cf690b4aeed9e88a03f078263a
 //     console.log("user has been registered")
 // })
 
