@@ -69,30 +69,19 @@ const addUser = async (user) => {
 // sign in function which checks whether username exists and returns their id and admin status
 const signIn = async (username) => {
 
-    let userNameGiven = user.username;
-    let passwordGiven = user.password;
-
     try {
-        const queryString = `SELECT id, admin_status FROM users WHERE username = '${userNameGiven}'`;
+        const queryString = `SELECT id FROM staff WHERE username = '${username}'`;
         let data = await promisifiedQuery(queryString)
 
-// console.logs their admin status if true
-
         if (data[0] !== undefined){
-                console.log('exists')
+                console.log(data[0].id)
                 return {
                     id: data[0].id,
-                    status: data[0].admin_status
                 }
             }
-
-//console.logs their admin status as false
-
-        else{
-            console.log("user does not exist")
-            return false
-        }         
-    }
+        
+        else { return ("Username doesnt exists")}
+        }
 
     catch (error) {
         console.log('Sign in Error')
@@ -101,7 +90,6 @@ const signIn = async (username) => {
     connection.end()
 }
 
-//signIn()
 
 
 const addShift = async (clientFirst, clientLast, staffFirst, staffLast, startTime, endTime, shiftDate, hoursWorked)=>{

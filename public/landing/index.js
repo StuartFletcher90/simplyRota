@@ -6,20 +6,9 @@ const signUpBtn = document.getElementById("signUp");
 const returnBtn = document.getElementById("return");
 const registerBtn = document.getElementById("registerBtn");
 const logMeInBtn = document.getElementById("logMeIn");
-const modal = document.getElementById("register-modal")
-// const usernameNew = document.getElementById("usernameSetter");
-// const passwordNew = document.getElementById("passwordSetter");
-// const firstName = document.getElementById("firstName");
-// const lastName = document.getElementById("lastName");
-// const email = document.getElementById("email");
-// const jobTitle = document.getElementById("jobTitle");
-// const hoursContracted = document.getElementById("hoursContracted");
-// const annualLeave = document.getElementById("annualLeave");
-// const skills = document.getElementById("skills");
-// const comments = document.getElementById("comments");
-
-// const span = document.getElementsByClassName("close")[0]
-const usernameInput= document.getElementById('username')
+const usernameInput = document.getElementById("username")
+const modal = document.getElementById("register-modal");
+const closer = document.getElementById("closer");
 
 //when landing (default), only show logIn or signUp buttons
 splash.style.display="block";
@@ -88,15 +77,13 @@ window.onclick = (event) => {
 //   const heading = document.getElementById("lead-heading");
 //   heading.charAt(6).style.color = "red";
 
+//* SIGN IN BUTTON
 
-
-// logMeInBtn.addEventListener("click", async () => {
-//     console.log("log in has been clicked")
-
-//     let response = await fetch(`/signIn?username=${usernameInput.value}&password=${password}`)
-//     let data = await response.json()
-//     console.log(data)
-// })
+logMeInBtn.addEventListener("click", async () => {
+    let response = await fetch(`/signIn?username=${usernameInput.value}`) // fetch endpoint
+    let data = await response.json()
+    if (data.id){console.log(data.id)} // if id exists, console.log it
+})
 
 const signIn = async () => {
     const username = usernameInput.value;
