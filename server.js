@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 
 const port = process.env.PORT || 3003;
 
-const {addUser, signIn, addShift, listShifts, deleteShift} = require("./app")
+const {addUser, signIn, addShift, listShifts, deleteShift, editShift} = require("./app")
 
 
 //?---------- incase of access cors error ==========?//
