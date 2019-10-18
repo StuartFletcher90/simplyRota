@@ -171,7 +171,7 @@ color: var(--shift-card-grey);
     }
 
 .shift-card{
-    border-bottom: 3px solid rgba(255, 1, 1, 0.137);
+    border-bottom;: 3px solid rgba(255, 1, 1, 0.137);
     background-color: rgba(236, 236, 236, 0.466);
     margin-bottom: 5vh;
 
