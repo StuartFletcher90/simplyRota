@@ -6,11 +6,8 @@ const port = process.env.PORT || 3003;
 
 const {addUser, signIn, addShift, listShifts} = require("./app")
 
-//import functions
-//const {functions} = require('/lib/app')
 
-
-//incase of access cors error
+//?---------- incase of access cors error ==========?//
 // app.use((req, res, next) => {
 //     res.header("Access-Control-Allow-Origin", "*");
 //     next();
@@ -24,36 +21,8 @@ app.use(express.static(path.join(__dirname, "public/landing")))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-//sign up for staff
-app.get("/register", async (req, res) => {
-    await addUser(
-        req.query.first_name,
-        req.query.last_name,
-        req.query.gender,
 
-        )
-    console.log("user has been registered")
-})
-
-//sign up for staff
-// app.get("/admin/register", async (req, res) => {
-//     await addUser(
-//         req.query.adminStatus,
-//         req.query.firstName,
-//         req.query.lastName,
-//         req.query.gender,
-//         req.query.hoursContracted,
-//         req.query.jobTitle,
-//         req.query.skills,
-//         req.query.annualLeave,
-//         req.query.drivingStatus,
-//         req.query.username,
-//         req.query.password
-//         )
-//     console.log("user has been registered")
-// })
-
-app.post("/register",  (req, res) => {
+app.post("/register",  (req) => {
     let user = {
         first_name : req.body.firstName,
         last_name : req.body.lastName,
@@ -66,12 +35,14 @@ app.post("/register",  (req, res) => {
         admin_status :  req.body.adminAccess,
         driving_status : req.body.drivingStatus,
         skills : req.body.skills,
-        annual_leave_entitlement:  req.body.annualLeave
+        annual_leave_entitlement: req.body.annualLeave
     }
     console.log(user)
     console.log(req.body)
-    // addUser is only expected 1 parameter, so can't have a bunch of req.queries separated by commas.
-    //Instead create a user object with the req.queries and use that as the function parameter.
+    // addUser is only expected 1 parameter, 
+    // so can't have a bunch of req.queries separated by commas.
+    // Instead create a user object with the 
+    // req.queries and use that as the function parameter.
     addUser(user)
     // console.log(data)
     console.log("user has been registered")

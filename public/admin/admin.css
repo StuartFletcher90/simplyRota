@@ -20,7 +20,7 @@ body {
     --z-background:0;
     --z-background-far:-50;
 
-    background-color: var(--main-bg-grey);
+    background-color: white;
 
     display: flex;
     flex-direction: column;
@@ -41,8 +41,7 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 position: fixed;
-background-color: var(--main-blue);
-
+background-color: white;
 width: 100vw;
 z-index: var(--z-very-top);
 }
@@ -102,8 +101,9 @@ z-index: var(--z-very-top);
     top: 5vh;
     height:10vh;
     width: 100vw;
-    margin: 3vh 0 5vh 0;
-    background-color: var(--main-blue);
+    margin: 21px 0 0 0;
+    background-color: white;
+    border-bottom: 1px solid red;
     z-index: var(--z-very-top);
 }
 #search-button{
@@ -112,9 +112,12 @@ z-index: var(--z-very-top);
     
 }
 .date-drop{
-  font-size: 40px;;  
-  border: 1px solid Blue; min-height:20px
+  font-size: 15px; 
+  border: 3px solid red; min-height: 30px;
+  height: 20px;
+  width: 50%;
 }
+
 .date-bar ul{
     display: flex;
     flex-direction: row;
@@ -154,7 +157,7 @@ color: var(--shift-card-grey);
     flex-direction: column;
     width: 100vw;
     position: relative;
-    margin-top: 30vh;
+    margin-top: 23vh;
     -index: var(--z-middle);
     }
 
