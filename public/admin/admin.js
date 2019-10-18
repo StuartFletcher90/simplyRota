@@ -32,7 +32,7 @@ const addShiftBtn = document.getElementById("addShift-Btn");
 // fetchData()
 // shift-cards-wrapper
 
-deleteButton.addEventListener('click', async () => {
+deleteButton.addEventListener('click', async (shift_id) => {
     // document.getElementById('load').innerHTML="Loading..."
    let response = await fetch(`"/deleteShift"${shift_id}`);
    let data = await response.json()

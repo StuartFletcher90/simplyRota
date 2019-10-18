@@ -166,32 +166,49 @@ const listShifts = async (shift_data) => {
 // listShifts('2019-10-18')
 
 // Delete shifts
+let shift_to_delete = {
+    clientLocation: "4 Village Mews",
+    startTime: "09:00:00",
+    endTime: "17:00:00",
+    shiftDate: "2019-10-17",
+    hoursWorked: 8.0,
 
-Const deleteShift = (shift) => {
-    Try {
+
+}
+
+const deleteShift = async (shift) => {
+    try {
 
     //getting client id from client location
     let client_id_query = `SELECT id FROM clients
-    WHERE client_location = ‘${shift.clientLocation}’;`
+    WHERE client_location = '${shift.clientLocation}';`
     let client_id = await promisifiedQuery(client_id_query)
 
+    console.log(client_id[0].id)
+
     //getting shift id from shift information in the shift card
-    let shift_id_query = `SELECT id FROM shifts
-    WHERE start_time = ‘${shift.startTime}’, AND end_time =‘${shift.endTime}’ AND shift_date =‘${shift.shiftDate}’ AND
-    client_id = ‘${client_id[0].id}’ ;`
-    let shift_id = await promisifiedQuery(shift_id_query)
+    // let shift_id_query = `SELECT id FROM shifts
+    // WHERE start_time = '${shift.startTime}', AND end_time ='${shift.endTime}' AND shift_date ='${shift.shiftDate}' AND
+    // client_id = '${client_id[0].id}' ;`
+    // let shift_id = await promisifiedQuery(shift_id_query)
+
+    // console.log(shift_id)
 
     //deleting shift
     let queryStringAdd = `DELETE FROM shifts
-    WHERE id = ${shift_id[0].id};`
-    let data =await  promisifiedQuery(queryStringAdd)
+    WHERE start_time = '${shift.startTime}' AND end_time ='${shift.endTime}' AND shift_date ='${shift.shiftDate}' AND
+    client_id = ${client_id[0].id};`
+    let data = await  promisifiedQuery(queryStringAdd)
+
     Return (data)
     
     }
-    Catch(e){
-    Console.log(e.sqlMessage)
+    catch(e){
+    console.log(e.sqlMessage)
+    // console.log(shift)
     }
     }
+deleteShift(shift_to_delete)
 
 module.exports = {
     addUser,
