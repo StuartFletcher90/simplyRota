@@ -80,37 +80,21 @@ const addUser = async (user) => {
 //addUser()
 
 // sign in function which checks whether username exists and returns their id and admin status
-const signIn = async (user) => {
+const signIn = async (username) => {
 
     try {
-        const queryString = `SELECT id, admin_status FROM staff WHERE username = '${user}`;
+        const queryString = `SELECT id FROM staff WHERE username = '${username}'`;
         let data = await promisifiedQuery(queryString)
 
-// console.logs their admin status if true
-
-        if (data[0] !== undefined && data[0].admin_status=="Y"){
-                console.log('admin')
+        if (data[0] !== undefined){
+                console.log(data[0].id)
                 return {
                     id: data[0].id,
-                    status: data[0].admin_status
                 }
             }
-
-//console.logs their admin status as false
-
-        else if (data[0] !== undefined && data[0].admin_status=="N"){
-            console.log('staff')
-            return {
-                id: data[0].id,
-                status: data[0].admin_status
-            }
+        
+        else { return ("Username doesnt exists")}
         }
-
-        else{
-            console.log("user does not exist")
-            return false
-        }         
-    }
 
     catch (error) {
         console.log('Sign in Error')
@@ -118,7 +102,6 @@ const signIn = async (user) => {
     }
 }
 
-//signIn()
 
 
 const addShift = async ()=>{
@@ -173,7 +156,7 @@ const listShifts = async (shift_data) => {
     }
 }
 
-listShifts('2019-10-18')
+//listShifts('2019-10-18')
 
 module.exports = {
     addUser,

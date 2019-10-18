@@ -51,12 +51,8 @@ app.post("/register",  (req) => {
 
 //sign in
 app.get("/signIn", async (req, res) => {
-    let data = await signIn(
-        req.query.username,
-        req.query.password
-        )
+    let data = await signIn(req.query.username)
     res.send(data)
-    console.log("signed in user")
 })
 
 //display
