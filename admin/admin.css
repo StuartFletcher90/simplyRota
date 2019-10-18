@@ -101,7 +101,7 @@ z-index: var(--z-very-top);
     top: 5vh;
     height:10vh;
     width: 100vw;
-    margin: 1% 0 0 0;
+    margin: 5% 0 0 0;
     background-color: white;
     border-bottom: 1px solid red;
     z-index: var(--z-very-top);
@@ -171,43 +171,43 @@ color: var(--shift-card-grey);
     }
 
 .shift-card{
-    border: 5px solid #2222;
-    background-color: var(--shift-card-grey);
+    border-bottom: 3px solid rgba(255, 1, 1, 0.137);
+    background-color: rgba(236, 236, 236, 0.466);
     margin-bottom: 5vh;
 
 }
 
-
+h5 {
+    margin-left: 10px;
+}
+.shiftBtnStyle {
+    color: #e33326;
+    justify-content: center;
+}
 
 .shift-staff-names{
 list-style-type: none;
 
-box-shadow: 0 0 1em 1em #ccc;
-padding: 0;
-margin: 0;
+/* box-shadow: 0 0 1em 1em #ccc; */
+/* padding: 0;
+margin: 0; */
 display: flex;
 flex-direction: row;
 
 
 }
-.hours-staff-worked{
-box-shadow: 0 0 1em 1em #ccc;
-}
+
 
 .shift-time{
- box-shadow: 0 0 1em 1em #ccc;
+ /* box-shadow: 0 0 1em 1em #ccc; */
  color: red;
 
 }
 
-.shift-location{
 
- box-shadow: 0 0 1em 1em #ccc;
-
-}
 
 .shift-client{
-box-shadow: 0 0 1em 1em #ccc;
+/* box-shadow: 0 0 1em 1em #ccc; */
 font: bolder;
 font-size: 15px;
 
@@ -219,13 +219,6 @@ font-size: 15px;
 font-size: 40px;
 }
 
-.shift-edit-shift-button{
-
-}
-
-.shift-delete-button{
-
-}
 
 
 /*  Add new Client Button  */
@@ -261,59 +254,40 @@ font-size: 40px;
 #new-client-wrapper{
 display: hidden;
 }
-.times{}
 
-.client-time{
-    display: flex;
-    flex-direction: row;
+/*---------- modal styling ----------*/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    z-index: 999;
 }
 
-::placeholder {
-    color: white;
-    opacity: 1; /* Firefox */
-  }
-
-.new-shift-assigned-to{
-
-    
-
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    z-index: 999;
 }
 
-.new-client-namel{
-
-    
-
+#closer{
+    text-align: right;
+    color: #e33326;
+    z-index: 999;
 }
 
-.new-client-time{
 
-   
-
-}
-
-.new-client-time{
-
-
-
-}
-
-.new-client-comments{
-width: 30vw;
-
-
-
-}
-
-.new-client-submitt{
-    /* display:none; */
-    color: white;
-    font-size: 2em;
-    background-color: var(--main-blue);
-
-
-
-}
-
-@media only screen and (-device-width: 414px) {
-    
+@media only screen and (max-device-width: 501px) {
+    .date-bar {
+        margin-top: 20px;
+    }
 }

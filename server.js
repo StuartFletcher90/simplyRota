@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 
 const port = process.env.PORT || 3003;
 
-const {addUser, signIn, addShift, listShifts} = require("./app")
+const {addUser, signIn, addShift, listShifts, deleteShift} = require("./app")
 
 
 //?---------- incase of access cors error ==========?//
@@ -14,8 +14,9 @@ const {addUser, signIn, addShift, listShifts} = require("./app")
 // });
 
 const app = express();
-app.use(express.static(path.join(__dirname, "public/landing")))
-
+app.use("/admin", express.static(path.join(__dirname, "admin")))
+app.use("/landing",express.static(path.join(__dirname, "landing")))
+app.use("/staff", express.static(path.join(__dirname, "staff")))
 
 //to allow HTTP requests
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -52,12 +53,8 @@ app.post("/register",  (req) => {
 
 //sign in
 app.get("/signIn", async (req, res) => {
-    let data = await signIn(
-        req.query.username,
-        req.query.password
-        )
+    let data = await signIn(req.query.username)
     res.send(data)
-    console.log("signed in user")
 })
 
 //display
@@ -69,33 +66,52 @@ app.get("/display", async (req, res) => {
 })
 
 //add shift
-app.post("/addShift", async (req, res) => {
+app.post("/addShift", (req, res) => {
+    let staff_fullName = req.body.staff_fullName
 
-    let shift = {
+    let fullNameSplit = staff_fullName.split(' ')
 
+   
+    shift = {
+        clientLocation : req.body.clientLocation,
+        firstName : fullNameSplit[0],
+        lastName : fullNameSplit[1],
+        startTime : req.body.startTime,
+        endTime : req.body.endTime,
+        shiftDate : req.body.shiftDate,
+        hoursWorked : req.body.hoursWorked,
     }
-    req.query.employer,
-        req.query.client,
-        req.query.date,
-        req.query.startTime,
-        req.query.endTime
-    addShift(
-        shift
-    )
-    res.send(data)
+ 
+    addShift(shift)
+  
     console.log("added shift")
 
-})
+});
 
 
 //delete shift
-app.get("/deleteShift", async (req, res) => {
-    let data = await deleteShift(
-        req.query.shift
-    )
+// app.get("/deleteShift", async (req, res) => {
+//     let data = await deleteShift(
+//         req.query.shift
+//     )
+//     res.send(data)
+//     console.log("deleted shift")
+// })
+
+app.post("/deleteShift", (req, res) => {
+    let shift = {
+    staffName: req.body.staffName,
+    startTime : req.body.startTime,
+    endTime: req.body.endTime,
+    shiftDate: req.body.shiftDate,
+    hoursWorked: req.body.hoursWorked,
+    clientLocation: req.body.clientLocation
+    }
+    deleteShift(shift)
     res.send(data)
     console.log("deleted shift")
-})
+
+    }) 
 
 //list shifts for particular date
 

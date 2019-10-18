@@ -6,6 +6,7 @@ const signUpBtn = document.getElementById("signUp");
 const returnBtn = document.getElementById("return");
 const registerBtn = document.getElementById("registerBtn");
 const logMeInBtn = document.getElementById("logMeIn");
+const usernameInput = document.getElementById("username")
 const modal = document.getElementById("register-modal");
 const closer = document.getElementById("closer");
 
@@ -49,14 +50,27 @@ signUpBtn.addEventListener("click", () => {
 
 //---------- register a new user ----------//
 registerBtn.addEventListener("click", async () => {
-    //displays the log in stuff
-    splash.style.display="none";
-    splashTwo.style.display="block";
-    returnBtn.style.display="block";
-    registerBtn.style.display="none";
-    modal.style.display="none";
-    console.log("registered button has been clicked")
-})
+    // displays the log in stuff only when required inputs have been entered
+    if(document.getElementById("usernameSetter").value != null
+        && document.getElementById("passwordSetter").value != null
+        && document.getElementById("firstName").value != null
+        && document.getElementById("lastName").value != null
+        && document.getElementById("email").value != null
+        && document.querySelector('input[name="adminAccess"]:checked').value != null
+        && document.getElementById("jobTitle").value != null
+        && document.getElementById("hoursContracted").value != null
+        && document.getElementById("annualLeave").value != null
+        && document.querySelector('input[name="gender"]:checked').value != null
+        && document.querySelector('input[name="drivingStatus"]:checked').value != null
+        ){
+            splash.style.display="none";
+            splashTwo.style.display="block";
+            returnBtn.style.display="block";
+            registerBtn.style.display="none";
+            modal.style.display="none";
+            console.log("registered button has been clicked")
+        }
+ })
 
 //---------- close form on close ----------//
 closer.addEventListener("click", () => {
@@ -69,20 +83,33 @@ window.onclick = (event) => {
     if (event.target == modal) {
       modal.style.display = "none";
     }
-  }
+}
 
 
 //!---------- I don't know what this is ----------!//
 //   const heading = document.getElementById("lead-heading");
 //   heading.charAt(6).style.color = "red";
 
+//* SIGN IN BUTTON
 
+logMeInBtn.addEventListener("click", async () => {
+    let response = await fetch(`/signIn?username=${usernameInput.value}`) // fetch endpoint
+    let data = await response.json()
+    if (data.id){console.log(data.id)} // if id exists, console.log it
+})
 
-// logMeInBtn.addEventListener("click", async () => {
-//     console.log("log in has been clicked")
+const signIn = async () => {
+    const username = usernameInput.value;
 
-//     let response = await fetch(`/signIn?username=${usernameInput.value}&password=${password}`)
-//     let data = await response.json()
-//     console.log(data)
-// })
+    let response = await fetch(`/signin?username=${username}`)
+    let data = await response.json()
+    console.log(data);
+
+    if (data.id) {
+        location.pathname = "./admin/index.html"
+    }
+    else {
+        alert('Username not recognised! Please check your username or sign up.')
+    }
+}
 
