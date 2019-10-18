@@ -86,7 +86,7 @@ window.onclick = (event) => {
 }
 
 
-//!---------- I don't know what this is ----------!//
+//!---------- Delete this ----------!//
 //   const heading = document.getElementById("lead-heading");
 //   heading.charAt(6).style.color = "red";
 
