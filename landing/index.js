@@ -6,6 +6,7 @@ const signUpBtn = document.getElementById("signUp");
 const returnBtn = document.getElementById("return");
 const registerBtn = document.getElementById("registerBtn");
 const logMeInBtn = document.getElementById("logMeIn");
+const usernameInput = document.getElementById("username")
 const modal = document.getElementById("register-modal");
 const closer = document.getElementById("closer");
 
@@ -76,13 +77,26 @@ window.onclick = (event) => {
 //   const heading = document.getElementById("lead-heading");
 //   heading.charAt(6).style.color = "red";
 
+//* SIGN IN BUTTON
 
+logMeInBtn.addEventListener("click", async () => {
+    let response = await fetch(`/signIn?username=${usernameInput.value}`) // fetch endpoint
+    let data = await response.json()
+    if (data.id){console.log(data.id)} // if id exists, console.log it
+})
 
-// logMeInBtn.addEventListener("click", async () => {
-//     console.log("log in has been clicked")
+const signIn = async () => {
+    const username = usernameInput.value;
 
-//     let response = await fetch(`/signIn?username=${usernameInput.value}&password=${password}`)
-//     let data = await response.json()
-//     console.log(data)
-// })
+    let response = await fetch(`/signin?username=${username}`)
+    let data = await response.json()
+    console.log(data);
+
+    if (data.id) {
+        location.pathname = "/admin/admin.html"
+    }
+    else {
+        alert('Username not recognised! Please check your username or sign up.')
+    }
+}
 

@@ -80,8 +80,14 @@ INSERT INTO shifts (start_time, end_time, shift_date, hours_worked, client_id, s
 ("14:00:00", "18:30:00", "2019-10-18",4.5 , 3, null),
 ("10:00:00", "15:30:00", "2019-10-18", 5.5, 3, null);
 
+
+
+
+
+
 -- SQL queries
 -- listing all shifts for one staff member
+
 SELECT concat(first_name,' ', last_name) AS staff_name, start_time,end_time, shift_date,hours_worked, client_location
 FROM staff 
 JOIN shifts 
