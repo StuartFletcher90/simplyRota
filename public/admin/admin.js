@@ -27,4 +27,10 @@ const fetchData = async () => {
 fetchData()
 // shift-cards-wrapper
 
+deleteButton.addEventListener('click', async () => {
+    // document.getElementById('load').innerHTML="Loading..."
+   let response = await fetch(`"/deleteShift"${shift_id}`);
+   let data = await response.json()
+   console.log(data)
+});
 
