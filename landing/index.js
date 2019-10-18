@@ -110,15 +110,6 @@ logMeInBtn.addEventListener("click", async () => {
 //     let data = await response.json()
 //     console.log(data);
 
-<<<<<<< HEAD
-    if (data.id) {
-        location.pathname = "./admin"
-    }
-    else {
-        alert('Username not recognised! Please check your username or sign up.')
-    }
-}
-=======
 //     if (data.id) {
 //         location.pathname = "admin"
 //     }
@@ -126,5 +117,4 @@ logMeInBtn.addEventListener("click", async () => {
 //         alert('Username not recognised! Please check your username or sign up.')
 //     }
 // }
->>>>>>> stefan
 
