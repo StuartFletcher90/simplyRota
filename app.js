@@ -90,9 +90,9 @@ const signIn = async (username) => {
     connection.end()
 }
 
-<<<<<<< HEAD
+
 //signIn()
-<<<<<<< HEAD
+
 newShift = {
     clientLocation : '2 Elm Street',
     firstName : null,
@@ -101,9 +101,7 @@ newShift = {
     endTime : '16:30:00',
     shiftDate : '2019-10-19',
     hoursWorked : 6.5,
-=======
->>>>>>> 0e30786f806cc7a588cc0fca06a3d15d6eb6c6e0
-=======
+
 // newShift = {
 //     clientLocation : '2 Elm Street',
 //     firstName : null,
@@ -112,7 +110,7 @@ newShift = {
 //     endTime : '16:30:00',
 //     shiftDate : '2019-10-19',
 //     hoursWorked : 6.5,
->>>>>>> mo-dev-branch3
+
 
 // }
 
@@ -153,7 +151,6 @@ const addShift = async (shift)=>{
         let data = await promisifiedQuery(queryString)
         console.log(data)
         return data
-<<<<<<< HEAD
 
         }
         else {
@@ -175,8 +172,6 @@ const addShift = async (shift)=>{
     // console.log(client_id[0].id)
 
        
-=======
->>>>>>> 0e30786f806cc7a588cc0fca06a3d15d6eb6c6e0
     }
 
     catch (error) {
@@ -188,18 +183,11 @@ const addShift = async (shift)=>{
     }
 }
 
-<<<<<<< HEAD
-// addShift(newShift)
-
-const editShift = async () => {
-    
-=======
 const editShift = async (shift) => {
 
     let start = shift.start
     let end = shift.end
     let id = shift.id
->>>>>>> 0e30786f806cc7a588cc0fca06a3d15d6eb6c6e0
     try{
         const queryString = `UPDATE shifts SET start_time='${start}', end_time='${end}' where id=${id}`;
         let data = await promisifiedQuery(queryString)
@@ -281,17 +269,13 @@ const deleteShift = async (shift) => {
     // console.log(shift)
     }
     }
-deleteShift(shift_to_delete)
+// deleteShift(shift_to_delete)
 
 module.exports = {
     addUser,
     signIn,
     addShift,
     editShift,
-<<<<<<< HEAD
     listShifts,
     deleteShift
-=======
-    // listShifts
->>>>>>> efabede14100481eda14259a6ab97a02881e5998
 }
