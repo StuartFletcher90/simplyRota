@@ -45,18 +45,17 @@
                             <legend id="closer">close</legend>
                             <div>
                                 <h1 id="form-title">Register</h1>
-                                <input class="inputBox" id="usernameSetter" type="text" placeholder="Username" name="username"><br>
-                                <input class="inputBox" id="passwordSetter" type="password" placeholder="Password" name="password"><br>
-                                <input class="inputBox" id="firstName" type="text" placeholder="First name" name="firstName"><br>
-                                <input class="inputBox" id="lastName" type="text" placeholder="Last name" name="lastName"><br>
-                                <input class="inputBox" id="email" type="text" placeholder="Email" name="email"><br>
-    
+                                <input class="inputBox" id="usernameSetter" type="text" placeholder="Username" name="username" required><br>
+                                <input class="inputBox" id="passwordSetter" type="password" placeholder="Password" name="password" required><br>
+                                <input class="inputBox" id="firstName" type="text" placeholder="First name" name="firstName" required><br>
+                                <input class="inputBox" id="lastName" type="text" placeholder="Last name" name="lastName" required><br>
+                                <input class="inputBox" id="email" type="text" placeholder="Email" name="email" required><br>
                                 <div class="radioQu">
                                     <h5 class="noMarg">Admin status</h5>
                                     <div class="radioBtns">
                                         <div>
                                             <h6 class="noMarg">Admin</h6>
-                                            <input type="radio" name="adminAccess" value="Y"><br>
+                                            <input type="radio" name="adminAccess" value="Y" required><br>
                                         </div>
                                         <div>
                                             <h6 class="noMarg">Non-admin</h6>
@@ -64,17 +63,15 @@
                                         </div>
                                     </div>
                                 </div>
-    
-                                <input class="inputBox" id="jobTitle" type="text" placeholder="Job title" name="jobTitle"><br>
-                                <input class="inputBox" id="hoursContracted" type="text" placeholder="Hours contracted" name="hoursContracted"><br>
-                                <input class="inputBox" id="annualLeave" type="text" placeholder="Annual leave entitlement" name="annualLeave">
-    
+                                <input class="inputBox" id="jobTitle" type="text" placeholder="Job title" name="jobTitle" required><br>
+                                <input class="inputBox" id="hoursContracted" type="text" placeholder="Hours contracted" name="hoursContracted" required><br>
+                                <input class="inputBox" id="annualLeave" type="text" placeholder="Annual leave entitlement" name="annualLeave" required>
                                 <div class="radioQu">
                                     <h5 class="noMarg">Gender</h5>
                                     <div class="radioBtns">
                                         <div>
                                             <h6 class="noMarg">Male</h6>
-                                            <input type="radio" name="gender" value="M"><br>
+                                            <input type="radio" name="gender" value="M" required><br>
                                         </div>
                                         <div>
                                             <h6 class="noMarg">Female</h6>
@@ -82,13 +79,12 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="radioQu">
                                     <h5 class="noMarg">Driving Status</h5>
                                     <div class="radioBtns">
                                         <div>
                                             <h6 class="noMarg">Able to drive</h6>
-                                            <input type="radio" name="drivingStatus" value="Y"><br>
+                                            <input type="radio" name="drivingStatus" value="Y" required><br>
                                         </div>
                                         <div>
                                             <h6 class="noMarg">Unable to drive</h6>
@@ -96,14 +92,10 @@
                                         </div>
                                     </div>
                                 </div>
-    
                                 <h5 class="text-title">Skills</h5>
                                 <textarea id="skills" rows="4" cols="40" name="skills" placeholder="Please tell us about skills you may have that are relevant or services you have been involved with"></textarea>
                                 <input id="registerBtn" class="regBtn" type="submit" value="Register">
-    
                             </div>
-        
-        
                             </fieldset>
                         </form>
                     </div>
