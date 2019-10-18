@@ -69,22 +69,22 @@ const sh = document.getElementById('shiftHours')
 
 const xdeleteBtn = document.getElementById("xdelete")
 
-// xdeleteBtn.addEventListener('click', async ()=> {
-//    const shiftToDelete = {
-//        clientLocation: cl.textContent,
-//         shiftStart: ss.textContent,
-//         shiftEnd: se.textContent,
-//         shiftName: sn.textContent,
-//         shiftDate: sd.textContent,
-//         shiftHours: sh.textContent
+xdeleteBtn.addEventListener('click', async ()=> {
+   const shiftToDelete = {
+       clientLocation: cl.textContent,
+        shiftStart: ss.textContent,
+        shiftEnd: se.textContent,
+        shiftName: sn.textContent,
+        shiftDate: sd.textContent,
+        shiftHours: sh.textContent
 
-//     }
+    }
 
-
+     await fetch(`/deleteShift?shift=${shiftToDelete}`)
 // //    let data =  await fetch(`/deleteShift?shift=${shiftToDelete}`)
 
-//    console.log(shiftToDelete)
-// })
+   console.log(shiftToDelete)
+})
 
 
 

@@ -291,6 +291,6 @@ module.exports = {
     signIn,
     addShift,
     editShift,
-    // listShifts,
+    listShifts,
     deleteShift
 }
