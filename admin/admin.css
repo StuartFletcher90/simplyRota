@@ -98,7 +98,7 @@ z-index: var(--z-very-top);
     justify-content: space-around;
     align-items: center;
     position: fixed;
-    top: 5vh;
+    top: 7%;
     height:8vh;
     width: 100vw;
     margin :3px;
@@ -348,3 +348,16 @@ display: hidden;
         height: 50px;
         float: left;
    }
+}
+
+@media only screen and (min-device-width: 1000px) {
+    .date-bar {
+        top: 4%;
+    }
+}
+
+@media only screen and (min-device-width: 1600px) {
+    .date-bar {
+        top: 5%;
+    }
+}

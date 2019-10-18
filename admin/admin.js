@@ -69,12 +69,8 @@ window.onclick = (event) => {
     let data = await response.json()
     console.log(data)
     // displayData(data)
-})
 
 
-
-
-=======
 addShiftBtn.addEventListener("click", async () => {
     modal.style.display = "none";
 })
