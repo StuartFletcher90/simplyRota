@@ -171,43 +171,49 @@ color: var(--shift-card-grey);
     }
 
 .shift-card{
-    border: 5px solid #2222;
-    background-color: var(--shift-card-grey);
+    border-bottom;: 3px solid rgba(255, 1, 1, 0.137);
+    background-color: rgba(236, 236, 236, 0.466);
     margin-bottom: 5vh;
 
 }
 
-
+h5 {
+    margin-left: 10px;
+}
+.shiftBtnStyle {
+    color: #e33326;
+    justify-content: center;
+}
 
 .shift-staff-names{
 list-style-type: none;
 
-box-shadow: 0 0 1em 1em #ccc;
-padding: 0;
-margin: 0;
+/* box-shadow: 0 0 1em 1em #ccc; */
+/* padding: 0;
+margin: 0; */
 display: flex;
 flex-direction: row;
 
 
 }
 .hours-staff-worked{
-box-shadow: 0 0 1em 1em #ccc;
+/* box-shadow: 0 0 1em 1em #ccc; */
 }
 
 .shift-time{
- box-shadow: 0 0 1em 1em #ccc;
+ /* box-shadow: 0 0 1em 1em #ccc; */
  color: red;
 
 }
 
 .shift-location{
 
- box-shadow: 0 0 1em 1em #ccc;
+ /* box-shadow: 0 0 1em 1em #ccc; */
 
 }
 
 .shift-client{
-box-shadow: 0 0 1em 1em #ccc;
+/* box-shadow: 0 0 1em 1em #ccc; */
 font: bolder;
 font-size: 15px;
 
