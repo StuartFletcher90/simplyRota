@@ -91,11 +91,6 @@ const signIn = async (username) => {
 }
 
 
-<<<<<<< HEAD
-//signIn()
-
-=======
->>>>>>> stefan
 newShift = {
     clientLocation : '2 Elm Street',
     firstName : null,
@@ -104,11 +99,7 @@ newShift = {
     endTime : '16:30:00',
     shiftDate : '2019-10-19',
     hoursWorked : 6.5,
-<<<<<<< HEAD
-
-=======
 }
->>>>>>> stefan
 // newShift = {
 //     clientLocation : '2 Elm Street',
 //     firstName : null,
@@ -276,6 +267,6 @@ module.exports = {
     signIn,
     addShift,
     editShift,
-    listShifts,
+    // listShifts,
     deleteShift
 }
