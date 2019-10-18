@@ -152,17 +152,7 @@ z-index: var(--z-very-top);
     margin: 0 2px 0 2px;
 } */
 
-<<<<<<< HEAD
-.date-bar ul li p{
-    font-size: 0.7em;
-    font-weight: bold;
-    line-height: 0;
-}
-
-.date-bar ul li:nth-child(1),
-=======
 /* .date-bar ul li:nth-child(1),
->>>>>>> f3a720f5efeba799dfdc18e7c57ef0c4dc9325d1
 .date-bar ul li:last-child{
 font-size: 1em;
 border: none;
@@ -176,13 +166,8 @@ color: var(--shift-card-grey);
     flex-direction: column;
     width: 100vw;
     position: relative;
-<<<<<<< HEAD
-    margin-top: 30vh;
-    z-index: var(--z-middle);
-=======
     margin-top: 23vh;
     -index: var(--z-middle);
->>>>>>> f3a720f5efeba799dfdc18e7c57ef0c4dc9325d1
     }
 
 .shift-card{
@@ -272,32 +257,11 @@ font-size: 40px;
 
 
 /*********  NEW CLIENTS  ******/
-<<<<<<< HEAD
-.new-client-wrapper{
-    /* display: none; */
-    /* background: var(--main-bg-grey); */
-    background: var(--main-green);
-
-}
-
-.new-client-wrapper > *
-{
-    background-color: inherit;
-    color: black;
-    font-size: 1em;
-    /* border: none; */
-    display: flex;
-    flex-direction: column;
-
-
-}
-=======
->>>>>>> f3a720f5efeba799dfdc18e7c57ef0c4dc9325d1
 
 #new-client-wrapper{
 display: hidden;
 }
-.times{
+.times{}
 
 .client-time{
     display: flex;
@@ -346,13 +310,10 @@ width: 30vw;
     font-size: 2em;
     background-color: var(--main-blue);
 
-<<<<<<< HEAD
-=======
 
 
 }
 
 @media only screen and (-device-width: 414px) {
     
->>>>>>> f3a720f5efeba799dfdc18e7c57ef0c4dc9325d1
 }
