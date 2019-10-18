@@ -64,9 +64,9 @@ z-index: var(--z-very-top);
     height: 50px;
     width: 50px;
     border-radius: 10%;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-right: 10px;
-    background: white;
+    /* background: white; */
 }
 
 
@@ -76,7 +76,7 @@ z-index: var(--z-very-top);
     flex-direction: column;
     justify-content: center;
     text-decoration: none;
-    color: white;
+    color: black;
     width: auto;
     /* background-color: aqua; */
     margin-right: 2vw;
@@ -99,9 +99,9 @@ z-index: var(--z-very-top);
     align-items: center;
     position: fixed;
     top: 5vh;
-    height:10vh;
+    height:8vh;
     width: 100vw;
-    margin: 5% 0 0 0;
+    margin :3px;
     background-color: white;
     border-bottom: 1px solid red;
     z-index: var(--z-very-top);
@@ -180,10 +180,10 @@ color: var(--shift-card-grey);
 h5 {
     margin-left: 10px;
 }
-.shiftBtnStyle {
+/* .shiftBtnStyle {
     color: #e33326;
     justify-content: center;
-}
+} */
 
 .shift-staff-names{
 list-style-type: none;
@@ -196,7 +196,9 @@ flex-direction: row;
 
 
 }
-
+.hours-staff-worked{
+/* box-shadow: 0 0 1em 1em #ccc; */
+}
 
 .shift-time{
  /* box-shadow: 0 0 1em 1em #ccc; */
@@ -204,7 +206,11 @@ flex-direction: row;
 
 }
 
+.shift-location{
 
+ /* box-shadow: 0 0 1em 1em #ccc; */
+
+}
 
 .shift-client{
 /* box-shadow: 0 0 1em 1em #ccc; */
@@ -219,7 +225,17 @@ font-size: 15px;
 font-size: 40px;
 }
 
+.shift-edit-shift-button{
+    color: green;
 
+}
+
+.shift-delete-button{
+color: red;
+}
+.shift-client-details-button{
+    color:blue;
+}
 
 /*  Add new Client Button  */
 /*  This should toggle between the new-client-wrapper
@@ -254,6 +270,45 @@ font-size: 40px;
 #new-client-wrapper{
 display: hidden;
 }
+.times{
+
+}
+
+.new-shift-assigned-to{
+
+    
+
+}
+
+.new-client-namel{
+
+    
+
+}
+
+.new-client-time{
+
+   
+
+}
+
+.new-client-time{
+
+
+
+}
+
+.new-client-comments{
+
+
+
+}
+
+.new-client-submitt{
+
+
+
+}
 
 /*---------- modal styling ----------*/
 .modal {
@@ -286,8 +341,10 @@ display: hidden;
 }
 
 
-@media only screen and (max-device-width: 501px) {
+@media only screen and (max-device-width: 500px) {
     .date-bar {
-        margin-top: 20px;
-    }
-}
+        /* margin-top: -20px; */
+        width: 73%;
+        height: 50px;
+        float: left;
+   }

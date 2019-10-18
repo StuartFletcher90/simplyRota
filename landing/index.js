@@ -86,7 +86,7 @@ window.onclick = (event) => {
 }
 
 
-//!---------- I don't know what this is ----------!//
+//!---------- Delete this ----------!//
 //   const heading = document.getElementById("lead-heading");
 //   heading.charAt(6).style.color = "red";
 
@@ -95,21 +95,26 @@ window.onclick = (event) => {
 logMeInBtn.addEventListener("click", async () => {
     let response = await fetch(`/signIn?username=${usernameInput.value}`) // fetch endpoint
     let data = await response.json()
-    if (data.id){console.log(data.id)} // if id exists, console.log it
+    if (data.id){
+        console.log(data.id)    // if id exists, console.log it
+        location.pathname="/admin"
+    }
+    
+    else {alert("username does not exist")}
 })
 
-const signIn = async () => {
-    const username = usernameInput.value;
+// const signIn = async () => {
+//     const username = usernameInput.value;
 
-    let response = await fetch(`/signin?username=${username}`)
-    let data = await response.json()
-    console.log(data);
+//     let response = await fetch(`/signin?username=${username}`)
+//     let data = await response.json()
+//     console.log(data);
 
-    if (data.id) {
-        location.pathname = "./admin/index.html"
-    }
-    else {
-        alert('Username not recognised! Please check your username or sign up.')
-    }
-}
+//     if (data.id) {
+//         location.pathname = "admin"
+//     }
+//     else {
+//         alert('Username not recognised! Please check your username or sign up.')
+//     }
+// }
 

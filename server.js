@@ -15,7 +15,7 @@ const {addUser, signIn, addShift, listShifts, deleteShift} = require("./app")
 
 const app = express();
 app.use("/admin", express.static(path.join(__dirname, "admin")))
-app.use("/landing",express.static(path.join(__dirname, "landing")))
+app.use("/",express.static(path.join(__dirname, "landing")))
 app.use("/staff", express.static(path.join(__dirname, "staff")))
 
 //to allow HTTP requests
