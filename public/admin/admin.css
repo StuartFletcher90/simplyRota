@@ -101,7 +101,7 @@ z-index: var(--z-very-top);
     top: 5vh;
     height:10vh;
     width: 100vw;
-    margin: 5% 0 0 0;
+    /* margin: 5% 0 0 0; */
     background-color: white;
     border-bottom: 1px solid red;
     z-index: var(--z-very-top);
@@ -340,5 +340,8 @@ display: hidden;
 
 @media only screen and (max-device-width: 500px) {
     .date-bar {
-        margin-top: -20px;
-    }
+        /* margin-top: -20px; */
+        width: 73%;
+        height: 50px;
+        float: left;
+   }
