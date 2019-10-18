@@ -46,7 +46,8 @@ app.post("/register",  (req) => {
     addUser(user)
     // console.log(data)
     console.log("user has been registered")
- })
+ });
+
 
 
 //sign in
@@ -67,13 +68,18 @@ app.get("/display", async (req, res) => {
 })
 
 //add shift
-app.get("/addShift", async (req, res) => {
-    let data = await addShift(
-        req.query.employer,
+app.post("/addShift", async (req, res) => {
+
+    let shift = {
+
+    }
+    req.query.employer,
         req.query.client,
         req.query.date,
         req.query.startTime,
         req.query.endTime
+    addShift(
+        shift
     )
     res.send(data)
     console.log("added shift")

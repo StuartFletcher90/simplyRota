@@ -81,7 +81,7 @@ window.onclick = (event) => {
     if (event.target == modal) {
       modal.style.display = "none";
     }
-  }
+}
 
 
 //!---------- I don't know what this is ----------!//

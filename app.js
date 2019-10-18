@@ -14,9 +14,26 @@ const connection = mysql.createConnection({
 const promisifiedQuery = promisify(connection.query).bind(connection);
 
 //* Methods
+user = {
+    first_name : "Ben",
+    last_name : "Franklin",
+    gender : "M",
+    hours_contracted : 35,
+    email : "ben@gmail.com",
+    username : "Benfranco",
+    user_password : "benny",
+    job_title : "Assistant Carer",
+    admin_status : "N",
+    driving_status : "Y",
+    skills : "Fortnight",
+    annual_leave_entitlement: 25,
+
+
+}
 
 const addUser = async (user) => {
     //add user will take a object as an input, below are the variables that will be used in the query
+    //this function will take req.body as an input which will have all the various inputs of info as key-value pairs
     try {
 
         // let comments= user.comments
@@ -45,39 +62,9 @@ const addUser = async (user) => {
 
 
 
-// const addUser = async (user) => {
 
-//     //add user will take a object as an input, below are the variables that will be used in the query
 
-//     try {
-//         let newFirst = user.first_name
-//         let newLast = user.last_name
-//         let gender = user.gender
-//         let hoursContract = user.hours_contracted
-//         let newUsername = user.username
-//         let newEmail = user.email
-//         let userPassword = user.user_password
-//         let jobTitle = user.job_title
-//         let adminStat = user.admin_status
-//         let drivingStat = user.driving_status
-//         let skills = user.skills
-//         let leave = user.annual_leave_entitlement
-//         let comments= user.comments
-
-        
-//         const queryStringAdd = `INSERT INTO staff (first_name,last_name,gender,hours_contracted,username,email,user_password,job_title,admin_status,driving_status,skills,annual_leave_entitlement,comments)
-//         VALUES ('${newFirst}','${newLast}','${gender}','${hoursContract}','${newUsername}','${newEmail}','${userPassword}','${jobTitle}','${adminStat}','${drivingStat}','${skills}','${leave}','${comments})`;
-        
-//         let data = await promisifiedQuery (queryStringAdd);
-//         return(data);
-
-//     }   catch (error) {
-//         console.log (error.sqlMessage);
-        
-//     }
-// };
-
-//addUser()
+// addUser(user)
 
 // sign in function which checks whether username exists and returns their id and admin status
 const signIn = async (username) => {
@@ -117,15 +104,12 @@ const signIn = async (username) => {
 //signIn()
 
 
-const addShift = async (shift)=>{
-
-    let start = shift.start
-    let end = shift.end
-    // let location = shift.location
-    let client = shift.client_id
-    let staff = shift.staff_id
+const addShift = async (clientFirst, clientLast, staffFirst, staffLast, startTime, endTime, shiftDate, hoursWorked)=>{
     try{
-        const queryString = `INSERT INTO shifts(start_time,end_time, shift_date, client_id, staff_id )VALUES('${start}','${end}','${date}','${client}','${staff}')`
+        let client_id = `SELECT id FROM clients WHERE first_name = ${clientFirst} AND last_name = ${clientLast}`
+        let staff_id = `SELECT id FROM staff WHERE first_name = ${staffFirst} AND last_name = ${staffLast}`
+        const queryString = `INSERT INTO shifts(start_time,end_time, shift_date,hours_worked, ${client_id}, ${staff_id}, comments)
+        VALUES('${startTime}','${endTime}', '${shiftDate}' );`
         let data = await promisifiedQuery(queryString)
         console.log(data)
         return data
@@ -178,7 +162,7 @@ const listShifts = async (shift_data) => {
     }
 }
 
-listShifts('2019-10-18')
+// listShifts('2019-10-18')
 
 module.exports = {
     addUser,
