@@ -48,7 +48,7 @@ const addUser = async (user) => {
         '${user.user_password}',
         '${user.job_title}',
         '${user.admin_status}',
-        '${user.driving_stat}',
+        '${user.driving_status}',
         '${user.skills}',
         '${user.annual_leave_entitlement}');`
         console.log(queryStringAdd)
@@ -67,44 +67,30 @@ const addUser = async (user) => {
 // addUser(user)
 
 // sign in function which checks whether username exists and returns their id and admin status
-const signIn = async (user) => {
+const signIn = async (username) => {
 
     try {
-        const queryString = `SELECT id, admin_status FROM staff WHERE username = '${user}`;
+        const queryString = `SELECT id FROM staff WHERE username = '${username}'`;
         let data = await promisifiedQuery(queryString)
 
-// console.logs their admin status if true
-
-        if (data[0] !== undefined && data[0].admin_status=="Y"){
-                console.log('admin')
+        if (data[0] !== undefined){
+                console.log(data[0].id)
                 return {
                     id: data[0].id,
-                    status: data[0].admin_status
                 }
             }
-
-//console.logs their admin status as false
-
-        else if (data[0] !== undefined && data[0].admin_status=="N"){
-            console.log('staff')
-            return {
-                id: data[0].id,
-                status: data[0].admin_status
-            }
+        
+        else { return ("Username doesnt exists")}
         }
-
-        else{
-            console.log("user does not exist")
-            return false
-        }         
-    }
 
     catch (error) {
         console.log('Sign in Error')
         console.log(error)
     }
+    connection.end()
 }
 
+<<<<<<< HEAD
 //signIn()
 newShift = {
     clientLocation : '2 Elm Street',
@@ -114,6 +100,8 @@ newShift = {
     endTime : '16:30:00',
     shiftDate : '2019-10-19',
     hoursWorked : 6.5,
+=======
+>>>>>>> 0e30786f806cc7a588cc0fca06a3d15d6eb6c6e0
 
 }
 
@@ -154,6 +142,7 @@ const addShift = async (shift)=>{
         let data = await promisifiedQuery(queryString)
         console.log(data)
         return data
+<<<<<<< HEAD
 
         }
         else {
@@ -175,6 +164,8 @@ const addShift = async (shift)=>{
     // console.log(client_id[0].id)
 
        
+=======
+>>>>>>> 0e30786f806cc7a588cc0fca06a3d15d6eb6c6e0
     }
 
     catch (error) {
@@ -186,12 +177,20 @@ const addShift = async (shift)=>{
     }
 }
 
+<<<<<<< HEAD
 // addShift(newShift)
 
 const editShift = async () => {
     
+=======
+const editShift = async (shift) => {
+
+    let start = shift.start
+    let end = shift.end
+    let id = shift.id
+>>>>>>> 0e30786f806cc7a588cc0fca06a3d15d6eb6c6e0
     try{
-        const queryString = `UPDATE shifts SET start_time='10AM', end_time='6PM' where id=1`;
+        const queryString = `UPDATE shifts SET start_time='${start}', end_time='${end}' where id=${id}`;
         let data = await promisifiedQuery(queryString)
         
         console.log(data)

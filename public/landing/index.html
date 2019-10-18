@@ -19,30 +19,32 @@
 
         <div class="container">
             <h1 id="lead-heading">simplyRota</h1>
+
             <div id="splash">
                 <button id="logIn" class="btn-style">Login</button>
                 <button id="signUp" class="btn-style">Sign Up</button>
             </div>
-            <div id="splash-two" class="splash2">
-                <input id="username" class="" type="text" placeholder="Username">
-                <input id="password" type="password" placeholder="Password">
-            </div>
-            <div id="returnBtn" class="return">
-                <button id="logMeIn">Log In</button>
 
-                <button id="return">Return</button>                
-                <button id="register">Register</button>
+            <div id="splash-two" class="splash2">
+                <input id="username" type="text" placeholder="Username">
+                <input id="password" type="password" placeholder="Password">
+                <div id="splash2-Btns">
+                    <button class="s2Btns" id="logMeIn">Log In</button>
+                    <button class="s2Btns" id="return">Return</button>
+                </div>            
+            </div>
+           
 
 
                 <div id="register-modal" class="modal">
 
                     <div class="modal-content">
-                        <!-- <span class="close">&times;</span> -->
 
                         <form id=sign-up-form action="/register" method="POST">
                             <fieldset id="fieldSet">
-                            <legend>Register</legend>
+                            <legend id="closer">close</legend>
                             <div>
+                                <h1 id="form-title">Register</h1>
                                 <input class="inputBox" id="usernameSetter" type="text" placeholder="Username" name="username"><br>
                                 <input class="inputBox" id="passwordSetter" type="password" placeholder="Password" name="password"><br>
                                 <input class="inputBox" id="firstName" type="text" placeholder="First name" name="firstName"><br>
@@ -97,8 +99,6 @@
     
                                 <h5 class="text-title">Skills</h5>
                                 <textarea id="skills" rows="4" cols="40" name="skills" placeholder="Please tell us about skills you may have that are relevant or services you have been involved with"></textarea>
-                                <!-- <h5 class="text-title">Comments</h5>
-                                <textarea id="comments" rows="4" cols="40" name="comments" placeholder="Let us know if there is anything else you think we should know"></textarea>  -->
                                 <input id="registerBtn" class="regBtn" type="submit" value="Register">
     
                             </div>
@@ -110,7 +110,7 @@
     
                 </div>
 
-            </div>
+            
 
         </div>
 
