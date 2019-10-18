@@ -101,16 +101,25 @@ z-index: var(--z-very-top);
     top: 5vh;
     height:10vh;
     width: 100vw;
-    margin: 21px 0 0 0;
+    margin: 1% 0 0 0;
     background-color: white;
     border-bottom: 1px solid red;
     z-index: var(--z-very-top);
 }
 #search-button{
-    border: 3px solid black; min-height:20px;
+    border: 3px solid red; height:40px; width: 80px;
+    font-size: 20px;
+    background-color: #fcfbfe;
     /* border-radius:20%; */
     
 }
+
+#search-button:hover {
+    background-color: red;
+    border: 1px solid black;
+    color: white;
+}
+
 .date-drop{
   font-size: 15px; 
   border: 3px solid red; min-height: 30px;
@@ -248,9 +257,9 @@ font-size: 40px;
 
 
 /*********  NEW CLIENTS  ******/
-.new-client-wrapper{
-display: block;
 
+#new-client-wrapper{
+display: hidden;
 }
 .times{
 
@@ -292,3 +301,6 @@ display: block;
 
 }
 
+@media only screen and (-device-width: 414px) {
+    
+}

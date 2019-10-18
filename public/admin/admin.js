@@ -1,3 +1,4 @@
+// whats with all the global variables? - Stu
 const signout = document.getElementsByClassName("signout");
 const username = document.getElementsByClassName("username");
 const datedrop = document.getElementById("date-drop");
@@ -12,6 +13,11 @@ const informationButton = document.getElementsByClassName("shift-client-details-
 const editButton = document.getElementsByClassName("shift-edit-shift-button");
 const deleteButton = document.getElementsByClassName("shift-delete-button");
 const formSubmitButton = document.getElementsByClassName("new-client-submit");
+const addBtn = document.getElementById("addButton");
+
+// display add shift elements
+const newClientWrapper = document.getElementsById("new-client-wrapper");
+
 
 const fetchData = async () => {
     console.log("Fetching data!")
@@ -27,4 +33,6 @@ const fetchData = async () => {
 fetchData()
 // shift-cards-wrapper
 
-
+function myFormFunction() {
+    document.getElementById("new-client-wrapper").style.display="block";
+ }
