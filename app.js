@@ -92,6 +92,7 @@ const signIn = async (username) => {
 
 <<<<<<< HEAD
 //signIn()
+<<<<<<< HEAD
 newShift = {
     clientLocation : '2 Elm Street',
     firstName : null,
@@ -102,8 +103,18 @@ newShift = {
     hoursWorked : 6.5,
 =======
 >>>>>>> 0e30786f806cc7a588cc0fca06a3d15d6eb6c6e0
+=======
+// newShift = {
+//     clientLocation : '2 Elm Street',
+//     firstName : null,
+//     lastName : null,
+//     startTime : '10:00:00',
+//     endTime : '16:30:00',
+//     shiftDate : '2019-10-19',
+//     hoursWorked : 6.5,
+>>>>>>> mo-dev-branch3
 
-}
+// }
 
 const addShift = async (shift)=>{
 

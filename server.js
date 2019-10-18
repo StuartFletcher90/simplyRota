@@ -14,9 +14,9 @@ const {addUser, signIn, addShift, listShifts} = require("./app")
 // });
 
 const app = express();
-// app.use("/landing",express.static(path.join(__dirname, "public/landing")))
-app.use("/admin", express.static(path.join(__dirname, "public/admin")))
-// app.use("/testing", express.static(path.join(__dirname, "public/test.html")))
+app.use("/admin", express.static(path.join(__dirname, "admin")))
+app.use("/landing",express.static(path.join(__dirname, "landing")))
+app.use("/staff", express.static(path.join(__dirname, "staff")))
 
 //to allow HTTP requests
 app.use(bodyParser.urlencoded({ extended: false }))
