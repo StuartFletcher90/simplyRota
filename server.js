@@ -98,7 +98,7 @@ app.post("/addShift", (req, res) => {
 //     console.log("deleted shift")
 // })
 
-app.post("/deleteShift", (req, res) => {
+app.post("/admin/deleteShift", (req, res) => {
     let shift = {
     staffName: req.body.staffName,
     startTime : req.body.startTime,

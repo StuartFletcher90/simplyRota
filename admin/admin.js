@@ -32,12 +32,12 @@ const addShiftBtn = document.getElementById("addShift-Btn");
 // shift-cards-wrapper
 
 
-deleteButton.addEventListener('click', async (shift_id) => {
-    // document.getElementById('load').innerHTML="Loading..."
-   let response = await fetch(`"/deleteShift"${shift_id}`);
-   let data = await response.json()
-   console.log(data)
-});
+// deleteButton.addEventListener('click', async (shift_id) => {
+//     // document.getElementById('load').innerHTML="Loading..."
+//    let response = await fetch(`"/deleteShift"${shift_id}`);
+//    let data = await response.json()
+//    console.log(data)
+// });
 
 
 //---------- show add shift form ----------//
@@ -98,7 +98,7 @@ xdeleteBtn.addEventListener('click', async ()=> {
 
     }
 
-     await fetch(`/deleteShift?shift=${shiftToDelete}`)
+      await fetch(`/admin/deleteShift?shift=${shiftToDelete}`)
 // //    let data =  await fetch(`/deleteShift?shift=${shiftToDelete}`)
 
    console.log(shiftToDelete)
