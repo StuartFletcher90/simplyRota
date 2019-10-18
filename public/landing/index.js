@@ -29,6 +29,7 @@ registerBtn.style.display="none";
 logMeInBtn.style.display="none";
 
 
+//---------- go to log in ----------//
 logInBtn.addEventListener("click", ()=> {
     splash.style.display="none";
     logMeInBtn.style.display="block";
@@ -38,6 +39,7 @@ logInBtn.addEventListener("click", ()=> {
 
 });
 
+//---------- return to landing page ----------//
 returnBtn.addEventListener("click", () => {
     splash.style.display="block";
     splashTwo.style.display="none";
@@ -47,6 +49,7 @@ returnBtn.addEventListener("click", () => {
     console.log("return has been clicked");
 })
 
+//---------- show register form ----------//
 signUpBtn.addEventListener("click", () => {
     modal.style.display = "block";
     // splash.style.display="none";
@@ -56,9 +59,7 @@ signUpBtn.addEventListener("click", () => {
     console.log("sign up has been clicked");
 })
 
-
-
-
+//---------- register a new user ----------//
 registerBtn.addEventListener("click", async () => {
     //displays the log in stuff
     splash.style.display="none";
@@ -69,25 +70,27 @@ registerBtn.addEventListener("click", async () => {
     console.log("registered button has been clicked")
 })
 
+//---------- close form on close ----------//
+closer.addEventListener("click", () => {
+    modal.style.display = "none";
+})
 
-    // span.addEventListener("click", () => {
-    //     modal.style.display = "none";
 
-
-
+//---------- close form when clicked off form ----------//
 window.onclick = (event) => {
     if (event.target == modal) {
       modal.style.display = "none";
     }
   }
 
+
+//!---------- I don't know what this is ----------!//
 //   const heading = document.getElementById("lead-heading");
-  
 //   heading.charAt(6).style.color = "red";
 
 
 
-// logInBtn.addEventListener("click", async () => {
+// logMeInBtn.addEventListener("click", async () => {
 //     console.log("log in has been clicked")
 
 //     let response = await fetch(`/signIn?username=${usernameInput.value}&password=${password}`)

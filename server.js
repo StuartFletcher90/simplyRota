@@ -6,11 +6,8 @@ const port = process.env.PORT || 3003;
 
 const {addUser, signIn, addShift, listShifts} = require("./app")
 
-//import functions
-//const {functions} = require('/lib/app')
 
-
-//incase of access cors error
+//?---------- incase of access cors error ==========?//
 // app.use((req, res, next) => {
 //     res.header("Access-Control-Allow-Origin", "*");
 //     next();
@@ -24,11 +21,6 @@ app.use(express.static(path.join(__dirname, "public/landing")))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-//sign up for staff
-// app.get("/register", async (req, res) => {
-//     await addUser(req.body.addUser)
-//     console.log("user has been registered")
-// })
 
 app.post("/register",  (req) => {
     let user = {
@@ -43,12 +35,14 @@ app.post("/register",  (req) => {
         admin_status :  req.body.adminAccess,
         driving_status : req.body.drivingStatus,
         skills : req.body.skills,
-        annual_leave_entitlement:  req.body.annualLeave
+        annual_leave_entitlement: req.body.annualLeave
     }
     console.log(user)
     console.log(req.body)
-    // addUser is only expected 1 parameter, so can't have a bunch of req.queries separated by commas.
-    //Instead create a user object with the req.queries and use that as the function parameter.
+    // addUser is only expected 1 parameter, 
+    // so can't have a bunch of req.queries separated by commas.
+    // Instead create a user object with the 
+    // req.queries and use that as the function parameter.
     addUser(user)
     // console.log(data)
     console.log("user has been registered")
