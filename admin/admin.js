@@ -19,22 +19,40 @@ const addShiftFormBtn = document.getElementById("add-shift-form-btn");
 const addShiftBtn = document.getElementById("addShift-Btn");
 // const fetchData = async () => {
 //     console.log("Fetching data!")
-//     let response = await fetch(/lists-shifts=${})
+    
+//     let response = await fetch(`/lists-shifts=${}`)
 //     let data = await response.json()
+    
+
 //     console.log(data)
 //     // displayData(data)
+
 // }
 // fetchData()
 // shift-cards-wrapper
+
+
+deleteButton.addEventListener('click', async (shift_id) => {
+    // document.getElementById('load').innerHTML="Loading..."
+   let response = await fetch(`"/deleteShift"${shift_id}`);
+   let data = await response.json()
+   console.log(data)
+});
+
+
 //---------- show add shift form ----------//
 addShiftFormBtn.addEventListener("click", () => {
    modal.style.display = "block";
    console.log("add a shift button has been clicked")
 })
+
+
 //---------- close form on close ----------//
 closer.addEventListener("click", () => {
    modal.style.display = "none";
 })
+
+
 //---------- close form when clicked off form ----------//
 window.onclick = (event) => {
    if (event.target == modal) {
