@@ -338,7 +338,7 @@ display: hidden;
 }
 
 
-@media only screen and (-device-width: 500px) {
+@media only screen and (max-device-width: 501px) {
     .date-bar {
         margin-top: 20px;
     }
