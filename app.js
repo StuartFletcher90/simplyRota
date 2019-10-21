@@ -279,6 +279,8 @@ const listShifts = async (shift_date) =>{
 }
 }
 
+listShifts("2019-10-18")
+
 // Delete shifts
 let shift_to_delete = {
     clientLocation: "4 Village Mews",
