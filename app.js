@@ -70,13 +70,15 @@ const addUser = async (user) => {
 const signIn = async (username) => {
 
     try {
-        const queryString = `SELECT id FROM staff WHERE username = '${username}'`;
+        const queryString = `SELECT id, admin_status FROM staff WHERE username = '${username}'`;
         let data = await promisifiedQuery(queryString)
 
         if (data[0] !== undefined){
                 console.log(data[0].id)
+                console.log(data[0].admin_status)
                 return {
                     id: data[0].id,
+                    admin_status: data[0].admin_status
                 }
             }
         
@@ -89,28 +91,6 @@ const signIn = async (username) => {
     }
     connection.end()
 }
-
-
-newShift = {
-    clientLocation : '2 Elm Street',
-    firstName : null,
-    lastName : null,
-    startTime : '10:00:00',
-    endTime : '16:30:00',
-    shiftDate : '2019-10-19',
-    hoursWorked : 6.5,
-}
-// newShift = {
-//     clientLocation : '2 Elm Street',
-//     firstName : null,
-//     lastName : null,
-//     startTime : '10:00:00',
-//     endTime : '16:30:00',
-//     shiftDate : '2019-10-19',
-//     hoursWorked : 6.5,
-
-
-// }
 
 const addShift = async (shift)=>{
 
@@ -283,7 +263,7 @@ const deleteShift = async (shift) => {
     // console.log(shift)
     }
     }
-deleteShift(shift_to_delete)
+// deleteShift(shift_to_delete)
 
 module.exports = {
     addUser,
