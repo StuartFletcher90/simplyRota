@@ -33,7 +33,9 @@ body {
 
 }
 
-
+#sticky-bar{
+    background-color: white;
+}
 
 /***  Admin and Signin NAV BAR ****/
 .navwrapper{
@@ -98,31 +100,34 @@ z-index: var(--z-very-top);
     justify-content: space-around;
     align-items: center;
     position: fixed;
-    top: 5vh;
-    height:8vh;
+    top: 11vh;
+    height:5vh;
     width: 100vw;
-    margin :3px;
+    border-radius: 10px;
     background-color: white;
-    border-bottom: 1px solid red;
+    border-block-start: 1px solid red;
+    border-block-end: 0.5px solid red;
     z-index: var(--z-very-top);
 }
 #search-button{
-    border: 3px solid red; height:40px; width: 80px;
+    /* border: 3px solid red; */
+    height:40px;
+    width: 80px;
     font-size: 20px;
     background-color: #fcfbfe;
     /* border-radius:20%; */
     
 }
 
-#search-button:hover {
-    background-color: red;
+#search-button:focus {
+    background-color: #e33326;
     border: 1px solid black;
     color: white;
 }
 
 .date-drop{
   font-size: 15px; 
-  border: 3px solid red; min-height: 30px;
+  /* border: 3px solid red; min-height: 30px; */
   height: 20px;
   width: 50%;
 }
@@ -167,7 +172,7 @@ color: var(--shift-card-grey);
     width: 100vw;
     position: relative;
     margin-top: 23vh;
-    -index: var(--z-middle);
+    /* -index: var(--z-middle); */
     }
 
 .shift-card{
@@ -222,20 +227,24 @@ font-size: 15px;
 .shift-client-details-button, 
 .shift-edit-shift-button, 
 .shift-delete-button{
-font-size: 40px;
+font-size: 30px;
 }
 
-.shift-edit-shift-button{
-    color: green;
-
+.shift-edit-shift-button,
+.shift-delete-button,
+.shift-client-details-button
+{
+    color: grey;
 }
 
-.shift-delete-button{
-color: red;
+
+.shift-edit-shift-button :hover,
+.shift-delete-button :hover,
+.shift-client-details-button :hover
+{
+    color: #e33326;
 }
-.shift-client-details-button{
-    color:blue;
-}
+
 
 /*  Add new Client Button  */
 /*  This should toggle between the new-client-wrapper
@@ -344,7 +353,20 @@ display: hidden;
 @media only screen and (max-device-width: 500px) {
     .date-bar {
         /* margin-top: -20px; */
-        width: 73%;
+        /* width: 73%; */
         height: 50px;
         float: left;
    }
+}
+
+@media only screen and (min-device-width: 1000px) {
+    .date-bar {
+        top: 4%;
+    }
+}
+
+@media only screen and (min-device-width: 1600px) {
+    .date-bar {
+        top: 5%;
+    }
+}

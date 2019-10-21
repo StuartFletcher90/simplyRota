@@ -3,6 +3,7 @@ const signout = document.getElementsByClassName("signout");
 const username = document.getElementsByClassName("username");
 const datedrop = document.getElementById("date-drop");
 const searchbtn = document.getElementById("search-button");
+const dateSelect = document.getElementById('dateSelect')
 // const addButton = document.getElementById("addButton");
 const shiftTime = document.getElementsByClassName("shift-time");
 const shiftClient = document.getElementsByClassName("shift-client");
@@ -13,31 +14,15 @@ const informationButton = document.getElementsByClassName("shift-client-details-
 const editButton = document.getElementsByClassName("shift-edit-shift-button");
 const deleteButton = document.getElementsByClassName("shift-delete-button");
 const formSubmitButton = document.getElementsByClassName("new-client-submit");
+const newClientWrapper = document.getElementById("new-client-wrapper");
+//--v- geo's variables -v--//
 const modal = document.getElementById("add-shift-modal");
 const closer = document.getElementById("closer");
 const addShiftFormBtn = document.getElementById("add-shift-form-btn");
 const addShiftBtn = document.getElementById("addShift-Btn");
 
-// const fetchData = async () => {
-//     console.log("Fetching data!")
-    
-//     let response = await fetch(`/lists-shifts=${}`)
-//     let data = await response.json()
-    
 
-//     console.log(data)
-//     // displayData(data)
 
-// }
-// fetchData()
-// shift-cards-wrapper
-
-deleteButton.addEventListener('click', async (shift_id) => {
-    // document.getElementById('load').innerHTML="Loading..."
-   let response = await fetch(`"/deleteShift"${shift_id}`);
-   let data = await response.json()
-   console.log(data)
-});
 
 //---------- show add shift form ----------//
 addShiftFormBtn.addEventListener("click", () => {
@@ -55,11 +40,54 @@ closer.addEventListener("click", () => {
 //---------- close form when clicked off form ----------//
 window.onclick = (event) => {
     if (event.target == modal) {
-      modal.style.display = "none";
+        modal.style.display = "none";
     }
 }
 
 
+//---------- add shift ----------//
 addShiftBtn.addEventListener("click", async () => {
-    modal.style.display = "none";
+    // only close form on submit when required inputs have been entered
+    if(document.getElementById("assignedTo").value != ""
+        && document.getElementById("clientChosen").value != ""
+        && document.getElementById("startTime").value != ""
+        && document.getElementById("endTime").value != ""
+        && document.getElementById("duration").value != ""
+        ){
+            modal.style.display = "none";
+        }
 })
+
+
+
+
+//!---- Please check this as it's stopping the page from working
+// deleteButton.addEventListener('click', async (shift_id) => {
+//     // document.getElementById('load').innerHTML="Loading..."
+//     let response = await fetch(`"/deleteShift"${shift_id}`);
+//     let data = await response.json()
+//     console.log(data)
+// });
+
+// searchbtn.addEventListener('click', async () => {
+//     let shiftDate = dateSelect.value
+//     console.log(`requesting shift for date of ${shiftDate}`)
+//     let response = await fetch(`/lists-shifts?shift_date=${shiftDate}`)
+//     let data = await response.json()
+//     console.log(data)
+//     // displayData(data)
+// })
+                        
+// const fetchData = async () => {
+//     console.log("Fetching data!")
+    
+//     let response = await fetch(`/lists-shifts=${}`)
+//     let data = await response.json()
+    
+
+//     console.log(data)
+//     // displayData(data)
+
+// }
+// fetchData()
+// shift-cards-wrapper
