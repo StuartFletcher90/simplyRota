@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 
 const port = process.env.PORT || 3003;
 
-const {addUser, signIn, addShift, listShifts, deleteShift,checkUser} = require("./app")
+const {addUser, signIn, addShift, listShifts, deleteShift,checkUser,editShift} = require("./app")
 
 
 //?---------- incase of access cors error ==========?//
@@ -127,11 +127,24 @@ app.post("/deleteShift", (req, res) => {
     hoursWorked: req.body.hoursWorked,
     clientLocation: req.body.clientLocation
     }
-    deleteShift(shift)
+    let data = deleteShift(shift)
     res.send(data)
     console.log("deleted shift")
-
     }) 
+
+
+app.post("/editShift", (req,res)=>{
+    let shift = {
+        staffName:req.body.staffName,
+        startTime:req.body.startTime,
+        endTime: req.body.endTime,
+        shiftDate: req.body.shiftDate,
+        hoursWorked: req.body.hoursWorked,
+        clientLocation: req.body.clientLocation
+    }
+    let data = editShift(shift)
+    res.send(data)
+})
 
 //list shifts for particular date
 

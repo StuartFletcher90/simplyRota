@@ -22,7 +22,7 @@ const addShiftFormBtn = document.getElementById("add-shift-form-btn");
 const addShiftBtn = document.getElementById("addShift-Btn");
 
 signout.addEventListener("click",()=> {
-location.pathname="landing"
+location.pathname="/landing"
 })
 
 
