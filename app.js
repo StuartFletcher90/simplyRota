@@ -215,8 +215,7 @@ const editShift = async (shift) => {
 //     id:1
 // }
 
-//editShift(shift)
-//!Tomos commit
+//editShift(shift)s
 
 const listShifts = async (shift_date) =>{
     console.log(`shift_date ${shift_date}`)
@@ -276,7 +275,7 @@ const deleteShift = async (shift) => {
     client_id = ${client_id[0].id};`
     let data = await  promisifiedQuery(queryStringAdd)
 
-    Return (data)
+    return (data)
     
     }
     catch(e){
@@ -284,7 +283,7 @@ const deleteShift = async (shift) => {
     // console.log(shift)
     }
     }
-// deleteShift(shift_to_delete)
+deleteShift(shift_to_delete)
 
 module.exports = {
     addUser,
