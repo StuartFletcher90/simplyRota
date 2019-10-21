@@ -245,24 +245,24 @@ const editShift = async (shift) => {
     connection.end()
 }
 
-//* testing edit shift
+//testing edit shift
 // let shift = {
 //     start:"10:00:00",
 //     end:"12:00:00",
 //     date:"2019-10-17",
 //     client:2,
 //     staff:1,
-//     hours:2,
+//     hours:3,
 //     id:1
 // }
 
-//editShift(shift)s
+//editShift(shift)
 
 const listShifts = async (shift_date) =>{
     console.log(`shift_date ${shift_date}`)
 
     try{
-        const queryStringListShifts = `SELECT CONCAT (staff.first_name," ", staff.last_name) AS staff_name, start_time,end_time, shift_date,
+        const queryStringListShifts = `SELECT CONCAT (staff.first_name," ", staff.last_name) AS staff_name, start_time,end_time, shift_date, hours_worked,
        CONCAT (clients.first_name, ' ', clients.last_name) as client_name, client_location
        FROM staff
        JOIN shifts
@@ -280,6 +280,8 @@ const listShifts = async (shift_date) =>{
     console.log(e.sqlMessage)
 }
 }
+
+// listShifts("2019-10-18")
 
 // Delete shifts
 let shift_to_delete = {
