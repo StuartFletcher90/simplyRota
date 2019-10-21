@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
     database: "simplyRota"
 })
 
-const {checkUser} = require("./app.js");
+
 
 const promisifiedQuery = promisify(connection.query).bind(connection);
 
@@ -42,7 +42,7 @@ const checkUser = async (username, email) => {
 
     } catch (error) {
         console.log(error)
-        console.log("error check")
+        console.log("error message")
     }
     
 }
@@ -307,6 +307,6 @@ module.exports = {
     signIn,
     addShift,
     editShift,
-    listShifts
+    listShifts,
     checkUser
 }
