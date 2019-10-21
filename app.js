@@ -27,8 +27,6 @@ user = {
     driving_status : "Y",
     skills : "Fortnight",
     annual_leave_entitlement: 25,
-
-
 }
 
 const addUser = async (user) => {
