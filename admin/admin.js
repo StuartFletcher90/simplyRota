@@ -21,6 +21,8 @@ const closer = document.getElementById("closer");
 const addShiftFormBtn = document.getElementById("add-shift-form-btn");
 const addShiftBtn = document.getElementById("addShift-Btn");
 
+
+// needs fixing
 signout.addEventListener("click",(out)=> {
 filename=location.pathname.substring(location.pathname.lastIndexOf("/"));
 document.getElementsByClassName("singout").href= "landing/"; 
