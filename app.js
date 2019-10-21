@@ -222,7 +222,7 @@ const listShifts = async (shift_date) =>{
     console.log(`shift_date ${shift_date}`)
 
     try{
-        const queryStringListShifts = `SELECT CONCAT (staff.first_name," ", staff.last_name) AS staff_name, start_time,end_time, shift_date,
+        const queryStringListShifts = `SELECT CONCAT (staff.first_name," ", staff.last_name) AS staff_name, start_time,end_time, shift_date, hours_worked,
        CONCAT (clients.first_name, ' ', clients.last_name) as client_name, client_location
        FROM staff
        JOIN shifts

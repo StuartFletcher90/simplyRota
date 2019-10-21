@@ -27,90 +27,93 @@ const shiftCardsWrapper = document.getElementById("shift-cards-wrapper")
 
 const displayData = (shiftData) => {
 
-  // console.log(data.data[0])
+  console.log(shiftData.data[0])
 
-  shiftCardsWrapper.innerHTML = ""  // clear every time its loaded
+  // shiftCardsWrapper.innerHTML = ""  // clear every time its loaded
 
-  // for(i=0; i<shiftData.data.length; i++){
 
-  //   console.log(shiftData.data[i])
-  // }
+ 
+
+  
+
+
+
 
   shiftData.data.map((shiftDatesObject) => {
 
-      console.table(shiftDatesObject)
+      
 
       // create the div with shift content in it
 
-      let div = document.createElement("div")
+      let shiftCard = document.createElement("div")
       shiftCard.className = "shift-card"
 
       shiftCardsWrapper.appendChild(shiftCard)
 
-      let shiftClient = document.createElement("h5")
-      shiftClient.className = "shift-client"
-      shiftClientDetailsButton.innerHTML = // **** nned this
-      // Need to appendChild to shiftCard
+      // shiftDatesObject.staff_name = null  // **** TEMP TEST
+
+      if(shiftDatesObject.staff_name == null){
+        console.log('no staff name')
+        shiftCard.className = "shift-card unassigned" // unassigned so make card warning colours
+        console.table(shiftDatesObject)
+      } 
+      else 
+      {
+        let shiftClient = document.createElement("h5")
+        shiftClient.className = "shift-client"
+        shiftClient.innerHTML = shiftDatesObject.client_name
+        shiftCard.appendChild(shiftClient)
+      }
+
 
 
       let shiftTime = document.createElement("h5")
       shiftTime.className = "shift-time"
-      shiftClientDetailsButton.innerHTML =
+      shiftTime.innerHTML = `Time: ${shiftDatesObject.start_time} - ${shiftDatesObject.end_time}`
+      shiftCard.appendChild(shiftTime)
 
 
       let shiftLocation = document.createElement("h5")
       shiftLocation.className = "shift-location"
-      shiftClientDetailsButton.innerHTML =
+      shiftLocation.innerHTML = `Location: ${shiftDatesObject.client_location}`
+      shiftCard.appendChild(shiftLocation)
 
-
-      let shiftClient = document.createElement("h5")
-      shiftStaffNames.className = "shift-staff-names"
-      shiftClientDetailsButton.innerHTML =
-
-
-      let shiftClient = document.createElement("h5")
-      hoursStaffWorked.className = "hours-staff-worked"
-      shiftClientDetailsButton.innerHTML =
-
-
-      let shiftClient = document.createElement("button")
-      shiftClientDetailsButton.className = "shift-client-details-button"
-      siftClientDetailsButton.setAttribute("data-shiftDetail", "")h
-      shiftClientDetailsButton.innerHTML = '<i class="fas fa-info-circle"></i>'
-
+      // let numberOfStaff = shiftDatesObject.staff_name  
+      // assumes one name for now - in future this should store an object of names and loop for all the names
       
-      let shiftClient = document.createElement("button")
+      
+      let shiftStaffNames = document.createElement("h5")
+      shiftStaffNames.className = "shift-staff-names"
+      shiftStaffNames.innerHTML = shiftDatesObject.staff_name
+      shiftCard.appendChild(shiftStaffNames)
+
+
+      let hoursStaffWorked = document.createElement("h5")
+      hoursStaffWorked.className = "hours-staff-worked"
+      hoursStaffWorked.innerHTML = ` Duration: ${shiftDatesObject.hours_worked}`
+      shiftCard.appendChild(hoursStaffWorked)
+
+      // ******* MISSING
+      // let shiftClientDetailsButton = document.createElement("button")
+      // shiftClientDetailsButton.className = "shift-client-details-button"
+      // siftClientDetailsButton.setAttribute("data-shiftDetail", "")
+      // shiftClientDetailsButton.innerHTML = '<i class="fas fa-info-circle"></i>'
+      
+
+      let shiftEditShiftButton = document.createElement("button")
       shiftEditShiftButton.className = "shift-edit-shift-button"
-      shiftClientDetailsButton.innerHTML = '<i class="fas fa-edit"></i>'
+      shiftEditShiftButton.innerHTML = '<i class="fas fa-edit"></i>'
+      shiftCard.appendChild(shiftEditShiftButton)
 
 
-      let shiftClient = document.createElement("button")
+      let shiftDeleteButton = document.createElement("button")
       shiftDeleteButton.className = "shift-delete-button"
-      shiftClientDetailsButton.innerHTML = '<i class="fas fa-trash-alt"></i>'
+      shiftDeleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>'
+      shiftCard.appendChild(shiftDeleteButton)
 
+      console.table(shiftDatesObject)
 
   })
-
-
-}
-
-{/* <div class="shift-cards-wrapper">
-<div class="shift-card">
-    <h5 class="shift-client">Client: Miss Rogers</h5>
-    <h5 class="shift-time">Time: 9:00 - 14:00</h5>
-    <h5 class="shift-location">Location:Chester</h5>
-    <h5 class="shift-staff-names">Amanda,Lisa</h5>
-    <h5 class="hours-staff-worked">Duration:69</h5>
-    <button class="shift-client-details-button" data-shiftDetail=""><i class="fas fa-info-circle"></i></button>
-    <button class="shift-edit-shift-button"><i class="fas fa-edit"></i></button>
-    <button class="shift-delete-button"><i class="fas fa-trash-alt"></i></button>
- */}
-
-
-
-
-
-
 
 
 
