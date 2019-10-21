@@ -22,7 +22,7 @@ const addShiftFormBtn = document.getElementById("add-shift-form-btn");
 const addShiftBtn = document.getElementById("addShift-Btn");
 
 signout.addEventListener("click",(out)=> {
-filename=location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+filename=location.pathname.substring(location.pathname.lastIndexOf("/"));
 document.getElementsByClassName("singout").href= "landing/"; 
     function out() {
         alert ("Signed Out!");
