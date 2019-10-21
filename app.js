@@ -11,6 +11,8 @@ const connection = mysql.createConnection({
     database: "simplyRota"
 })
 
+const {checkUser} = require("./app.js");
+
 const promisifiedQuery = promisify(connection.query).bind(connection);
 
 //* Methods
@@ -29,6 +31,20 @@ user = {
     annual_leave_entitlement: 25,
 
 
+}
+// check user unfinisheeed
+const checkUser = async (username, email) => {
+    try {
+        let data = await promisifiedQuery(
+        `SELECT * FROM users WHERE username="${username}" OR email="${email}"`
+    );  
+    return data;
+
+    } catch (error) {
+        console.log(error)
+        console.log("error check")
+    }
+    
 }
 
 const addUser = async (user) => {
@@ -292,4 +308,5 @@ module.exports = {
     addShift,
     editShift,
     listShifts
+    checkUser
 }

@@ -50,7 +50,11 @@ app.post("/register",  (req) => {
  });
 
 
-
+// zzzzzzi check userrr unfinishedddd
+app.get("/check", async (req, res) => {
+    let data = await checkUser(req.query.username, req.query.email)
+    res.send(data)
+})
 //sign in
 app.get("/signIn", async (req, res) => {
     let data = await signIn(req.query.username)
