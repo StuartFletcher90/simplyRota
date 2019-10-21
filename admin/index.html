@@ -20,7 +20,7 @@
                 <h5 id="username">Username</h5>
             </div>
 
-            <a href="#" class="signout">Sign-out</a>
+            <p class="signout" onclick="singOut()">Sign-out</a>
             <!--  could add a burger menu in future -->
         </nav>
 
@@ -135,19 +135,21 @@
             <fieldset id="fieldSet">
                 <legend id="closer">close</legend>
                 <div>
-                    <input id="assignedTo" type="text" name="new-shift-assigned-to" class="new-shift-assigned-to" placeholder="assign shift to" required>
-                    <input id="clientChosen" type="text" name="new-client-name" class="new-client-name" placeholder="client" required>
+                    <input id="assignedFirstName" type="text" name="firstName" class="new-shift-assigned-to" placeholder="employer's first name" required>
+                    <input id="assignedLastName" type="text" name="lastName" class="new-shift-assigned-to" placeholder="employer's last name" required>
+                    <input id="clientChosen" type="text" name="clientLocation" class="new-client-name" placeholder="client location" required>
                     <div class="times">
-                        <h5>Times</h5>
-                        <h5>Start</h5>
-                        <input id="startTime" type="time" name="new-client-time-start" min="00:00" max="23:59" required class="new-client-time" placeholder="time start 9:00 " required>
-                        <h5>End</h5>
-                        <input id="endTime" type="time" name="new-client-time-end" min="00:00" max="23:59" required class="new-client-time" placeholder="time finish 9:00 " required>
+                        <!-- <h5>Times</h5> -->
+                        <h5>Date</h5>
+                        <input type="date" name="shiftDate">
+                        <h5>Start Time</h5>
+                        <input id="startTime" type="time" name="startTime" min="00:00" max="23:59" class="new-client-time" placeholder="time start 9:00 " required>
+                        <h5>End Time</h5>
+                        <input id="endTime" type="time" name="endTime" min="00:00" max="23:59" class="new-client-time" placeholder="time finish 9:00 " required>
                     </div>
-                    <h5>Duration</h5>
-                    <input id="duration" type="time" name="hours-worked" min="00:00" max="23:59" required class="new-client-time" placeholder="duration" required>
+                    <input id="duration" type="number" name="hoursWorked" min="0" step="0.5" class="new-client-time" placeholder="duration">
                     <h5>Comments</h5>
-                    <textarea name="new-client-comments" class="new-client-comments" cols="15" rows="5" required></textarea>
+                    <textarea name="new-client-comments" class="new-client-comments" cols="15" rows="5"></textarea>
                     <button id="addShift-Btn" type="submit" name="new-client-submitt" class="new-client-submitt">Submit</button>
                 </div>
             </fieldset>

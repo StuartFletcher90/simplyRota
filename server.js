@@ -71,26 +71,42 @@ app.get("/display", async (req, res) => {
 
 //add shift
 app.post("/addShift", (req, res) => {
-    let staff_fullName = req.body.staff_fullName
-
-    let fullNameSplit = staff_fullName.split(' ')
-
    
     shift = {
         clientLocation : req.body.clientLocation,
-        firstName : fullNameSplit[0],
-        lastName : fullNameSplit[1],
+        firstName : req.body.firstName,
+        lastName : req.body.lastName,
         startTime : req.body.startTime,
         endTime : req.body.endTime,
         shiftDate : req.body.shiftDate,
         hoursWorked : req.body.hoursWorked,
     }
- 
     addShift(shift)
-  
     console.log("added shift")
-
 });
+
+
+// app.post("/addShift", (req, res) => {
+//     let staff_fullName = req.body.staff_fullName
+
+//     let fullNameSplit = staff_fullName.split(' ')
+
+   
+//     shift = {
+//         clientLocation : req.body.clientLocation,
+//         firstName : fullNameSplit[0],
+//         lastName : fullNameSplit[1],
+//         startTime : req.body.startTime,
+//         endTime : req.body.endTime,
+//         shiftDate : req.body.shiftDate,
+//         hoursWorked : req.body.hoursWorked,
+//     }
+ 
+//     addShift(shift)
+  
+//     console.log("added shift")
+
+// });
 
 
 //delete shift
