@@ -54,17 +54,17 @@ registerBtn.addEventListener("click", async () => {
    
    /////-------->check userrrrrrrr unfinisheddd
  
-   let response = await fetch(`?????????${username.value}&email=${email.value}`);
+   let response = await fetch(`/check?username=${username.value}&email=${email.value}`);
    let data = await response.json();
  if (data.length > 0) {
      alert("Wrong Username or Password")
      username.value = "";
      email.value = "";
- } else {
-     await fetch(`????????????????????${username.value}&email=${email.value}`);
-     alert("Thank you for registering")
-     username.value = "";
-     email.value = "";
+//  } else {
+//      await fetch(`??${username.value}&email=${email.value}`);
+//      alert("Thank you for registering")
+//      username.value = "";
+//      email.value = "";
    
   
  }

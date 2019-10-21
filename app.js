@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
     database: "simplyRota"
 })
 
-const {checkUser} = require("./app.js");
+
 
 const promisifiedQuery = promisify(connection.query).bind(connection);
 
@@ -36,13 +36,13 @@ user = {
 const checkUser = async (username, email) => {
     try {
         let data = await promisifiedQuery(
-        `SELECT * FROM users WHERE username="${username}" OR email="${email}"`
+        `SELECT * FROM staff WHERE username="${username}" OR email="${email}"`
     );  
     return data;
 
     } catch (error) {
         console.log(error)
-        console.log("error check")
+        console.log("error message")
     }
     
 }
