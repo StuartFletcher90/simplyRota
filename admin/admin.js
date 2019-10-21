@@ -1,4 +1,4 @@
-// whats with all the global variables? - Stu   <----- so u can use them ?! 
+// whats with all the global variables? - Stu  
 const signout = document.getElementsByClassName("signout");
 const username = document.getElementsByClassName("username");
 const datedrop = document.getElementById("date-drop");
@@ -14,12 +14,103 @@ const informationButton = document.getElementsByClassName("shift-client-details-
 const editButton = document.getElementsByClassName("shift-edit-shift-button");
 const deleteButton = document.getElementsByClassName("shift-delete-button");
 const formSubmitButton = document.getElementsByClassName("new-client-submit");
-const newClientWrapper = document.getElementById("new-client-wrapper");
+
 //--v- geo's variables -v--//
 const modal = document.getElementById("add-shift-modal");
 const closer = document.getElementById("closer");
 const addShiftFormBtn = document.getElementById("add-shift-form-btn");
 const addShiftBtn = document.getElementById("addShift-Btn");
+const newClientWrapper = document.getElementById("new-client-wrapper");
+
+const shiftCardsWrapper = document.getElementById("shift-cards-wrapper")
+
+
+// ---------- Display all shift cards ------//
+
+const displayData = (shiftData) => {
+
+  console.log(shiftData.data[0])
+
+  shiftCardsWrapper.innerHTML = ""  // clear every time its loaded
+
+
+  shiftData.data.map((shiftDatesObject) => {
+
+      
+
+      // create the div with shift content in it
+
+      let shiftCard = document.createElement("div")
+      shiftCard.className = "shift-card"
+
+      shiftCardsWrapper.appendChild(shiftCard)
+
+      // shiftDatesObject.staff_name = null  // **** TEMP TEST
+
+      if(shiftDatesObject.staff_name == null){
+        console.log('no staff name')
+        shiftCard.className = "shift-card unassigned" // unassigned so make card warning colours
+        console.table(shiftDatesObject)
+      } 
+      else 
+      {
+        let shiftClient = document.createElement("h5")
+        shiftClient.className = "shift-client"
+        shiftClient.innerHTML = shiftDatesObject.client_name
+        shiftCard.appendChild(shiftClient)
+      }
+
+
+
+      let shiftTime = document.createElement("h5")
+      shiftTime.className = "shift-time"
+      shiftTime.innerHTML = `Time: ${shiftDatesObject.start_time} - ${shiftDatesObject.end_time}`
+      shiftCard.appendChild(shiftTime)
+
+
+      let shiftLocation = document.createElement("h5")
+      shiftLocation.className = "shift-location"
+      shiftLocation.innerHTML = `Location: ${shiftDatesObject.client_location}`
+      shiftCard.appendChild(shiftLocation)
+
+      // let numberOfStaff = shiftDatesObject.staff_name  
+      // assumes one name for now - in future this should store an object of names and loop for all the names
+      
+      
+      let shiftStaffNames = document.createElement("h5")
+      shiftStaffNames.className = "shift-staff-names"
+      shiftStaffNames.innerHTML = shiftDatesObject.staff_name
+      shiftCard.appendChild(shiftStaffNames)
+
+
+      let hoursStaffWorked = document.createElement("h5")
+      hoursStaffWorked.className = "hours-staff-worked"
+      hoursStaffWorked.innerHTML = ` Duration: ${shiftDatesObject.hours_worked}`
+      shiftCard.appendChild(hoursStaffWorked)
+
+      // ******* MISSING
+      // let shiftClientDetailsButton = document.createElement("button")
+      // shiftClientDetailsButton.className = "shift-client-details-button"
+      // siftClientDetailsButton.setAttribute("data-shiftDetail", "")
+      // shiftClientDetailsButton.innerHTML = '<i class="fas fa-info-circle"></i>'
+      
+
+      let shiftEditShiftButton = document.createElement("button")
+      shiftEditShiftButton.className = "shift-edit-shift-button"
+      shiftEditShiftButton.innerHTML = '<i class="fas fa-edit"></i>'
+      shiftCard.appendChild(shiftEditShiftButton)
+
+
+      let shiftDeleteButton = document.createElement("button")
+      shiftDeleteButton.className = "shift-delete-button"
+      shiftDeleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>'
+      shiftCard.appendChild(shiftDeleteButton)
+
+      console.table(shiftDatesObject)
+
+  })
+}
+
 
 signout.addEventListener("click",(out)=> {
 filename=location.pathname.substring(location.pathname.lastIndexOf("/"));
@@ -44,11 +135,11 @@ closer.addEventListener("click", () => {
 
 
 //---------- close form when clicked off form ----------//
-window.onclick = (event) => {
+window.onclick = ((event) => {
     if (event.target == modal) {
         modal.style.display = "none";
     }
-}
+})
 
 
 //---------- add shift ----------//
@@ -68,34 +159,14 @@ addShiftBtn.addEventListener("click", async () => {
 
 
 
+//---------  Date Picker gets all Shifts from a date --------//
+searchbtn.addEventListener('click', async () => {
 
-//!---- Please check this as it's stopping the page from working
-// deleteButton.addEventListener('click', async (shift_id) => {
-//     // document.getElementById('load').innerHTML="Loading..."
-//     let response = await fetch(`"/deleteShift"${shift_id}`);
-//     let data = await response.json()
-//     console.log(data)
-// });
+    let shiftDate = dateSelect.value
+    console.log(`requesting shift for date of ${shiftDate}`)
+    let response = await fetch(`/admin/list-shifts?shift_date=${shiftDate}`)
+    let data = await response.json()
+    // console.log(data)
+    displayData(data)
+})
 
-// searchbtn.addEventListener('click', async () => {
-//     let shiftDate = dateSelect.value
-//     console.log(`requesting shift for date of ${shiftDate}`)
-//     let response = await fetch(`/lists-shifts?shift_date=${shiftDate}`)
-//     let data = await response.json()
-//     console.log(data)
-//     // displayData(data)
-// })
-                        
-// const fetchData = async () => {
-//     console.log("Fetching data!")
-    
-//     let response = await fetch(`/lists-shifts=${}`)
-//     let data = await response.json()
-    
-
-//     console.log(data)
-//     // displayData(data)
-
-// }
-// fetchData()
-// shift-cards-wrapper
