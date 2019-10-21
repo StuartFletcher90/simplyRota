@@ -238,13 +238,17 @@ font-size: 30px;
 }
 
 
-.shift-edit-shift-button :hover,
-.shift-delete-button :hover,
+
 .shift-client-details-button :hover
 {
+    color: blue;
+}
+shift-delete-button :hover{
     color: #e33326;
 }
-
+.shift-edit-shift-button :hover{
+    color: green;
+}
 
 /*  Add new Client Button  */
 /*  This should toggle between the new-client-wrapper

@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 
 const port = process.env.PORT || 3003;
 
-const {addUser, signIn, addShift, listShifts, deleteShift, editShift} = require("./app")
+const {addUser, signIn, addShift, listShifts, deleteShift,checkUser} = require("./app")
 
 
 //?---------- incase of access cors error ==========?//
@@ -50,7 +50,11 @@ app.post("/register",  (req) => {
  });
 
 
-
+// zzzzzzi check userrr unfinishedddd
+app.get("/check", async (req, res) => {
+    let data = await checkUser(req.query.username, req.query.email)
+    res.send(data)
+})
 //sign in
 app.get("/signIn", async (req, res) => {
     let data = await signIn(req.query.username)

@@ -51,6 +51,27 @@ signUpBtn.addEventListener("click", () => {
 //---------- register a new user ----------//
 registerBtn.addEventListener("click", async () => {
     // displays the log in stuff only when required inputs have been entered
+   
+   /////-------->check userrrrrrrr unfinisheddd
+ 
+   let response = await fetch(`/check?username=${username.value}&email=${email.value}`);
+   let data = await response.json();
+ if (data.length > 0) {
+     alert("Wrong Username or Password")
+     username.value = "";
+     email.value = "";
+//  } else {
+//      await fetch(`??${username.value}&email=${email.value}`);
+//      alert("Thank you for registering")
+//      username.value = "";
+//      email.value = "";
+   
+  
+ }
+//    ------------>
+   
+   
+   
     if(document.getElementById("usernameSetter").value != null
         && document.getElementById("passwordSetter").value != null
         && document.getElementById("firstName").value != null
@@ -71,6 +92,7 @@ registerBtn.addEventListener("click", async () => {
             console.log("registered button has been clicked")
         }
  })
+ 
 
 //---------- close form on close ----------//
 closer.addEventListener("click", () => {
