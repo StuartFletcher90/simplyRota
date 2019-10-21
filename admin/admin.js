@@ -48,13 +48,15 @@ window.onclick = (event) => {
 //---------- add shift ----------//
 addShiftBtn.addEventListener("click", async () => {
     // only close form on submit when required inputs have been entered
-    if(document.getElementById("assignedTo").value != ""
+    if(document.getElementById("assignedFirstName").value != ""
+        && document.getElementById("assignedLastName").value != ""
         && document.getElementById("clientChosen").value != ""
         && document.getElementById("startTime").value != ""
         && document.getElementById("endTime").value != ""
         && document.getElementById("duration").value != ""
         ){
             modal.style.display = "none";
+            console.log("add shift button has been clicked")
         }
 })
 

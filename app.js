@@ -91,95 +91,113 @@ const signIn = async (username) => {
 }
 
 
-newShift = {
-    clientLocation : '2 Elm Street',
-    firstName : null,
-    lastName : null,
-    startTime : '10:00:00',
-    endTime : '16:30:00',
-    shiftDate : '2019-10-19',
-    hoursWorked : 6.5,
-}
 // newShift = {
-//     clientLocation : '2 Elm Street',
-//     firstName : null,
-//     lastName : null,
-//     startTime : '10:00:00',
-//     endTime : '16:30:00',
-//     shiftDate : '2019-10-19',
-//     hoursWorked : 6.5,
-
-
+//     clientLocation : "1 Applewood Drive",
+//     firstName : "Todd",
+//     lastName : "Lawson-Cook",
+//     startTime : "16:00:00",
+//     endTime : "20:30:00",
+//     shiftDate : "2022-11-27",
+//     hoursWorked : 4.5,
 // }
 
 const addShift = async (shift)=>{
-
-    
     try{
-        let client_id_query =  `SELECT id FROM clients WHERE client_location = '${shift.clientLocation}'`
+
+        let client_id_query = `SELECT id FROM clients WHERE client_location='${shift.clientLocation}'`
         let client_id = await promisifiedQuery(client_id_query)
+        console.log(`client id : ${client_id[0].id}`)
 
         let staff_id_query = `SELECT id FROM staff WHERE first_name='${shift.firstName}' AND last_name='${shift.lastName}'`
         let staff_id = await promisifiedQuery(staff_id_query)
-        // if(shift.firstName){
-        //     let staff_id = await `SELECT id FROM staff WHERE first_name='${shift.firstName}' AND last_name='${shift.lastName}'`
+        console.log(`staff id : ${staff_id[0].id}`)
 
-        //     const queryString = `INSERT INTO shifts(start_time,end_time, shift_date, hours_worked, client_id, staff_id)
-        // VALUES('${shift.startTime}', '${shift.endTime}', '${shift.shiftDate}', '${shift.hoursWorked}', '${client_id}', '${staff_id}');`
-        // let data = await promisifiedQuery(queryString)
-        // console.log(data)
-        // return data
-        // } else {
-        //     let staff_id = null
-
-        //     const queryString = `INSERT INTO shifts(start_time,end_time, shift_date, hours_worked, client_id, staff_id)
-        // VALUES('${shift.startTime}', '${shift.endTime}', '${shift.shiftDate}', '${shift.hoursWorked}', '${client_id}', '${staff_id}');`
-        // let data = await promisifiedQuery(queryString)
-        // console.log(data)
-        // return data
-        // }
-
-        if(shift.firstName){
-            let staff_id_query = `SELECT id FROM staff WHERE first_name='${shift.firstName}' AND last_name='${shift.lastName}'`
-            let staff_id = await promisifiedQuery(staff_id_query)
-
-
-        const queryString = `INSERT INTO shifts(start_time,end_time, shift_date, hours_worked, client_id, staff_id)
-        VALUES('${shift.startTime}', '${shift.endTime}', '${shift.shiftDate}', '${shift.hoursWorked}', '${client_id[0].id}', '${staff_id[0].id}');`
+        const queryString = `INSERT INTO shifts (start_time, end_time, shift_date, staff_id, client_id, hours_worked)
+        VALUES ('${shift.startTime}',
+        '${shift.endTime}',
+        '${shift.shiftDate}',
+        '${staff_id[0].id}',
+        '${client_id[0].id}',
+        '${shift.hoursWorked}');`
         let data = await promisifiedQuery(queryString)
         console.log(data)
-        return data
-
+        // return data
         }
-        else {
-            let staff_id = null
+    catch (error) {
+        console.log('add shift error')
+        console.log(error.sqlMessage)
+        // return (error.sqlMessage)
+    }
+}
+
+// const addShift = async (shift)=>{
+
+    
+//     try{
+//         let client_id_query =  `SELECT id FROM clients WHERE client_location = '${shift.clientLocation}'`
+//         let client_id = await promisifiedQuery(client_id_query)
+
+//         let staff_id_query = `SELECT id FROM staff WHERE first_name='${shift.firstName}' AND last_name='${shift.lastName}'`
+//         let staff_id = await promisifiedQuery(staff_id_query)
+//         // if(shift.firstName){
+//         //     let staff_id = await `SELECT id FROM staff WHERE first_name='${shift.firstName}' AND last_name='${shift.lastName}'`
+
+//         //     const queryString = `INSERT INTO shifts(start_time,end_time, shift_date, hours_worked, client_id, staff_id)
+//         // VALUES('${shift.startTime}', '${shift.endTime}', '${shift.shiftDate}', '${shift.hoursWorked}', '${client_id}', '${staff_id}');`
+//         // let data = await promisifiedQuery(queryString)
+//         // console.log(data)
+//         // return data
+//         // } else {
+//         //     let staff_id = null
+
+//         //     const queryString = `INSERT INTO shifts(start_time,end_time, shift_date, hours_worked, client_id, staff_id)
+//         // VALUES('${shift.startTime}', '${shift.endTime}', '${shift.shiftDate}', '${shift.hoursWorked}', '${client_id}', '${staff_id}');`
+//         // let data = await promisifiedQuery(queryString)
+//         // console.log(data)
+//         // return data
+//         // }
+
+//         if(shift.firstName){
+//             let staff_id_query = `SELECT id FROM staff WHERE first_name='${shift.firstName}' AND last_name='${shift.lastName}'`
+//             let staff_id = await promisifiedQuery(staff_id_query)
 
 
-        const queryString = `INSERT INTO shifts(start_time,end_time, shift_date, hours_worked, client_id, staff_id)
-        VALUES('${shift.startTime}', '${shift.endTime}', '${shift.shiftDate}', '${shift.hoursWorked}', '${client_id[0].id}', ${staff_id});`
-        let data = await promisifiedQuery(queryString)
-        console.log(data)
-        return data
+//         const queryString = `INSERT INTO shifts(start_time,end_time, shift_date, hours_worked, client_id, staff_id)
+//         VALUES('${shift.startTime}', '${shift.endTime}', '${shift.shiftDate}', '${shift.hoursWorked}', '${client_id[0].id}', '${staff_id[0].id}');`
+//         let data = await promisifiedQuery(queryString)
+//         console.log(data)
+//         return data
 
-        }
+//         }
+//         else {
+//             let staff_id = null
+
+
+//         const queryString = `INSERT INTO shifts(start_time,end_time, shift_date, hours_worked, client_id, staff_id)
+//         VALUES('${shift.startTime}', '${shift.endTime}', '${shift.shiftDate}', '${shift.hoursWorked}', '${client_id[0].id}', ${staff_id});`
+//         let data = await promisifiedQuery(queryString)
+//         console.log(data)
+//         return data
+
+//         }
 
         
 
      
-    // console.log(staff_id[0].id)
-    // console.log(client_id[0].id)
+//     // console.log(staff_id[0].id)
+//     // console.log(client_id[0].id)
 
        
-    }
+//     }
 
-    catch (error) {
-        console.log('add shift error')
-        console.log(error.sqlMessage)
+//     catch (error) {
+//         console.log('add shift error')
+//         console.log(error.sqlMessage)
 
       
-        return (error.sqlMessage)
-    }
-}
+//         return (error.sqlMessage)
+//     }
+// }
 
 const editShift = async (shift) => {
 
