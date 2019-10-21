@@ -1,5 +1,6 @@
-// whats with all the global variables? - Stu  
-const signout = document.getElementsByClassName("signout");
+
+// whats with all the global variables? - Stu   <----- so u can use them ?! 
+const signout = document.getElementById("signout");
 const username = document.getElementsByClassName("username");
 const datedrop = document.getElementById("date-drop");
 const searchbtn = document.getElementById("search-button");
@@ -112,12 +113,8 @@ const displayData = (shiftData) => {
 }
 
 
-signout.addEventListener("click",(out)=> {
-filename=location.pathname.substring(location.pathname.lastIndexOf("/"));
-document.getElementsByClassName("singout").href= "landing/"; 
-    function out() {
-        alert ("Signed Out!");
-      }
+signout.addEventListener("click",()=> {
+location.pathname="/"
 })
 
 

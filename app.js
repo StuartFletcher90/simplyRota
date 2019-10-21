@@ -29,8 +29,6 @@ user = {
     driving_status : "Y",
     skills : "Fortnight",
     annual_leave_entitlement: 25,
-
-
 }
 // check user unfinisheeed
 const checkUser = async (username, email) => {
@@ -245,18 +243,18 @@ const editShift = async (shift) => {
     connection.end()
 }
 
-//* testing edit shift
+//testing edit shift
 // let shift = {
 //     start:"10:00:00",
 //     end:"12:00:00",
 //     date:"2019-10-17",
 //     client:2,
 //     staff:1,
-//     hours:2,
+//     hours:3,
 //     id:1
 // }
 
-//editShift(shift)s
+//editShift(shift)
 
 const listShifts = async (shift_date) =>{
     console.log(`shift_date ${shift_date}`)
@@ -280,6 +278,8 @@ const listShifts = async (shift_date) =>{
     console.log(e.sqlMessage)
 }
 }
+
+// listShifts("2019-10-18")
 
 // Delete shifts
 let shift_to_delete = {

@@ -73,7 +73,7 @@ z-index: var(--z-very-top);
 
 
 
-.signout{
+#signout{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -85,6 +85,7 @@ z-index: var(--z-very-top);
     text-align: left;
     font-size: 14px;
     font-weight: 600;
+    z-index: 100000;
 
 }
 

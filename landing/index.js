@@ -51,22 +51,11 @@ signUpBtn.addEventListener("click", () => {
 //---------- register a new user ----------//
 registerBtn.addEventListener("click", async () => {
     // displays the log in stuff only when required inputs have been entered
-   
-   /////-------->check userrrrrrrr unfinisheddd
  
    let response = await fetch(`/check?username=${username.value}&email=${email.value}`);
    let data = await response.json();
  if (data.length > 0) {
-     alert("Wrong Username or Password")
-     username.value = "";
-     email.value = "";
-//  } else {
-//      await fetch(`??${username.value}&email=${email.value}`);
-//      alert("Thank you for registering")
-//      username.value = "";
-//      email.value = "";
-   
-  
+     alert("Username or email already registered taken")
  }
 //    ------------>
    
@@ -127,7 +116,7 @@ logMeInBtn.addEventListener("click", async () => {
             location.pathname="/staff"
         }
     } else {
-        alert("Not resgistered")
+        alert("Not registered")
     }
     
     // else {alert("username does not exist")}
