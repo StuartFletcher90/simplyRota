@@ -81,15 +81,20 @@ const signIn = async (username) => {
                     admin_status: data[0].admin_status
                 }
             }
-        
-        else { return ("Username doesnt exists")}
+
+        else if (!data[0]){
+            console.log("error")
+            return {
+                error: "this is an error"
+            }
+        }
         }
 
     catch (error) {
         console.log('Sign in Error')
         console.log(error)
     }
-    connection.end()
+    // connection.end()
 }
 
 const addShift = async (shift)=>{

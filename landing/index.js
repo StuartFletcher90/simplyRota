@@ -104,6 +104,8 @@ logMeInBtn.addEventListener("click", async () => {
         else if (data.admin_status=="N"){
             location.pathname="/staff"
         }
+    } else {
+        alert("Not resgistered")
     }
     
     // else {alert("username does not exist")}
