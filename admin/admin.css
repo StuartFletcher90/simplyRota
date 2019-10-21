@@ -183,10 +183,19 @@ color: var(--shift-card-grey);
 
 }
 
+/* If unassigned card then make it warning colours */
+.unassigned {
+    background-color: var(--main-red1);
+    color: white;
+}
+
+
 h5 {
     margin-left: 10px;
 }
-/* .shiftBtnStyle {
+
+
+.shiftBtnStyle {
     color: #e33326;
     justify-content: center;
 } */
@@ -208,7 +217,7 @@ flex-direction: row;
 
 .shift-time{
  /* box-shadow: 0 0 1em 1em #ccc; */
- color: red;
+ color: inherit;
 
 }
 
