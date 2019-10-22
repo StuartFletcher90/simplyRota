@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 23227974d6a72949de5d3301c1a8dfd5b5bf9086
 // whats with all the global variables? - Stu   <----- so u can use them ?! 
 const signout = document.getElementById("signout");
 const username = document.getElementsByClassName("username");
