@@ -260,7 +260,7 @@ const listShifts = async (shift_date) =>{
     console.log(`shift_date ${shift_date}`)
 
     try{
-        const queryStringListShifts = `SELECT CONCAT (staff.first_name," ", staff.last_name) AS staff_name, start_time,end_time, shift_date, hours_worked,
+        const queryStringListShifts = `SELECT CONCAT ( staff.first_name," ", staff.last_name) AS staff_name, shifts.id AS id, start_time,end_time, shift_date, hours_worked,
        CONCAT (clients.first_name, ' ', clients.last_name) as client_name, client_location
        FROM staff
        JOIN shifts
@@ -324,7 +324,26 @@ const deleteShift = async (shift) => {
     // console.log(shift)
     }
     }
+
+
 // deleteShift(shift_to_delete)
+
+const deletingShift = async (shift) => {
+
+    let id = shift.id
+    try {
+        const queryString = `DELETE FROM shifts WHERE id=${id}`
+        let data = await promisifiedQuery(queryString)
+        console.log(data)
+        return data
+    } catch (error){
+        console.log('delete reminder error')
+        console.log(error.sqlMessage)
+    }
+}
+
+
+// deletingShift(4)
 
 module.exports = {
     addUser,
@@ -333,5 +352,6 @@ module.exports = {
     editShift,
     listShifts,
     checkUser,
-    deleteShift
+    deleteShift,
+    deletingShift
 }

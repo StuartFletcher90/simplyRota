@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 
 const port = process.env.PORT || 3003;
 
-const {addUser, signIn, addShift, listShifts, deleteShift,checkUser,editShift} = require("./app")
+const {addUser, signIn, addShift, listShifts, deleteShift,checkUser,editShift,deletingShift} = require("./app")
 
 
 //?---------- incase of access cors error ==========?//
@@ -152,6 +152,13 @@ app.get("/admin/list-shifts", async (req, res) => {
     let data = await listShifts(req.query.shift_date);
     console.log({data:data});
     res.send({data: data});
+})
+
+app.delete("/del",async (req,res)=>{
+
+    const data = deletingShift(req.body.id)
+    console.log(data)
+    res.send({message:'Deleted shift ok'})
 })
 
 //url where server exists

@@ -104,13 +104,19 @@ const displayData = (shiftData) => {
 
       let shiftDeleteButton = document.createElement("button")
       shiftDeleteButton.className = "shift-delete-button"
+      shiftDeleteButton.key=shiftDatesObject.id
       shiftDeleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>'
+      shiftDeleteButton.addEventListener("click",()=>{
+          console.log('trying to delete')
+          deletingShift(shiftDatesObject.id)
+      })
       shiftCard.appendChild(shiftDeleteButton)
 
       console.table(shiftDatesObject)
 
   })
 }
+
 
 
 signout.addEventListener("click",()=> {
@@ -167,3 +173,27 @@ searchbtn.addEventListener('click', async () => {
     displayData(data)
 })
 
+const deletingShift = async (id) =>{
+    console.log("Delete")
+    let response = await fetch('/del', {
+        method:"DELETE",
+        headers: { "content-type":"application/json" },
+        body:JSON.stringify({
+            deleteShift:{"shift_id":id}
+        })
+    })
+
+    let result = await response.json()
+
+    if (result.message==="Deleted shift ok") {
+        displayData()
+    }
+
+    else {
+        console.log('delete shift error')
+    }
+}
+
+// for (let i = 0; i < shiftDeleteButton.length; i++) {
+//     shiftDeleteButton[i].addEventListener('click', deletingShift)
+// }
