@@ -1,4 +1,3 @@
-
 // whats with all the global variables? - Stu   <----- so u can use them ?! 
 const signout = document.getElementById("signout");
 const username = document.getElementsByClassName("username");
@@ -44,7 +43,10 @@ const displayData = (shiftData) => {
       let shiftCard = document.createElement("div")
       shiftCard.className = "shift-card"
 
+      // shiftCard.setAttribute("data", shiftDatesObject.shift_id)  **** SHIFT ID in DOM ****
+
       shiftCardsWrapper.appendChild(shiftCard)
+
 
       // shiftDatesObject.staff_name = null  // **** TEMP TEST
 
@@ -111,6 +113,36 @@ const displayData = (shiftData) => {
 
   })
 }
+
+
+
+
+
+/****   Listen for events on the edit and delete buttons */
+
+// const deleteReminder = async (id) => {
+//   console.log("Deleting a shift")
+//   let response = await fetch("/deleteShift", {
+//       method:"DELETE",
+//       headers: { "content-type" : "application/json" },
+//       body: JSON.stringify({
+//           deleteReminder: {"user_id" : user_id, "reminder_id": id}
+//       })
+//   })
+
+//   let result = await response.json()
+
+//   if (result.message === "Deleted reminders ok") {
+//       readReminders()
+//   }
+//   else {
+//       console.log("Deleting failed!")
+//   }
+// }
+
+
+
+
 
 
 signout.addEventListener("click",()=> {
