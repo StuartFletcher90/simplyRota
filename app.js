@@ -342,7 +342,12 @@ const deleteShift = async (shift) => {
 
 const deletingShift = async (shift) => {
 
-    let id = shift.id
+    console.log('-------')
+    console.table(shift)
+
+    console.log(`shift.shift_id --> ${shift.shift_id}`)
+
+    let id = shift.shift_id
     try {
         const queryString = `DELETE FROM shifts WHERE id=${id}`
         let data = await promisifiedQuery(queryString)

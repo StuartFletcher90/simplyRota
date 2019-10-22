@@ -156,8 +156,10 @@ app.get("/admin/list-shifts", async (req, res) => {
 
 app.delete("/del",async (req,res)=>{
 
-    const data = deletingShift(req.body.id)
-    console.log(data)
+    console.table(`req.body.deleteShift  ${req.body.deleteShift}`)
+
+    const data = deletingShift(req.body.deleteShift)
+    
     res.send({message:'Deleted shift ok'})
 })
 

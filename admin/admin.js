@@ -25,25 +25,34 @@ const newClientWrapper = document.getElementById("new-client-wrapper");
 const shiftCardsWrapper = document.getElementById("shift-cards-wrapper")
 
 
+// Needs to use Date()function in future !!
+// global object to hold state
+// let shift_state = {
+//     current_date: "2019-10-22"
+// }
+
+let shiftDate
+
 // ---------- Display all shift cards ------//
 
 const displayData = (shiftData) => {
 
-  console.log(shiftData.data[0])
+console.log('******* displayData')
+console.table(shiftData)
 
   shiftCardsWrapper.innerHTML = ""  // clear every time its loaded
 
 
   shiftData.data.map((shiftDatesObject) => {
 
-      
+      console.log(`shift id -->  ${shiftDatesObject.id}`)
 
       // create the div with shift content in it
 
       let shiftCard = document.createElement("div")
       shiftCard.className = "shift-card"
 
-      // shiftCard.setAttribute("data", shiftDatesObject.shift_id)  **** SHIFT ID in DOM ****
+      shiftCard.setAttribute("data-shift", shiftDatesObject.id)  //**** SHIFT ID in DOM // future work****
 
       shiftCardsWrapper.appendChild(shiftCard)
 
@@ -109,8 +118,10 @@ const displayData = (shiftData) => {
       shiftDeleteButton.key=shiftDatesObject.id
       shiftDeleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>'
       shiftDeleteButton.addEventListener("click",()=>{
-          console.log('trying to delete')
+          console.log(`trying to delete shift id ${shiftDatesObject.id}`)
           deletingShift(shiftDatesObject.id)
+          displayShift()
+
       })
       shiftCard.appendChild(shiftDeleteButton)
 
@@ -191,21 +202,33 @@ addShiftBtn.addEventListener("click", async () => {
         }
 })
 
+ const displayShift = async () => {
+        console.log(`current date in shift_sate is --> ${shiftDate}`)
+        shiftDate = dateSelect.value
+        console.log(`requesting shift for date of ${shiftDate}`)
+        let response = await fetch(`/admin/list-shifts?shift_date=${shiftDate}`)
+        let data = await response.json()
+        console.log(data)
+        displayData(data)
+}
+
 
 
 //---------  Date Picker gets all Shifts from a date --------//
 searchbtn.addEventListener('click', async () => {
-
-    let shiftDate = dateSelect.value
+    // shift_state.current_date = dateSelect.value
+    console.log(`current date in shift_sate is --> ${shiftDate}`)
+    shiftDate = dateSelect.value
     console.log(`requesting shift for date of ${shiftDate}`)
     let response = await fetch(`/admin/list-shifts?shift_date=${shiftDate}`)
     let data = await response.json()
-    // console.log(data)
+    console.log(data)
     displayData(data)
 })
 
 const deletingShift = async (id) =>{
-    console.log("Delete")
+    console.log(`Deleting id ${id}`)
+
     let response = await fetch('/del', {
         method:"DELETE",
         headers: { "content-type":"application/json" },
